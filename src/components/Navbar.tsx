@@ -8,10 +8,10 @@ export const Navbar = ({ onOpenSidebar }: { onOpenSidebar: () => void }) => {
       <div className="flex items-center justify-between w-full">
         <Button 
           variant="ghost" 
-          className="mr-4"
+          className="w-10 h-10 rounded-full bg-[#ffd2d2] hover:bg-[#ffd2d2]/90 p-0 flex items-center justify-center"
           onClick={onOpenSidebar}
         >
-          <Menu className="w-6 h-6" />
+          <Menu className="w-5 h-5 text-primary" />
         </Button>
         <img 
           src="https://monkeytwomonkey.com/wp-content/uploads/2025/02/CONDUCTOR-_2_-1-e1740108314236.webp"

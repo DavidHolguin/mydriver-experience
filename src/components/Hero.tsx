@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 
 export const Hero = () => {
   return (
-    <div className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-[calc(100vh-5rem)] flex items-start justify-center overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-bottom md:bg-center bg-no-repeat"
         style={{
@@ -11,7 +11,7 @@ export const Hero = () => {
           filter: 'brightness(0.7)'
         }}
       />
-      <div className="relative z-10 text-center px-4 animate-fade-in max-w-2xl mx-auto">
+      <div className="relative z-10 text-center px-4 animate-fade-in max-w-2xl mx-auto pt-32 md:pt-48">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
           Muévete por tu ciudad con MyDriver
         </h1>

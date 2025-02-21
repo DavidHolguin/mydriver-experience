@@ -1,10 +1,26 @@
 
 import { useState } from 'react';
-import { ArrowUp, Share2, QrCode, Download } from 'lucide-react';
+import { Share2, QrCode, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const DownloadBar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [startY, setStartY] = useState(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setStartY(e.touches[0].clientY);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const currentY = e.touches[0].clientY;
+    const diff = startY - currentY;
+    
+    if (diff > 50 && !isExpanded) {
+      setIsExpanded(true);
+    } else if (diff < -50 && isExpanded) {
+      setIsExpanded(false);
+    }
+  };
 
   return (
     <>
@@ -14,19 +30,14 @@ export const DownloadBar = () => {
           onClick={() => setIsExpanded(false)}
         />
       )}
-      <div className={`
-        fixed bottom-0 left-0 right-0 bg-white z-50 transition-all duration-300
-        ${isExpanded ? 'h-[80vh] md:h-[60vh]' : 'h-20'}
-      `}>
-        {/* Botón de expansión */}
-        <Button
-          variant="ghost"
-          className="absolute -top-10 left-1/2 -translate-x-1/2 bg-white rounded-t-xl p-2 shadow-lg"
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
-          <ArrowUp className={`transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
-        </Button>
-        
+      <div 
+        className={`
+          fixed bottom-0 left-0 right-0 bg-white z-50 transition-all duration-300
+          ${isExpanded ? 'h-[80vh] md:h-[60vh]' : 'h-20'}
+        `}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+      >
         {/* Barra compacta */}
         {!isExpanded && (
           <div className="h-20 flex items-center justify-between px-4 md:px-8">
@@ -36,11 +47,12 @@ export const DownloadBar = () => {
                 alt="MyDriver Logo"
                 className="h-8"
               />
-              <span className="text-lg font-semibold hidden md:block">Descarga MyDriver</span>
+              <span className="text-lg font-semibold">Descarga MyDriver</span>
             </div>
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-white px-8"
+              onClick={() => setIsExpanded(true)}
             >
               Descargar
             </Button>
