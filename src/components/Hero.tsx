@@ -7,7 +7,7 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(public/lovable-uploads/cef10fb2-b4df-4940-be7d-f7c62a139e84.png)`,
+          backgroundImage: 'url(https://monkeytwomonkey.com/wp-content/uploads/2025/02/1-3-1.webp)',
           filter: 'brightness(0.7)'
         }}
       />

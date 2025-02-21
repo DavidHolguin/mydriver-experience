@@ -4,6 +4,7 @@ import { Preloader } from '@/components/Preloader';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
 import { Hero } from '@/components/Hero';
+import { DownloadBar } from '@/components/DownloadBar';
 
 const Index = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,6 +18,7 @@ const Index = () => {
         onClose={() => setIsSidebarOpen(false)} 
       />
       <Hero />
+      <DownloadBar />
     </>
   );
 };
