@@ -1,4 +1,6 @@
 
+import { Button } from '@/components/ui/button';
+
 export const Hero = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
