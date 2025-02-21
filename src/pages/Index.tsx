@@ -4,6 +4,9 @@ import { Preloader } from '@/components/Preloader';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
 import { Hero } from '@/components/Hero';
+import { ServiceModes } from '@/components/ServiceModes';
+import { WhyChooseUs } from '@/components/WhyChooseUs';
+import { BusinessSection } from '@/components/BusinessSection';
 import { DownloadBar } from '@/components/DownloadBar';
 
 const Index = () => {
@@ -18,6 +21,9 @@ const Index = () => {
         onClose={() => setIsSidebarOpen(false)} 
       />
       <Hero />
+      <ServiceModes />
+      <WhyChooseUs />
+      <BusinessSection />
       <DownloadBar />
     </>
   );
