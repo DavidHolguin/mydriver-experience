@@ -1,32 +1,38 @@
 
 import { CreditCard, Car, Truck, Store, Bike } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
     icon: Car,
     title: "Socio conductor",
     description: "Genera ingresos con tu vehículo y sé parte de nuestra comunidad de conductores.",
+    url: "/socio-conductor"
   },
   {
     icon: CreditCard,
     title: "Conductor standar",
     description: "Elige entre comisión por viaje o comisión fija semanal. ¡Tú decides cómo ganar!",
+    url: "/conductor-standard"
   },
   {
     icon: Bike,
     title: "Socio repartidor",
     description: "Únete a MyDriver ENTREGAS y gana dinero repartiendo en tu ciudad.",
+    url: "/socio-repartidor"
   },
   {
     icon: Store,
     title: "Negocio aliado",
     description: "Impulsa tu negocio con nuestra plataforma de transporte corporativo.",
+    url: "/negocio-aliado"
   },
   {
     icon: Truck,
     title: "MyDriver cargo",
     description: "Soluciones de transporte de carga para tu negocio.",
+    url: "/mydriver-cargo"
   },
 ];
 
@@ -50,8 +56,10 @@ export const ServiceModes = () => {
               <service.icon className="w-12 h-12 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
               <p className="text-gray-600 mb-4">{service.description}</p>
-              <Button variant="outline" className="w-full">
-                Saber más
+              <Button variant="outline" className="w-full" asChild>
+                <Link to={service.url}>
+                  Saber más
+                </Link>
               </Button>
             </div>
           ))}
