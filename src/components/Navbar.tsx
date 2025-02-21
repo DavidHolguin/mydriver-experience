@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button';
 
 export const Navbar = ({ onOpenSidebar }: { onOpenSidebar: () => void }) => {
   return (
-    <nav className="fixed top-0 left-0 right-0 h-16 bg-white z-40 flex items-center justify-between px-4 shadow-sm">
-      <div className="flex items-center">
+    <nav className="fixed top-0 left-0 right-0 h-16 bg-white z-40 flex items-center px-4 shadow-sm">
+      <div className="flex items-center justify-between w-full">
         <Button 
           variant="ghost" 
           className="mr-4"
@@ -14,7 +14,7 @@ export const Navbar = ({ onOpenSidebar }: { onOpenSidebar: () => void }) => {
           <Menu className="w-6 h-6" />
         </Button>
         <img 
-          src="https://monkeytwomonkey.com/wp-content/uploads/2021/10/cropped-mydriver-logo-sin-fondo.png"
+          src="https://monkeytwomonkey.com/wp-content/uploads/2025/02/CONDUCTOR-_2_-1-e1740108314236.webp"
           alt="MyDriver Logo"
           className="h-8"
         />
