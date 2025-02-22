@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Share2, QrCode, Download, UserPlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -34,11 +33,15 @@ export const DownloadBar = () => {
       {/* Register Form Modal */}
       {isRegisterOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-end md:items-center justify-center"
           onClick={() => setIsRegisterOpen(false)}
         >
           <div 
-            className="bg-white rounded-2xl max-w-md w-full p-6 transform transition-all duration-300 ease-out animate-fade-in"
+            className={`
+              bg-white w-full md:w-[500px] md:rounded-2xl p-6 transform transition-all duration-300 ease-out
+              ${isRegisterOpen ? 'translate-y-0' : 'translate-y-full'}
+              md:${isRegisterOpen ? 'translate-x-0 scale-100' : 'translate-x-full scale-95'}
+            `}
             onClick={e => e.stopPropagation()}
           >
             <h2 className="text-2xl font-bold mb-6">Registrate como conductor</h2>
@@ -77,7 +80,6 @@ export const DownloadBar = () => {
                 className="w-full bg-primary hover:bg-primary/90"
                 onClick={(e) => {
                   e.preventDefault();
-                  // Aquí iría la lógica de registro
                   setIsRegisterOpen(false);
                 }}
               >
@@ -102,38 +104,38 @@ export const DownloadBar = () => {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
       >
-        {/* Barra compacta */}
         {!isExpanded && (
           <div className="h-20 flex items-center justify-between px-4 md:px-8">
-            <div className="flex items-center gap-4">
+            <div className="flex-shrink-0">
               <img 
                 src="https://monkeytwomonkey.com/wp-content/uploads/2025/02/CONDUCTOR-_2_-1-e1740108314236.webp"
                 alt="MyDriver Logo"
-                className="h-8"
+                className="h-8 w-auto"
               />
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 ml-auto">
               <Button
                 variant="outline"
                 size="lg"
-                className="gap-2"
+                className="gap-2 whitespace-nowrap"
                 onClick={() => setIsRegisterOpen(true)}
               >
                 <UserPlus className="w-5 h-5" />
-                Registrar conductor
+                <span className="hidden sm:inline">Registrar conductor</span>
+                <span className="sm:hidden">Registrar</span>
               </Button>
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-white px-8"
+                className="bg-primary hover:bg-primary/90 text-white whitespace-nowrap"
                 onClick={() => setIsExpanded(true)}
               >
-                Descargar
+                <span className="hidden sm:inline">Descargar app</span>
+                <span className="sm:hidden">Descargar</span>
               </Button>
             </div>
           </div>
         )}
 
-        {/* Panel expandido */}
         {isExpanded && (
           <div className="h-full p-6 overflow-y-auto">
             <div className="max-w-4xl mx-auto">
