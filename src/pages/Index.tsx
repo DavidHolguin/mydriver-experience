@@ -8,6 +8,7 @@ import { ServiceModes } from '@/components/ServiceModes';
 import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { BusinessSection } from '@/components/BusinessSection';
 import { DownloadBar } from '@/components/DownloadBar';
+import { Footer } from '@/components/Footer';
 
 const Index = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -24,6 +25,7 @@ const Index = () => {
       <ServiceModes />
       <WhyChooseUs />
       <BusinessSection />
+      <Footer />
       <DownloadBar />
     </>
   );
