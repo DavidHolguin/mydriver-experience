@@ -1,42 +1,67 @@
 
-import { X, Car, CreditCard, Bike, Store, Truck, FileText, ScrollText } from 'lucide-react';
+import { X, Car, CreditCard, Bike, Store, Truck, FileText, ScrollText, User, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const menuItems = [
-  { 
-    title: 'Socio Conductor', 
-    url: '/socio-conductor',
-    icon: Car 
+  {
+    group: "Modelos de Negocio",
+    items: [
+      { 
+        title: 'Socio Conductor', 
+        url: '/socio-conductor',
+        icon: Car 
+      },
+      { 
+        title: 'Conductor Standard', 
+        url: '/conductor-standard',
+        icon: CreditCard 
+      },
+      { 
+        title: 'Socio Repartidor', 
+        url: '/socio-repartidor',
+        icon: Bike 
+      },
+      { 
+        title: 'Negocio Aliado', 
+        url: '/negocio-aliado',
+        icon: Store 
+      },
+      { 
+        title: 'MyDriver Cargo', 
+        url: '/mydriver-cargo',
+        icon: Truck 
+      }
+    ]
   },
-  { 
-    title: 'Conductor Standard', 
-    url: '/conductor-standard',
-    icon: CreditCard 
+  {
+    group: "Sobre MyDriver",
+    items: [
+      {
+        title: 'Sobre Nosotros',
+        url: '/sobre-nosotros',
+        icon: User
+      },
+      {
+        title: 'Contáctanos',
+        url: '/contacto',
+        icon: Mail
+      }
+    ]
   },
-  { 
-    title: 'Socio Repartidor', 
-    url: '/socio-repartidor',
-    icon: Bike 
-  },
-  { 
-    title: 'Negocio Aliado', 
-    url: '/negocio-aliado',
-    icon: Store 
-  },
-  { 
-    title: 'MyDriver Cargo', 
-    url: '/mydriver-cargo',
-    icon: Truck 
-  },
-  { 
-    title: 'Términos y Condiciones', 
-    url: '/terminos',
-    icon: FileText 
-  },
-  { 
-    title: 'Política de Privacidad', 
-    url: '/politicas',
-    icon: ScrollText 
+  {
+    group: "Legal",
+    items: [
+      { 
+        title: 'Términos y Condiciones', 
+        url: '/terminos',
+        icon: FileText 
+      },
+      { 
+        title: 'Política de Privacidad', 
+        url: '/politicas',
+        icon: ScrollText 
+      }
+    ]
   }
 ];
 
@@ -75,17 +100,26 @@ export const Sidebar = ({
           </Button>
         </div>
 
-        <div className="flex-1 py-4">
-          {menuItems.map((item) => (
-            <a
-              key={item.title}
-              href={item.url}
-              onClick={onClose}
-              className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors"
-            >
-              <item.icon className="w-5 h-5" />
-              <span>{item.title}</span>
-            </a>
+        <div className="flex-1 py-4 space-y-6">
+          {menuItems.map((group) => (
+            <div key={group.group} className="px-3">
+              <h3 className="text-sm font-semibold text-gray-500 px-3 mb-2">
+                {group.group}
+              </h3>
+              <div className="space-y-1">
+                {group.items.map((item) => (
+                  <a
+                    key={item.title}
+                    href={item.url}
+                    onClick={onClose}
+                    className="flex items-center gap-3 px-3 py-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    <item.icon className="w-5 h-5" />
+                    <span>{item.title}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
 
