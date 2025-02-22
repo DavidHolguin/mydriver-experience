@@ -1,5 +1,11 @@
-import { X, Car, CreditCard, Bike, Store, Truck, FileText, ScrollText, User, Mail } from 'lucide-react';
+import { X, Car, CreditCard, Bike, Store, Truck, FileText, ScrollText, User, Mail, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+const homeItem = {
+  title: 'Inicio',
+  url: '/',
+  icon: Home
+};
 
 const menuItems = [
   {
@@ -64,13 +70,7 @@ const menuItems = [
   }
 ];
 
-export const Sidebar = ({ 
-  isOpen, 
-  onClose 
-}: { 
-  isOpen: boolean;
-  onClose: () => void;
-}) => {
+export const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void; }) => {
   return (
     <>
       {isOpen && (
@@ -100,6 +100,17 @@ export const Sidebar = ({
         </div>
 
         <div className="flex-1 py-4 space-y-6">
+          <div className="px-3">
+            <a
+              href={homeItem.url}
+              onClick={onClose}
+              className="flex items-center gap-3 px-3 py-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              <homeItem.icon className="w-5 h-5" />
+              <span>{homeItem.title}</span>
+            </a>
+          </div>
+
           {menuItems.map((group) => (
             <div key={group.group} className="px-3">
               <h3 className="text-sm font-semibold text-gray-500 px-3 mb-2">

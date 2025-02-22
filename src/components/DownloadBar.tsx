@@ -1,10 +1,12 @@
 
 import { useState } from 'react';
-import { Share2, QrCode, Download, Apple, Play } from 'lucide-react';
+import { Share2, QrCode, Download, UserPlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 export const DownloadBar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [startY, setStartY] = useState(0);
 
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -29,6 +31,63 @@ export const DownloadBar = () => {
 
   return (
     <>
+      {/* Register Form Modal */}
+      {isRegisterOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setIsRegisterOpen(false)}
+        >
+          <div 
+            className="bg-white rounded-2xl max-w-md w-full p-6 transform transition-all duration-300 ease-out animate-fade-in"
+            onClick={e => e.stopPropagation()}
+          >
+            <h2 className="text-2xl font-bold mb-6">Registrate como conductor</h2>
+            <form className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">Nombre completo</label>
+                <Input 
+                  placeholder="Ingresa tu nombre" 
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Correo electrónico</label>
+                <Input 
+                  type="email" 
+                  placeholder="tu@email.com" 
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Teléfono</label>
+                <Input 
+                  type="tel" 
+                  placeholder="(+00) 000-000-000" 
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Ciudad</label>
+                <Input 
+                  placeholder="¿En qué ciudad quieres trabajar?" 
+                  className="w-full"
+                />
+              </div>
+              <Button 
+                className="w-full bg-primary hover:bg-primary/90"
+                onClick={(e) => {
+                  e.preventDefault();
+                  // Aquí iría la lógica de registro
+                  setIsRegisterOpen(false);
+                }}
+              >
+                Enviar solicitud
+              </Button>
+            </form>
+          </div>
+        </div>
+      )}
+
       {isExpanded && (
         <div 
           className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
@@ -52,16 +111,25 @@ export const DownloadBar = () => {
                 alt="MyDriver Logo"
                 className="h-8"
               />
-              <span className="text-lg font-semibold">Descarga MyDriver</span>
             </div>
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-white px-8 gap-2"
-              onClick={() => window.open(storeUrl, '_blank')}
-            >
-              {isIOS ? <Apple className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-              Descargar
-            </Button>
+            <div className="flex items-center gap-4">
+              <Button
+                variant="outline"
+                size="lg"
+                className="gap-2"
+                onClick={() => setIsRegisterOpen(true)}
+              >
+                <UserPlus className="w-5 h-5" />
+                Registrar conductor
+              </Button>
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-white px-8"
+                onClick={() => setIsExpanded(true)}
+              >
+                Descargar
+              </Button>
+            </div>
           </div>
         )}
 
