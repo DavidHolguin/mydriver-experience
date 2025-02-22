@@ -1,11 +1,16 @@
 
 import { useState } from 'react';
-import { Share2, QrCode, Download } from 'lucide-react';
+import { Share2, QrCode, Download, Apple, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const DownloadBar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [startY, setStartY] = useState(0);
+
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const storeUrl = isIOS 
+    ? "https://apps.apple.com/app/mydriver"
+    : "https://play.google.com/store/apps/details?id=mydriver";
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setStartY(e.touches[0].clientY);
@@ -32,7 +37,7 @@ export const DownloadBar = () => {
       )}
       <div 
         className={`
-          fixed bottom-0 left-0 right-0 bg-white z-50 transition-all duration-300
+          fixed bottom-0 left-0 right-0 bg-white z-40 transition-all duration-300
           ${isExpanded ? 'h-[80vh] md:h-[60vh]' : 'h-20'}
         `}
         onTouchStart={handleTouchStart}
@@ -51,9 +56,10 @@ export const DownloadBar = () => {
             </div>
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-white px-8"
-              onClick={() => setIsExpanded(true)}
+              className="bg-primary hover:bg-primary/90 text-white px-8 gap-2"
+              onClick={() => window.open(storeUrl, '_blank')}
             >
+              {isIOS ? <Apple className="w-5 h-5" /> : <Play className="w-5 h-5" />}
               Descargar
             </Button>
           </div>
