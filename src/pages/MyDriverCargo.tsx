@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Truck, Package, ShieldCheck, Timer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { RegisterForm } from '@/components/RegisterForm';
 
 const benefits = [
   {
@@ -52,6 +52,7 @@ const faqs = [
 
 const MyDriverCargo = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   return (
     <>
@@ -72,15 +73,19 @@ const MyDriverCargo = () => {
                 <p className="text-xl text-gray-600 mb-8">
                   Transporte de carga confiable y seguro para tus necesidades logísticas.
                 </p>
-                <Button size="lg" className="bg-primary text-white">
+                <Button 
+                  size="lg" 
+                  className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
+                  onClick={() => setIsRegisterOpen(true)}
+                >
                   Cotizar servicio
                 </Button>
               </div>
-              <div className="flex-1">
-                <img 
-                  src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              <div className="relative w-full h-[400px] md:h-[500px]">
+                <img
+                  src="/images/cargo-service.webp"
                   alt="MyDriver Cargo"
-                  className="rounded-2xl shadow-xl animate-fade-in"
+                  className="w-full rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
                 />
               </div>
             </div>
@@ -147,6 +152,12 @@ const MyDriverCargo = () => {
           </div>
         </section>
       </div>
+      <RegisterForm
+        isOpen={isRegisterOpen}
+        onClose={() => setIsRegisterOpen(false)}
+        title="Solicita MyDriver Cargo"
+        subtitle="Soluciones logísticas a tu medida"
+      />
       <DownloadBar />
     </>
   );

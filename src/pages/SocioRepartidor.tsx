@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Bike, Clock, DollarSign, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { RegisterForm } from '@/components/RegisterForm';
 
 const benefits = [
   {
@@ -46,6 +46,7 @@ const requirements = [
 
 const SocioRepartidor = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   return (
     <>
@@ -66,15 +67,19 @@ const SocioRepartidor = () => {
                 <p className="text-xl text-gray-600 mb-8">
                   Únete a MyDriver ENTREGAS y genera ingresos extras en tus tiempos libres.
                 </p>
-                <Button size="lg" className="bg-primary text-white">
+                <Button 
+                  size="lg" 
+                  className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
+                  onClick={() => setIsRegisterOpen(true)}
+                >
                   Regístrate como repartidor
                 </Button>
               </div>
-              <div className="flex-1">
-                <img 
-                  src="https://images.unsplash.com/photo-1526367790999-0150786686a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                  alt="Repartidor MyDriver"
-                  className="rounded-2xl shadow-xl animate-fade-in"
+              <div className="relative w-full h-[400px] md:h-[500px]">
+                <img
+                  src="/images/delivery-partner.webp"
+                  alt="Socio Repartidor"
+                  className="w-full rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
                 />
               </div>
             </div>
@@ -136,7 +141,11 @@ const SocioRepartidor = () => {
               Forma parte de la comunidad de repartidores más grande y mejor pagada.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary text-white">
+              <Button 
+                size="lg" 
+                className="bg-primary text-white"
+                onClick={() => setIsRegisterOpen(true)}
+              >
                 Quiero ser repartidor
               </Button>
               <Button size="lg" variant="outline">
@@ -146,6 +155,12 @@ const SocioRepartidor = () => {
           </div>
         </section>
       </div>
+      <RegisterForm
+        isOpen={isRegisterOpen}
+        onClose={() => setIsRegisterOpen(false)}
+        title="Regístrate como Socio Repartidor"
+        subtitle="Únete a nuestra red de repartidores"
+      />
       <DownloadBar />
     </>
   );

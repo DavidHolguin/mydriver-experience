@@ -1,10 +1,10 @@
-
 import { useState } from 'react';
 import { Wallet, Calendar, Target, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
 import { DownloadBar } from '@/components/DownloadBar';
+import { RegisterForm } from '@/components/RegisterForm';
 import {
   Accordion,
   AccordionContent,
@@ -52,6 +52,7 @@ const faqs = [
 
 const ConductorStandard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   return (
     <>
@@ -70,17 +71,21 @@ const ConductorStandard = () => {
                   Tú eliges cómo ganar
                 </h1>
                 <p className="text-xl text-gray-600 mb-8">
-                  Únete como Conductor Standard y elige el modelo de comisión que mejor se adapte a ti.
+                  Únete a MyDriver como Conductor Standard y forma parte de nuestra flota profesional.
                 </p>
-                <Button size="lg" className="bg-primary text-white">
-                  Comienza ahora
+                <Button 
+                  size="lg" 
+                  className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
+                  onClick={() => setIsRegisterOpen(true)}
+                >
+                  Regístrate como conductor
                 </Button>
               </div>
               <div className="flex-1">
-                <img 
-                  src="https://images.unsplash.com/photo-1622559924472-2c1318d9a681?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                  alt="Conductor Standard MyDriver"
-                  className="rounded-2xl shadow-xl animate-fade-in"
+                <img
+                  src="/images/standard-driver.webp"
+                  alt="Conductor Standard"
+                  className="w-full rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
                 />
               </div>
             </div>
@@ -137,8 +142,12 @@ const ConductorStandard = () => {
               Únete a la plataforma de transporte privado con las mejores condiciones para conductores.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary text-white">
-                Registrarme ahora
+              <Button 
+                size="lg" 
+                className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white px-8 h-12 text-lg"
+                onClick={() => setIsRegisterOpen(true)}
+              >
+                Regístrate como conductor
               </Button>
               <Button size="lg" variant="outline">
                 Conocer más
@@ -146,6 +155,13 @@ const ConductorStandard = () => {
             </div>
           </div>
         </section>
+
+        <RegisterForm
+          isOpen={isRegisterOpen}
+          onClose={() => setIsRegisterOpen(false)}
+          title="Regístrate como Conductor Standard"
+          subtitle="Únete a nuestra flota profesional"
+        />
       </div>
       <DownloadBar />
     </>

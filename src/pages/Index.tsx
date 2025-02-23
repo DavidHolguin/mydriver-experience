@@ -1,14 +1,13 @@
-
 import { useState } from 'react';
 import { Preloader } from '@/components/Preloader';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
 import { Hero } from '@/components/Hero';
-import { ServiceModes } from '@/components/ServiceModes';
-import { WhyChooseUs } from '@/components/WhyChooseUs';
+import { ServicesSection } from '@/components/ServicesSection';
+import { SecuritySection } from '@/components/SecuritySection';
 import { BusinessSection } from '@/components/BusinessSection';
-import { DownloadBar } from '@/components/DownloadBar';
 import { Footer } from '@/components/Footer';
+import { DownloadBar } from '@/components/DownloadBar';
 
 const Index = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -22,8 +21,8 @@ const Index = () => {
         onClose={() => setIsSidebarOpen(false)} 
       />
       <Hero />
-      <ServiceModes />
-      <WhyChooseUs />
+      <ServicesSection />
+      <SecuritySection />
       <BusinessSection />
       <Footer />
       <DownloadBar />

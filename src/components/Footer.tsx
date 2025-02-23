@@ -1,4 +1,3 @@
-
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { Button } from './ui/button';
 
@@ -75,12 +74,34 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8">
+        <div className="border-t border-gray-800 mt-12 pt-8 pb-20 md:pb-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">© 2024 MyDriver. Todos los derechos reservados.</p>
+            <p className="text-gray-400 text-sm"> 2024 MyDriver. Todos los derechos reservados.</p>
             <div className="flex items-center gap-4 mt-4 md:mt-0">
-              <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" className="h-8" />
-              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Play Store" className="h-12" />
+              <a 
+                href="https://apps.apple.com/app/mydriver" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block h-[40px] w-[135px] rounded-lg overflow-hidden"
+              >
+                <img 
+                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                  alt="App Store"
+                  className="w-full h-full object-cover"
+                />
+              </a>
+              <a 
+                href="https://play.google.com/store/apps/details?id=mydriver" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block h-[40px] w-[135px] rounded-lg overflow-hidden"
+              >
+                <img 
+                  src="https://play.google.com/intl/es_419/badges/static/images/badges/es_badge_web_generic.png"
+                  alt="Play Store"
+                  className="w-full h-full object-cover"
+                />
+              </a>
             </div>
           </div>
         </div>

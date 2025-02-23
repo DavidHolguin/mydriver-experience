@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 
@@ -16,14 +15,14 @@ export const BusinessSection = () => {
               Controla desde una sola plataforma todos tus gastos, sigue todos los viajes 
               en tiempo real y establece límites de horarios, precios y zonas.
             </p>
-            <Button className="group">
+            <Button className="group bg-[#ab1818] hover:bg-[#ab1818]/90 text-white">
               Descubre MyDriver para empresas
               <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1549649674-5e93c87a6983?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              src="/images/transporteCorporativo.webp"
               alt="Transporte corporativo"
               className="rounded-xl shadow-xl"
             />

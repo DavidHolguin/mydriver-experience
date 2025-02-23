@@ -10,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { RegisterForm } from '@/components/RegisterForm';
 
 const benefits = [
   {
@@ -55,6 +56,7 @@ const faqs = [
 
 const SocioConductor = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   return (
     <>
@@ -76,15 +78,19 @@ const SocioConductor = () => {
                   Únete a MyDriver como Socio Conductor y obtén ingresos superiores, 
                   flexibilidad horaria y beneficios exclusivos.
                 </p>
-                <Button size="lg" className="bg-primary text-white">
+                <Button 
+                  size="lg" 
+                  className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
+                  onClick={() => setIsRegisterOpen(true)}
+                >
                   Regístrate como conductor
                 </Button>
               </div>
               <div className="flex-1">
-                <img 
-                  src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                  alt="Conductor MyDriver"
-                  className="rounded-2xl shadow-xl animate-fade-in"
+                <img
+                  src="/images/driver-partner.webp"
+                  alt="Socio Conductor"
+                  className="w-full rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
                 />
               </div>
             </div>
@@ -172,7 +178,11 @@ const SocioConductor = () => {
               Únete a miles de conductores que ya confían en MyDriver para generar ingresos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary text-white">
+              <Button 
+                size="lg" 
+                className="bg-primary text-white"
+                onClick={() => setIsRegisterOpen(true)}
+              >
                 Registrarme ahora
               </Button>
               <Button size="lg" variant="outline">
@@ -182,6 +192,12 @@ const SocioConductor = () => {
           </div>
         </section>
       </div>
+      <RegisterForm
+        isOpen={isRegisterOpen}
+        onClose={() => setIsRegisterOpen(false)}
+        title="Regístrate como Socio Conductor"
+        subtitle="Comienza a generar ingresos con tu vehículo"
+      />
       <DownloadBar />
     </>
   );
