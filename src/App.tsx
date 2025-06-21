@@ -15,6 +15,7 @@ import PoliticasPrivacidad from "./pages/PoliticasPrivacidad";
 import SobreNosotros from "./pages/SobreNosotros";
 import Contacto from "./pages/Contacto";
 import NotFound from "./pages/NotFound";
+import SantuarioLuciernagas from "./pages/SantuarioLuciernagas";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/politicas" element={<PoliticasPrivacidad />} />
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/santuario-luciernagas" element={<SantuarioLuciernagas />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

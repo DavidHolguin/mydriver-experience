@@ -84,6 +84,14 @@ export const ServicesSection = () => {
       link: "/mydriver-cargo",
       formTitle: "Solicita MyDriver Cargo",
       formSubtitle: "Soluciones logísticas a tu medida"
+    },
+    {
+      title: "Santuario de las Luciérnagas",
+      description: "Te llevamos a vivir la mágica experiencia del avistamiento de luciérnagas.",
+      image: "/images/luciernagas1.jpg",
+      link: "/santuario-luciernagas",
+      formTitle: "Reserva tu viaje al Santuario",
+      formSubtitle: "Asegura tu lugar para esta experiencia inolvidable"
     }
   ];
 
