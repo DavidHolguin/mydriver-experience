@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { motion } from 'framer-motion';
+import { MapPin, Hourglass, Home } from 'lucide-react';
 
 const images = [
   '/images/luciernagas1.jpg',
@@ -98,16 +99,72 @@ const SantuarioLuciernagas = () => {
           </div>
         </main>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-primary/5">
-          <div className="container px-4 mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              ¿Listo para la aventura?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Asegura tu lugar y el de tu familia. Ofrecemos transporte redondo con la mayor seguridad y comodidad.
-            </p>
-            <Button size="lg" className="bg-primary text-white">Ver planes y precios</Button>
+        {/* Bento Grid Section */}
+        <section className="py-20 md:py-24 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Tu Aventura Mágica en 3 Simples Pasos</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Hemos diseñado una experiencia completa para que solo te preocupes por disfrutar.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+              {/* Step 1 */}
+              <motion.div
+                className="lg:col-span-1 bg-white p-8 rounded-2xl shadow-lg flex flex-col items-start"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="bg-primary/10 p-3 rounded-full mb-4">
+                  <MapPin className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold mb-2">1. Inicio de la Aventura</h3>
+                <p className="text-gray-600">Te recogemos en tu ubicación. Relájate y disfruta del paisaje mientras te llevamos de forma segura y directa al Santuario.</p>
+              </motion.div>
+
+              {/* Main Image */}
+              <motion.div
+                className="lg:col-span-2 rounded-2xl shadow-lg overflow-hidden min-h-[300px]"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <img src="/images/ritualdeluciernagas.webp" alt="Ritual de las luciérnagas" className="w-full h-full object-cover" />
+              </motion.div>
+
+              {/* Step 2 */}
+              <motion.div
+                className="lg:col-span-2 bg-white p-8 rounded-2xl shadow-lg flex flex-col items-start"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <div className="bg-primary/10 p-3 rounded-full mb-4">
+                  <Hourglass className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold mb-2">2. Vive la Magia sin Prisas</h3>
+                <p className="text-gray-600">Explora el santuario a tu propio ritmo. Te esperaremos el tiempo que necesites para que disfrutes del espectáculo de luces sin preocupaciones.</p>
+              </motion.div>
+
+              {/* Step 3 */}
+              <motion.div
+                className="lg:col-span-1 bg-white p-8 rounded-2xl shadow-lg flex flex-col items-start"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <div className="bg-primary/10 p-3 rounded-full mb-4">
+                  <Home className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold mb-2">3. Regreso Cómodo y Seguro</h3>
+                <p className="text-gray-600">Al finalizar, te llevamos de vuelta a tu punto de partida o a donde nos indiques. Tu comodidad es nuestra prioridad.</p>
+              </motion.div>
+            </div>
           </div>
         </section>
       </div>
