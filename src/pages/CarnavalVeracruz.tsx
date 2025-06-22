@@ -49,11 +49,23 @@ const CarnavalVeracruz = () => {
       <div style={{ backgroundColor: '#111827' }}>
 
         {/* --- Section 1: Hero --- */}
-        <section 
-          className="min-h-screen flex items-center justify-center text-center text-white bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "linear-gradient(rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.7)), url('/images/carnaval-hero.jpg')" }}
-        >
-          <div className="max-w-4xl px-4">
+        <section className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
+          {/* Video Background */}
+          <div className="absolute top-0 left-0 w-full h-full z-0">
+            {/* Desktop Video */}
+            <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover hidden md:block">
+                <source src="/videos/heroCarnavalPc.mp4" type="video/mp4" />
+            </video>
+            {/* Mobile Video */}
+            <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover block md:hidden">
+                <source src="/videos/heroCarnavalMobile.mp4" type="video/mp4" />
+            </video>
+            {/* Overlay */}
+            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+          </div>
+
+          {/* Hero Content */}
+          <div className="relative z-10 max-w-4xl px-4">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
               ¡Vive el Carnaval de Veracruz 2025, MyDriver te lleva a la fiesta!
             </h1>
@@ -69,23 +81,39 @@ const CarnavalVeracruz = () => {
 
         {/* --- Section 2: Problem & Solution --- */}
         <section className="py-20 bg-[#faf2f2] text-[#111827]">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold">La Alegría es tuya, el camino es nuestro.</h2>
-            <p className="mt-4 max-w-3xl mx-auto text-lg">
-              El Carnaval de Veracruz es para disfrutar, bailar y celebrar. No para estresarse buscando cómo llegar a los desfiles o regresar a tu hotel.
-              <br/><br/>
-              <span className="font-semibold text-[#ab1818]">Con MyDriver, tú solo te encargas de la diversión.</span> Nosotros nos encargamos de llevarte y traerte de forma segura, cómoda y puntual.
-            </p>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <div className="flex items-center"><TrafficCone className="w-10 h-10 text-[#ab1818] mr-4"/> <span className="text-xl">Tráfico abrumador</span></div>
-                <div className="flex items-center"><ParkingCircleOff className="w-10 h-10 text-[#ab1818] mr-4"/> <span className="text-xl">Sin estacionamiento</span></div>
-                <div className="flex items-center"><Clock className="w-10 h-10 text-[#ab1818] mr-4"/> <span className="text-xl">Largas esperas y retrasos</span></div>
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold">La Alegría es tuya, el camino es nuestro.</h2>
+              <p className="mt-4 max-w-3xl mx-auto text-lg">
+                El Carnaval de Veracruz es para disfrutar, bailar y celebrar. No para estresarse buscando cómo llegar a los desfiles o regresar a tu hotel.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+              {/* Problems Card */}
+              <div className="relative rounded-2xl overflow-hidden p-8 flex flex-col justify-center text-white bg-gray-900 shadow-2xl">
+                <img src="/images/carnavalVeracurz.webp" className="absolute top-0 left-0 w-full h-full object-cover opacity-20 filter grayscale" alt="Carnaval con estrés" />
+                <div className="relative z-10">
+                  <h3 className="text-3xl font-bold mb-6 text-center">Los problemas de siempre...</h3>
+                  <ul className="space-y-4 text-lg">
+                    <li className="flex items-center"><TrafficCone className="w-8 h-8 text-[#ab1818] mr-4 flex-shrink-0"/> <span>Tráfico abrumador</span></li>
+                    <li className="flex items-center"><ParkingCircleOff className="w-8 h-8 text-[#ab1818] mr-4 flex-shrink-0"/> <span>Sin estacionamiento</span></li>
+                    <li className="flex items-center"><Clock className="w-8 h-8 text-[#ab1818] mr-4 flex-shrink-0"/> <span>Largas esperas y retrasos</span></li>
+                  </ul>
+                </div>
               </div>
-              <div className="space-y-6">
-                <div className="flex items-center"><Car className="w-10 h-10 text-green-600 mr-4"/> <span className="text-xl">Viaje fluido y directo</span></div>
-                <div className="flex items-center"><Smile className="w-10 h-10 text-green-600 mr-4"/> <span className="text-xl">Pasajero relajado y feliz</span></div>
-                <div className="flex items-center"><Map className="w-10 h-10 text-green-600 mr-4"/> <span className="text-xl">Llegada puntual a tu destino</span></div>
+
+              {/* Solutions Card */}
+              <div className="relative rounded-2xl overflow-hidden p-8 flex flex-col justify-center text-white bg-gray-900 shadow-2xl">
+                <img src="/images/carnavalVeracurz.webp" className="absolute top-0 left-0 w-full h-full object-cover opacity-30" alt="Carnaval sin estrés" />
+                <div className="relative z-10">
+                  <h3 className="text-3xl font-bold mb-6 text-center text-green-400">La solución MyDriver</h3>
+                  <ul className="space-y-4 text-lg">
+                    <li className="flex items-center"><Car className="w-8 h-8 text-green-400 mr-4 flex-shrink-0"/> <span>Viaje fluido y directo</span></li>
+                    <li className="flex items-center"><Smile className="w-8 h-8 text-green-400 mr-4 flex-shrink-0"/> <span>Pasajero relajado y feliz</span></li>
+                    <li className="flex items-center"><Map className="w-8 h-8 text-green-400 mr-4 flex-shrink-0"/> <span>Llegada puntual a tu destino</span></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
