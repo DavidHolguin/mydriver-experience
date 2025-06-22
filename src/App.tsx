@@ -16,6 +16,7 @@ import SobreNosotros from "./pages/SobreNosotros";
 import Contacto from "./pages/Contacto";
 import NotFound from "./pages/NotFound";
 import SantuarioLuciernagas from "./pages/SantuarioLuciernagas";
+import CarnavalVeracruz from "./pages/CarnavalVeracruz";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/santuario-luciernagas" element={<SantuarioLuciernagas />} />
+          <Route path="/carnaval-veracruz" element={<CarnavalVeracruz />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

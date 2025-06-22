@@ -12,7 +12,7 @@ import { MapPin, Hourglass, Home } from 'lucide-react';
 const images = [
   '/images/luciernagas1.jpg',
   '/images/luciernagas2.jpg',
-  '/images/transporteCorporativo.webp'
+  '/images/mydriverPortada.webp'
 ];
 
 const SantuarioLuciernagas = () => {

@@ -106,6 +106,14 @@ export const ServicesSection = () => {
       link: "/santuario-luciernagas",
       registerText: "Reservar",
       whatsappLink: "https://wa.me/5212461977827?text=Hola,%20me%20gustaría%20reservar%20un%20viaje%20al%20Santuario%20de%20las%20Luciérnagas."
+    },
+    {
+      title: "Transporte al Carnaval de Veracruz",
+      description: "Disfruta de la fiesta más alegre del mundo. Te llevamos con seguridad y comodidad.",
+      image: "/images/carnavalVeracurz.webp",
+      link: "/carnaval-veracruz",
+      registerText: "Reservar Ahora",
+      whatsappLink: "https://wa.me/5212461977827?text=Hola,%20quiero%20reservar%20mi%20viaje%20para%20el%20Carnaval%20de%20Veracruz."
     }
   ];
 
