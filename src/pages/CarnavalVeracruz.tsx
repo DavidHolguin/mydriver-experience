@@ -92,7 +92,7 @@ const CarnavalVeracruz = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
               {/* Problems Card */}
               <div className="relative rounded-2xl overflow-hidden p-8 flex flex-col justify-center text-white bg-gray-900 shadow-2xl">
-                <img src="/images/carnavalVeracurz.webp" className="absolute top-0 left-0 w-full h-full object-cover opacity-20 filter grayscale" alt="Carnaval con estrés" />
+                <img src="/images/apuros.webp" className="absolute top-0 left-0 w-full h-full object-cover opacity-20 filter grayscale" alt="Carnaval con estrés" />
                 <div className="relative z-10">
                   <h3 className="text-3xl font-bold mb-6 text-center">Los problemas de siempre...</h3>
                   <ul className="space-y-4 text-lg">
