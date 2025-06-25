@@ -19,7 +19,7 @@ export const Navbar = ({ onOpenSidebar }: { onOpenSidebar: () => void }) => {
           <img 
             src="https://monkeytwomonkey.com/wp-content/uploads/2025/02/CONDUCTOR-_2_-1-e1740108314236.webp"
             alt="MyDriver Logo"
-            className="h-8"
+            className="h-11"
           />
         </div>
         <div className="flex items-center space-x-2">
