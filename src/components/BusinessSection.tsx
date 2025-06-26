@@ -15,9 +15,11 @@ export const BusinessSection = () => {
               Controla desde una sola plataforma todos tus gastos, sigue todos los viajes 
               en tiempo real y establece límites de horarios, precios y zonas.
             </p>
-            <Button className="group bg-[#ab1818] hover:bg-[#ab1818]/90 text-white">
-              Descubre MyDriver para empresas
-              <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            <Button asChild className="group bg-[#ab1818] hover:bg-[#ab1818]/90 text-white">
+              <a href="https://wa.me/5212461977827?text=Hola,%20me%20gustaría%20tener%20más%20información%20sobre%20MyDriver%20para%20empresas." target="_blank" rel="noopener noreferrer">
+                Descubre MyDriver para empresas
+                <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
           </div>
           <div className="relative">

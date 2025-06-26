@@ -40,8 +40,10 @@ export const Hero = () => {
         <p className="text-xl md:text-2xl text-white/90 mb-8">
           La app donde recibes más y viajas mejor. Únete a la revolución del transporte privado.
         </p>
-        <Button size="lg" variant="default" className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg">
-          Descarga MyDriver
+        <Button asChild size="lg" variant="default" className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg">
+          <a href="https://wa.me/5212461977827?text=Hola,%20me%20gustaría%20tener%20más%20información%20sobre%20MyDriver." target="_blank" rel="noopener noreferrer">
+            Solicita tu viaje
+          </a>
         </Button>
       </div>
     </div>
