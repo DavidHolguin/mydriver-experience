@@ -59,6 +59,14 @@ export const ServicesSection = () => {
 
   const services = [
     {
+      title: "Socio Flotilla",
+      description: "Gana hasta $10,000 mensuales sin conducir. Tu coche trabaja por ti.",
+      image: "/images/heroSocioFlotilla.webp",
+      link: "/socio-flotilla",
+      registerText: "Quiero ser socio",
+      whatsappLink: "https://wa.me/573001234567?text=¡Hola%20MyDriver!%20Quiero%20información%20para%20ser%20socio%20flotilla."
+    },
+    {
       title: "Socio Conductor",
       description: "Únete a nuestra red de conductores y genera ingresos extras con tu vehículo.",
       image: "/images/driver-partner.webp",
