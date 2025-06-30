@@ -17,7 +17,7 @@ export const Navbar = ({ onOpenSidebar }: { onOpenSidebar: () => void }) => {
             <Menu className="w-5 h-5 text-primary" />
           </Button>
           <img 
-            src="/images/logoMyDriverSinFondo.webp"
+            src="https://monkeytwomonkey.com/wp-content/uploads/2025/02/CONDUCTOR-_2_-1-e1740108314236.webp"
             alt="MyDriver Logo"
             className="h-11"
           />

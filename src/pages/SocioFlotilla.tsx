@@ -61,7 +61,7 @@ const SocioFlotilla: React.FC = () => {
     <div className="bg-gray-50 font-sans">
       {/* --- Hero Section --- */}
       <motion.div 
-        className="relative h-screen bg-cover bg-center text-white flex flex-col justify-center items-center text-center px-6"
+        className="relative h-[450px] bg-cover bg-[50%_25%] md:bg-center text-white flex flex-col justify-center items-center text-center px-6"
         style={{ backgroundImage: `url('/images/heroSocioFlotilla.webp')` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -69,7 +69,7 @@ const SocioFlotilla: React.FC = () => {
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <motion.h1 
-            className="text-4xl md:text-6xl font-extrabold z-10 leading-tight drop-shadow-lg"
+            className="text-4xl md:text-4xl font-extrabold z-10 leading-tight drop-shadow-lg"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
