@@ -17,7 +17,7 @@ export const Navbar = ({ onOpenSidebar }: { onOpenSidebar: () => void }) => {
             <Menu className="w-5 h-5 text-primary" />
           </Button>
           <img 
-            src="./public/images/logoMyDriverSinFondo.png"
+            src="/images/logoMyDriverSinFondo.webp"
             alt="MyDriver Logo"
             className="h-11"
           />

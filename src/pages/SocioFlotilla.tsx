@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaWhatsapp, FaCar, FaHandshake, FaShieldAlt, FaChartLine, FaPlus, FaMinus } from 'react-icons/fa';
+import { 
+    FaWhatsapp, FaCar, FaHandshake, FaShieldAlt, FaPlus, FaMinus,
+    FaUserCheck, FaMoneyBillWave, FaGavel, FaMapMarkedAlt, FaFileContract, FaUniversity, FaIdCard
+} from 'react-icons/fa';
 
 // --- Componentes Auxiliares con Animaciones ---
 
@@ -71,7 +74,7 @@ const SocioFlotilla: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
         >
-            Haz que tu coche trabaje por ti: <br/> Gana $10.000 mensuales <span className="text-red-500">SIN</span> conducir
+            Gana hasta $10,000 MXN. <br/> Fijos al mes <span className="text-red-500">SIN</span> conducir
         </motion.h1>
         <motion.p 
             className="text-lg md:text-xl max-w-2xl mt-4 z-10 drop-shadow-md"
@@ -82,7 +85,7 @@ const SocioFlotilla: React.FC = () => {
             Conviértete en Socio Flotilla MyDriver: nosotros certificamos chóferes, cuidamos tu auto y te garantizamos ingresos fijos.
         </motion.p>
         <motion.a 
-            href="https://wa.me/573001234567?text=¡Hola%20MyDriver!%20Quiero%20información%20para%20ser%20socio%20flotilla."
+            href="https://wa.me/5212461977827?text=¡Hola%20MyDriver!%20Quiero%20información%20para%20ser%20socio%20flotilla."
             className="mt-8 z-10 bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg uppercase tracking-wider hover:bg-red-800 transition-transform hover:scale-105 shadow-lg"
             target="_blank" rel="noopener noreferrer"
             initial={{ scale: 0.8, opacity: 0 }}
@@ -93,35 +96,42 @@ const SocioFlotilla: React.FC = () => {
         </motion.a>
       </motion.div>
 
-      {/* --- ¿Cómo funciona? --- */}
-      <AnimatedSection className="py-16 md:py-24 px-6 container mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">¿Cómo funciona?</h2>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
-            {[ { icon: FaCar, title: "Registra tu auto", desc: "(modelo 2020–2025)" }, { icon: FaHandshake, title: "Afíliate", desc: "Firma de contrato y pago único" }, { icon: FaShieldAlt, title: "Instalamos GPS", desc: "Monitoreo de última generación" }, { icon: FaChartLine, title: "¡Gana Dinero!", desc: "Tu coche trabaja 24/7 por ti" } ].map((step, index) => (
-                <div key={index} className="flex items-center gap-4 md:flex-col md:gap-2">
-                    <div className="text-6xl md:text-8xl font-extrabold text-red-200">0{index + 1}</div>
-                    <div className="text-left md:text-center">
-                        <h3 className="text-xl font-bold text-gray-800">{step.title}</h3>
-                        <p className="text-gray-600">{step.desc}</p>
-                    </div>
-                </div>
-            ))}
-        </div>
-      </AnimatedSection>
-
       {/* --- Beneficios --- */}
       <AnimatedSection className="bg-white py-16 md:py-24">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Cero Preocupaciones, <br/>Control Total.</h2>
-                <ul className="space-y-4">
-                    <li className="flex items-start"><FaChartLine className="text-red-700 text-2xl mr-4 mt-1"/><div><h4 className="font-bold">Ingresos Fijos Garantizados</h4><p className="text-gray-600">$10.000 mensuales, con opción quincenal o semanal.</p></div></li>
-                    <li className="flex items-start"><FaShieldAlt className="text-red-700 text-2xl mr-4 mt-1"/><div><h4 className="font-bold">Riesgo Cero</h4><p className="text-gray-600">Asumimos costos por accidentes y tú solo cubres el deducible en robo o pérdida total.</p></div></li>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Beneficios de ser Socio Flotilla</h2>
+                <ul className="space-y-6">
+                    <li className="flex items-start"><FaUserCheck className="text-red-700 text-3xl mr-4 flex-shrink-0"/><div><h4 className="font-bold text-lg">Conductor Certificado</h4><p className="text-gray-600">Asignamos un conductor profesional y certificado para tu vehículo.</p></div></li>
+                    <li className="flex items-start"><FaMoneyBillWave className="text-red-700 text-3xl mr-4 flex-shrink-0"/><div><h4 className="font-bold text-lg">Ganancias Fijas</h4><p className="text-gray-600">Obtienes ganancias de hasta $10,000 MXN fijos al mes, sin conducir.</p></div></li>
+                    <li className="flex items-start"><FaShieldAlt className="text-red-700 text-3xl mr-4 flex-shrink-0"/><div><h4 className="font-bold text-lg">Cobertura y Asesoría</h4><p className="text-gray-600">En caso de percance, robo total o parcial, te asesoramos y cubrimos tu deducible.</p></div></li>
+                    <li className="flex items-start"><FaGavel className="text-red-700 text-3xl mr-4 flex-shrink-0"/><div><h4 className="font-bold text-lg">Asesoría Jurídica 24/7</h4><p className="text-gray-600">Cuentas con apoyo legal en todo momento.</p></div></li>
+                    <li className="flex items-start"><FaMapMarkedAlt className="text-red-700 text-3xl mr-4 flex-shrink-0"/><div><h4 className="font-bold text-lg">Geolocalización GPS</h4><p className="text-gray-600">Para tu tranquilidad, te damos acceso a la ubicación en tiempo real de tu vehículo.</p></div></li>
                 </ul>
             </div>
             <div className="order-1 md:order-2">
                 <img src="/images/socioFlotillaCliente.webp" alt="Cliente satisfecho" className="rounded-2xl shadow-2xl w-full h-auto"/>
             </div>
+        </div>
+      </AnimatedSection>
+
+      {/* --- Requisitos --- */}
+      <AnimatedSection className="py-16 md:py-24 px-6 container mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">Ser parte de nuestra red es muy fácil</h2>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-x-12 gap-y-8">
+            {[ 
+                { icon: FaCar, text: "Auto modelo 2020 a 2026" },
+                { icon: FaIdCard, text: "Póliza de seguro vigente" },
+                { icon: FaFileContract, text: "Pago de registro y afiliación" },
+                { icon: FaIdCard, text: "Tarjeta de circulación y placas al corriente" },
+                { icon: FaUniversity, text: "Cuenta bancaria para recibir ganancias" },
+                { icon: FaHandshake, text: "Firma de contrato con MyDriver" },
+            ].map((req, index) => (
+                <div key={index} className="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md">
+                    <req.icon className="text-3xl text-red-700" />
+                    <p className="text-lg text-gray-700 font-medium">{req.text}</p>
+                </div>
+            ))}
         </div>
       </AnimatedSection>
 
@@ -133,7 +143,7 @@ const SocioFlotilla: React.FC = () => {
             </div>
             <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Tu Inversión en Manos Expertas</h2>
-                <p className="text-gray-600 mb-6">Con años de experiencia y decenas de socios satisfechos, garantizamos transparencia, pagos puntuales y la protección total de tu vehículo.</p>
+                <p className="text-gray-600 mb-6">Administramos, protegemos tu auto, te ayudamos a crecer ofreciéndote opciones con financieras aliadas para hacer crecer tu flotilla y cuidamos nuestra sociedad comercial contigo como socio.</p>
                 <a href="#faq" className="text-red-700 font-bold hover:underline">Ver Preguntas Frecuentes &rarr;</a>
             </div>
         </div>
@@ -151,13 +161,13 @@ const SocioFlotilla: React.FC = () => {
       <AnimatedSection className="bg-red-700 text-white text-center py-16 md:py-20 px-6">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">¡Únete hoy y pon tu coche a generar ingresos!</h2>
         <p className="max-w-2xl mx-auto mb-8">Escríbenos por WhatsApp y comienza a ganar sin conducir.</p>
-        <a href="https://wa.me/573001234567?text=¡Hola%20MyDriver!%20Quiero%20información%20para%20ser%20socio%20flotilla." className="bg-white text-red-700 font-bold py-3 px-8 rounded-full text-lg uppercase tracking-wider hover:bg-gray-200 transition-transform hover:scale-105 shadow-lg" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/5212461977827?text=¡Hola%20MyDriver!%20Quiero%20información%20para%20ser%20socio%20flotilla." className="bg-white text-red-700 font-bold py-3 px-8 rounded-full text-lg uppercase tracking-wider hover:bg-gray-200 transition-transform hover:scale-105 shadow-lg" target="_blank" rel="noopener noreferrer">
             Contactar en WhatsApp
         </a>
       </AnimatedSection>
 
       {/* --- Floating WhatsApp Button --- */}
-      <a href="https://wa.me/573001234567?text=¡Hola%20MyDriver!%20Quiero%20información%20para%20ser%20socio%20flotilla." target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform hover:scale-110 z-50">
+      <a href="https://wa.me/5212461977827?text=¡Hola%20MyDriver!%20Quiero%20información%20para%20ser%20socio%20flotilla." target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform hover:scale-110 z-50">
         <FaWhatsapp className="text-3xl" />
       </a>
     </div>
