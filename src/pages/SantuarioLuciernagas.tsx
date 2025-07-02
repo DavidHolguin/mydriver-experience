@@ -182,7 +182,7 @@ const SantuarioLuciernagas = () => {
             size="lg"
             className="bg-green-500 hover:bg-green-600 text-white font-bold gap-2 w-full md:w-auto"
           >
-            <a href="https://wa.me/5212461977827" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/5212461977827?text=Hola,%20estoy%20interesado%20en%20el%20servicio%20de%20transporte%20al%20Santuario%20de%20las%20Luciérnagas%20y%20quisiera%20más%20información." target="_blank" rel="noopener noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
               Contactar por WhatsApp
             </a>
