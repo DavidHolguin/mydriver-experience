@@ -17,7 +17,7 @@ export const Navbar = ({ onOpenSidebar }: { onOpenSidebar: () => void }) => {
             <Menu className="w-5 h-5 text-primary" />
           </Button>
           <img 
-            src="https://monkeytwomonkey.com/wp-content/uploads/2025/02/CONDUCTOR-_2_-1-e1740108314236.webp"
+            src="/images/logo.svg"
             alt="MyDriver Logo"
             className="h-11"
           />
@@ -29,7 +29,7 @@ export const Navbar = ({ onOpenSidebar }: { onOpenSidebar: () => void }) => {
           <a href="https://www.facebook.com/people/myDriver-Mx/61577308812929/" target="_blank" rel="noopener noreferrer">
             <div className="w-5 h-5 rounded-full bg-[#ffd2d2] p-4 border border-primary hover:bg-[#ffd2d2]/90 p-0 flex items-center justify-center"><FontAwesomeIcon icon={faFacebook} className="w-5 h-5 text-primary hover:text-primary" /></div>
           </a>
-          <a href="https://wa.me/5212461977827" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/5212461569161" target="_blank" rel="noopener noreferrer">
             <div className="w-5 h-5 rounded-full bg-[#ffd2d2] p-4 border border-primary hover:bg-[#ffd2d2]/90 p-0 flex items-center justify-center"><FontAwesomeIcon icon={faWhatsapp} className="w-5 h-5 text-primary hover:text-primary" /></div>
           </a>
         </div>

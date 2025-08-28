@@ -16,7 +16,7 @@ export const BusinessSection = () => {
               en tiempo real y establece límites de horarios, precios y zonas.
             </p>
             <Button asChild className="group bg-[#ab1818] hover:bg-[#ab1818]/90 text-white">
-              <a href="https://wa.me/5212461977827?text=Hola,%20me%20gustaría%20tener%20más%20información%20sobre%20MyDriver%20para%20empresas." target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20tener%20más%20información%20sobre%20MyDriver%20para%20empresas." target="_blank" rel="noopener noreferrer">
                 Descubre MyDriver para empresas
                 <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </a>

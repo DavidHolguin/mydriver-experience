@@ -16,7 +16,7 @@ const slides = [
     title: 'Muévete por tu ciudad con MyDriver',
     subtitle: 'La app donde recibes más y viajas mejor. Únete a la revolución del transporte privado.',
     buttonText: 'Solicita tu viaje',
-    buttonLink: 'https://wa.me/5212461977827?text=Hola,%20me%20gustaría%20tener%20más%20información%20sobre%20MyDriver.',
+    buttonLink: 'https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20tener%20más%20información%20sobre%20MyDriver.',
     isExternal: true,
   },
   {

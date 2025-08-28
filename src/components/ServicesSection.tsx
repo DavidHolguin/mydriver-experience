@@ -64,7 +64,7 @@ export const ServicesSection = () => {
       image: "/images/heroSocioFlotilla.webp",
       link: "/socio-flotilla",
       registerText: "Quiero ser socio",
-      whatsappLink: "https://wa.me/573001234567?text=¡Hola%20MyDriver!%20Quiero%20información%20para%20ser%20socio%20flotilla."
+      whatsappLink: "https://wa.me/5212461569161?text=¡Hola%20MyDriver!%20Quiero%20información%20para%20ser%20socio%20flotilla."
     },
     {
       title: "Socio Conductor",
@@ -73,7 +73,7 @@ export const ServicesSection = () => {
       link: "/socio-conductor",
       formTitle: "Regístrate como Socio Conductor",
       formSubtitle: "Comienza a generar ingresos con tu vehículo",
-      whatsappLink: "https://wa.me/5212461977827?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20Socio%20Conductor."
+      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20Socio%20Conductor."
     },
     {
       title: "Conductor Standard",
@@ -82,7 +82,7 @@ export const ServicesSection = () => {
       link: "/conductor-standard",
       formTitle: "Regístrate como Conductor Standard",
       formSubtitle: "Únete a nuestra flota profesional",
-      whatsappLink: "https://wa.me/5212461977827?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20Conductor%20Standard."
+      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20Conductor%20Standard."
     },
     {
       title: "Socio Repartidor",
@@ -91,7 +91,7 @@ export const ServicesSection = () => {
       link: "/socio-repartidor",
       formTitle: "Regístrate como Socio Repartidor",
       formSubtitle: "Únete a nuestra red de repartidores",
-      whatsappLink: "https://wa.me/5212461977827?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20Socio%20Repartidor."
+      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20Socio%20Repartidor."
     },
     {
       title: "Negocio Aliado",
@@ -100,7 +100,7 @@ export const ServicesSection = () => {
       link: "/negocio-aliado",
       formTitle: "Regístrate como Negocio Aliado",
       formSubtitle: "Haz crecer tu negocio con nosotros",
-      whatsappLink: "https://wa.me/5212461977827?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20Negocio%20Aliado."
+      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20Negocio%20Aliado."
     },
     {
       title: "MyDriver Cargo",
@@ -109,7 +109,7 @@ export const ServicesSection = () => {
       link: "/mydriver-cargo",
       formTitle: "Solicita MyDriver Cargo",
       formSubtitle: "Soluciones logísticas a tu medida",
-      whatsappLink: "https://wa.me/5212461977827?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20MyDriver%20Cargo."
+      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20MyDriver%20Cargo."
     },
     {
       title: "Santuario de las Luciérnagas",
@@ -117,7 +117,7 @@ export const ServicesSection = () => {
       image: "/images/luciernagas1.jpg",
       link: "/santuario-luciernagas",
       registerText: "Reservar ahora",
-      whatsappLink: "https://wa.me/5212461977827?text=Hola,%20me%20gustaría%20reservar%20un%20viaje%20al%20Santuario%20de%20las%20Luciérnagas."
+      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20reservar%20un%20viaje%20al%20Santuario%20de%20las%20Luciérnagas."
     },
     {
       title: "Transporte al Carnaval de Veracruz",
@@ -125,7 +125,7 @@ export const ServicesSection = () => {
       image: "/images/carnavalVeracurz.webp",
       link: "/carnaval-veracruz",
       registerText: "Reservar ahora",
-      whatsappLink: "https://wa.me/5212461977827?text=Hola,%20quiero%20reservar%20mi%20viaje%20para%20el%20Carnaval%20de%20Veracruz."
+      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20quiero%20reservar%20mi%20viaje%20para%20el%20Carnaval%20de%20Veracruz."
     }
   ];
 

@@ -32,7 +32,7 @@ const FAQItem = ({ question, answer }) => {
 
 const CarnavalVeracruz = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const whatsappUrl = "https://wa.me/5212461977827?text=Hola,%20me%20gustaría%20reservar%20un%20viaje%20para%20el%20Carnaval%20de%20Veracruz.";
+  const whatsappUrl = "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20reservar%20un%20viaje%20para%20el%20Carnaval%20de%20Veracruz.";
 
   const faqData = [
     { q: "¿Puedo reservar para varios días?", a: "¡Por supuesto! Puedes agendar todos tus viajes para la semana del carnaval con nosotros. Es lo más recomendable." },
