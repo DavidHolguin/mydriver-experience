@@ -1,4 +1,4 @@
-import { X, Car, CreditCard, Bike, Store, Truck, FileText, ScrollText, User, Mail, Home } from 'lucide-react';
+import { X, Car, CreditCard, Bike, Store, Truck, FileText, ScrollText, User, Mail, Home, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const homeItem = {
@@ -50,6 +50,11 @@ const menuItems = [
         title: 'Contáctanos',
         url: '/contacto',
         icon: Mail
+      },
+      {
+        title: 'Descargas',
+        url: '/descargas',
+        icon: Download
       }
     ]
   },
@@ -134,31 +139,81 @@ export const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => v
         </div>
 
         <div className="border-t p-4">
+          {/* Sección de Descargas */}
           <div className="grid grid-cols-2 gap-3">
-            <a 
-              href="https://apps.apple.com/app/mydriver" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block h-[40px] rounded-lg overflow-hidden"
-            >
-              <img 
-                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                alt="Download on the App Store"
-                className="w-full h-full object-cover"
-              />
-            </a>
-            <a 
-              href="https://play.google.com/store/apps/details?id=mydriver" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block h-[40px] rounded-lg overflow-hidden"
-            >
-              <img 
-                src="https://play.google.com/intl/es_419/badges/static/images/badges/es_badge_web_generic.png"
-                alt="Get it on Google Play"
-                className="w-full h-full object-cover"
-              />
-            </a>
+            {/* myDriver Pasajero */}
+            <div>
+              <h4 className="text-xs font-semibold mb-2 text-gray-700">Pasajero</h4>
+              <div className="space-y-2">
+                {/* iOS Pasajero */}
+                <div className="h-10 flex items-center">
+                  <a 
+                    href="https://apps.apple.com/us/app/mydrivertaxi/id6443749551" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <img 
+                      src="/images/ios.png"
+                      alt="Descargar myDriver Pasajero en App Store"
+                      className="h-10 w-auto"
+                    />
+                  </a>
+                </div>
+                {/* Android Pasajero */}
+                <div className="h-10 flex items-center">
+                  <a 
+                    href="https://play.google.com/store/apps/details?id=com.rider.mydrivermxn" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <img 
+                      src="/images/android.png"
+                      alt="Descargar myDriver Pasajero en Play Store"
+                      className="h-10 w-auto"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* myDriver Conductor */}
+            <div>
+              <h4 className="text-xs font-semibold mb-2 text-gray-700">Conductor</h4>
+              <div className="space-y-2">
+                {/* iOS Conductor */}
+                <div className="h-10 flex items-center">
+                  <a 
+                    href="https://apps.apple.com/us/app/mydriver-conductor-app/id6443749599" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <img 
+                      src="/images/ios.png"
+                      alt="Descargar myDriver Conductor en App Store"
+                      className="h-10 w-auto"
+                    />
+                  </a>
+                </div>
+                {/* Android Conductor */}
+                <div className="h-10 flex items-center">
+                  <a 
+                    href="https://play.google.com/store/apps/details?id=com.driver.mydrivermxn" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <img 
+                      src="/images/android.png"
+                      alt="Descargar myDriver Conductor en Play Store"
+                      className="h-10 w-auto"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -82,7 +82,7 @@ export const Footer = () => {
               <h4 className="text-lg font-semibold mb-4 text-white">myDriver Pasajero</h4>
               <div className="space-y-2">
                 {/* iOS Pasajero */}
-                <div className="h-16 flex items-center">
+                <div className="h-12 flex items-center">
                   <a 
                     href="https://apps.apple.com/us/app/mydrivertaxi/id6443749551" 
                     target="_blank" 
@@ -90,14 +90,14 @@ export const Footer = () => {
                     className="block"
                   >
                     <img 
-                      src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                      src="/images/ios.png"
                       alt="Descargar myDriver Pasajero en App Store"
-                      className="h-16 w-auto"
+                      className="h-12 w-auto"
                     />
                   </a>
                 </div>
                 {/* Android Pasajero */}
-                <div className="h-16 flex items-center">
+                <div className="h-12 flex items-center">
                   <a 
                     href="https://play.google.com/store/apps/details?id=com.rider.mydrivermxn" 
                     target="_blank" 
@@ -105,9 +105,9 @@ export const Footer = () => {
                     className="block"
                   >
                     <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                      src="/images/android.png"
                       alt="Descargar myDriver Pasajero en Play Store"
-                      className="h-16 w-auto"
+                      className="h-12 w-auto"
                     />
                   </a>
                 </div>
@@ -119,7 +119,7 @@ export const Footer = () => {
               <h4 className="text-lg font-semibold mb-4 text-white">myDriver Conductor</h4>
               <div className="space-y-2">
                 {/* iOS Conductor */}
-                <div className="h-16 flex items-center">
+                <div className="h-12 flex items-center">
                   <a 
                     href="https://apps.apple.com/us/app/mydriver-conductor-app/id6443749599" 
                     target="_blank" 
@@ -127,14 +127,14 @@ export const Footer = () => {
                     className="block"
                   >
                     <img 
-                      src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                      src="/images/ios.png"
                       alt="Descargar myDriver Conductor en App Store"
-                      className="h-16 w-auto"
+                      className="h-12 w-auto"
                     />
                   </a>
                 </div>
                 {/* Android Conductor */}
-                <div className="h-16 flex items-center">
+                <div className="h-12 flex items-center">
                   <a 
                     href="https://play.google.com/store/apps/details?id=com.driver.mydrivermxn" 
                     target="_blank" 
@@ -142,17 +142,15 @@ export const Footer = () => {
                     className="block"
                   >
                     <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                      src="/images/android.png"
                       alt="Descargar myDriver Conductor en Play Store"
-                      className="h-16 w-auto"
+                      className="h-12 w-auto"
                     />
                   </a>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Copyright */}
+          </div>          {/* Copyright */}
           <div className="text-center">
             <p className="text-gray-400 text-sm">© 2025 MyDriver. Todos los derechos reservados.</p>
           </div>

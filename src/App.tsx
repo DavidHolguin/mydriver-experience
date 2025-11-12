@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import SantuarioLuciernagas from "./pages/SantuarioLuciernagas";
 import CarnavalVeracruz from "./pages/CarnavalVeracruz";
 import SocioFlotilla from "./pages/SocioFlotilla";
+import { Descargas } from "./pages/Descargas";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/socio-repartidor" element={<SocioRepartidor />} />
           <Route path="/negocio-aliado" element={<NegocioAliado />} />
           <Route path="/mydriver-cargo" element={<MyDriverCargo />} />
+          <Route path="/descargas" element={<Descargas />} />
           <Route path="/terminos" element={<TerminosCondiciones />} />
           <Route path="/politicas" element={<PoliticasPrivacidad />} />
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
