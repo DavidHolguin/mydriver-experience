@@ -59,7 +59,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-gray-400">
                 <Phone className="w-5 h-5" />
-                <span>2461977827</span>
+                <span>2461569161</span>
               </li>
               <li className="flex items-center gap-2 text-gray-400">
                 <Mail className="w-5 h-5" />
@@ -75,34 +75,86 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 pb-20 md:pb-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm"> 2024 MyDriver. Todos los derechos reservados.</p>
-            <div className="flex items-center gap-4 mt-4 md:mt-0">
-              <a 
-                href="https://apps.apple.com/app/mydriver" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block h-[40px] w-[135px] rounded-lg overflow-hidden"
-              >
-                <img 
-                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                  alt="App Store"
-                  className="w-full h-full object-cover"
-                />
-              </a>
-              <a 
-                href="https://play.google.com/store/apps/details?id=mydriver" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block h-[40px] w-[135px] rounded-lg overflow-hidden"
-              >
-                <img 
-                  src="https://play.google.com/intl/es_419/badges/static/images/badges/es_badge_web_generic.png"
-                  alt="Play Store"
-                  className="w-full h-full object-cover"
-                />
-              </a>
+          {/* Sección de Descargas */}
+          <div className="grid grid-cols-2 gap-8 mb-8">
+            {/* myDriver Pasajero */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">myDriver Pasajero</h4>
+              <div className="space-y-2">
+                {/* iOS Pasajero */}
+                <div className="h-16 flex items-center">
+                  <a 
+                    href="https://apps.apple.com/us/app/mydrivertaxi/id6443749551" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <img 
+                      src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                      alt="Descargar myDriver Pasajero en App Store"
+                      className="h-16 w-auto"
+                    />
+                  </a>
+                </div>
+                {/* Android Pasajero */}
+                <div className="h-16 flex items-center">
+                  <a 
+                    href="https://play.google.com/store/apps/details?id=com.rider.mydrivermxn" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <img 
+                      src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                      alt="Descargar myDriver Pasajero en Play Store"
+                      className="h-16 w-auto"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
+
+            {/* myDriver Conductor */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">myDriver Conductor</h4>
+              <div className="space-y-2">
+                {/* iOS Conductor */}
+                <div className="h-16 flex items-center">
+                  <a 
+                    href="https://apps.apple.com/us/app/mydriver-conductor-app/id6443749599" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <img 
+                      src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                      alt="Descargar myDriver Conductor en App Store"
+                      className="h-16 w-auto"
+                    />
+                  </a>
+                </div>
+                {/* Android Conductor */}
+                <div className="h-16 flex items-center">
+                  <a 
+                    href="https://play.google.com/store/apps/details?id=com.driver.mydrivermxn" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <img 
+                      src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                      alt="Descargar myDriver Conductor en Play Store"
+                      className="h-16 w-auto"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center">
+            <p className="text-gray-400 text-sm">© 2025 MyDriver. Todos los derechos reservados.</p>
           </div>
         </div>
       </div>
