@@ -20,6 +20,8 @@ import SantuarioLuciernagas from "./pages/SantuarioLuciernagas";
 import CarnavalVeracruz from "./pages/CarnavalVeracruz";
 import SocioFlotilla from "./pages/SocioFlotilla";
 import { Descargas } from "./pages/Descargas";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +34,8 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/socio-conductor" element={<SocioConductor />} />
             <Route path="/conductor-standard" element={<ConductorStandard />} />
             <Route path="/socio-repartidor" element={<SocioRepartidor />} />

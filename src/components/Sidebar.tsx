@@ -1,4 +1,4 @@
-import { X, Car, CreditCard, Bike, Store, Truck, FileText, ScrollText, User, Mail, Home, Download } from 'lucide-react';
+import { X, Car, CreditCard, Bike, Store, Truck, FileText, ScrollText, User, Mail, Home, Download, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const homeItem = {
@@ -8,6 +8,16 @@ const homeItem = {
 };
 
 const menuItems = [
+  {
+    group: "Contenido",
+    items: [
+      { 
+        title: 'Blog', 
+        url: '/blog',
+        icon: BookOpen 
+      }
+    ]
+  },
   {
     group: "Modelos de Negocio",
     items: [
