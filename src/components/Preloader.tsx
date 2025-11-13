@@ -1,157 +1,183 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-export const Preloader = () => {
-  const [isLoading, setIsLoading] = useState(true);
+const MyDriverPreload = () => {
+  const [rotation, setRotation] = useState(0);
+  const [targetRotation, setTargetRotation] = useState(0);
+  const [velocity, setVelocity] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    // Genera movimientos aleatorios del volante simulando conducción real con giros completos
+    const generateSteeringPattern = () => {
+      // Patrones realistas con tiempos humanos
+      const patterns = [
+        { angle: 360, duration: 2800 },     // Vuelta completa a la derecha (estacionamiento)
+        { angle: 180, duration: 2000 },     // Media vuelta de regreso
+        { angle: -180, duration: 1900 },    // Giro fuerte izquierda
+        { angle: 0, duration: 1600 },       // Regreso al centro
+        { angle: 270, duration: 2400 },     // 3/4 de vuelta derecha
+        { angle: 90, duration: 1500 },      // Ajuste a 90°
+        { angle: -360, duration: 2800 },    // Vuelta completa izquierda
+        { angle: -90, duration: 1400 },     // Ajuste menor izquierda
+        { angle: 180, duration: 1800 },     // Giro fuerte derecha
+        { angle: -45, duration: 1200 },     // Corrección pequeña
+        { angle: 0, duration: 1500 },       // Volver al centro
+      ];
+      
+      let currentIndex = 0;
+      
+      const executePattern = () => {
+        const pattern = patterns[currentIndex];
+        setTargetRotation(pattern.angle);
+        currentIndex = (currentIndex + 1) % patterns.length;
+        
+        // Varía el tiempo entre movimientos para más realismo
+        setTimeout(executePattern, pattern.duration + Math.random() * 800);
+      };
+      
+      executePattern();
+    };
 
-    return () => clearTimeout(timer);
+    generateSteeringPattern();
+
+    // Desaparece después de 3.5 segundos
+    const hideTimer = setTimeout(() => {
+      setIsVisible(false);
+    }, 3500);
+
+    return () => clearTimeout(hideTimer);
   }, []);
 
-  if (!isLoading) return null;
+  useEffect(() => {
+    // Animación con física realista (aceleración y desaceleración suave)
+    const animate = () => {
+      setRotation(current => {
+        const diff = targetRotation - current;
+        const acceleration = diff * 0.045; // Aceleración más suave (antes 0.08)
+        const newVelocity = velocity * 0.92 + acceleration; // Mayor fricción/damping (antes 0.85)
+        
+        setVelocity(newVelocity);
+        
+        // Si estamos muy cerca del objetivo, detener
+        if (Math.abs(diff) < 0.1 && Math.abs(newVelocity) < 0.1) {
+          return targetRotation;
+        }
+        
+        return current + newVelocity;
+      });
+    };
+
+    const animationFrame = requestAnimationFrame(function loop() {
+      animate();
+      requestAnimationFrame(loop);
+    });
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [targetRotation, velocity]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
-      <div className="loader">
-        <div className="truckWrapper">
-          <div className="truckBody">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 198 93" className="trucksvg">
-              <path strokeWidth="3" stroke="#282828" fill="#F83D3D" d="M135 22.5H177.264C178.295 22.5 179.22 23.133 179.594 24.0939L192.33 56.8443C192.442 57.1332 192.5 57.4404 192.5 57.7504V89C192.5 90.3807 191.381 91.5 190 91.5H135C133.619 91.5 132.5 90.3807 132.5 89V25C132.5 23.6193 133.619 22.5 135 22.5Z"></path>
-              <path strokeWidth="3" stroke="#282828" fill="#7D7C7C" d="M146 33.5H181.741C182.779 33.5 183.709 34.1415 184.078 35.112L190.538 52.112C191.16 53.748 189.951 55.5 188.201 55.5H146C144.619 55.5 143.5 54.3807 143.5 53V36C143.5 34.6193 144.619 33.5 146 33.5Z"></path>
-              <path strokeWidth="2" stroke="#282828" fill="#282828" d="M150 65C150 65.39 149.763 65.8656 149.127 66.2893C148.499 66.7083 147.573 67 146.5 67C145.427 67 144.501 66.7083 143.873 66.2893C143.237 65.8656 143 65.39 143 65C143 64.61 143.237 64.1344 143.873 63.7107C144.501 63.2917 145.427 63 146.5 63C147.573 63 148.499 63.2917 149.127 63.7107C149.763 64.1344 150 64.61 150 65Z"></path>
-              <rect strokeWidth="2" stroke="#282828" fill="#FFFCAB" rx="1" height="7" width="5" y="63" x="187"></rect>
-              <rect strokeWidth="2" stroke="#282828" fill="#282828" rx="1" height="11" width="4" y="81" x="193"></rect>
-              <rect strokeWidth="3" stroke="#282828" fill="#DFDFDF" rx="2.5" height="90" width="121" y="1.5" x="6.5"></rect>
-              <rect strokeWidth="2" stroke="#282828" fill="#DFDFDF" rx="2" height="4" width="6" y="84" x="1"></rect>
-            </svg>
-          </div>
-          <div className="truckTires">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30" className="tiresvg">
-              <circle strokeWidth="3" stroke="#282828" fill="#282828" r="13.5" cy="15" cx="15"></circle>
-              <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30" className="tiresvg">
-              <circle strokeWidth="3" stroke="#282828" fill="#282828" r="13.5" cy="15" cx="15"></circle>
-              <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
-            </svg>
-          </div>
-          <div className="road"></div>
-          <svg xmlSpace="preserve" viewBox="0 0 453.459 453.459" xmlns="http://www.w3.org/2000/svg" className="lampPost">
-            <path fill="#282828" d="M252.882,0c-37.781,0-68.686,29.953-70.245,67.358h-6.917v8.954c-26.109,2.163-45.463,10.011-45.463,19.366h9.993 c-1.65,5.146-2.507,10.54-2.507,16.017c0,28.956,23.558,52.514,52.514,52.514c28.956,0,52.514-23.558,52.514-52.514 c0-5.478-0.856-10.872-2.506-16.017h9.992c0-9.354-19.352-17.204-45.463-19.366v-8.954h-6.149C200.189,38.779,223.924,16,252.882,16 c29.952,0,54.32,24.368,54.32,54.32c0,28.774-11.078,37.009-25.105,47.437c-17.444,12.968-37.216,27.667-37.216,78.884v113.914 h-0.797c-5.068,0-9.174,4.108-9.174,9.177c0,2.844,1.293,5.383,3.321,7.066c-3.432,27.933-26.851,95.744-8.226,115.459v11.202h45.75 v-11.202c18.625-19.715-4.794-87.527-8.227-115.459c2.029-1.683,3.322-4.223,3.322-7.066c0-5.068-4.107-9.177-9.176-9.177h-0.795 V196.641c0-43.174,14.942-54.283,30.762-66.043c14.793-10.997,31.559-23.461,31.559-60.277C323.202,31.545,291.656,0,252.882,0z M232.77,111.694c0,23.442-19.071,42.514-42.514,42.514c-23.442,0-42.514-19.072-42.514-42.514c0-5.531,1.078-10.957,3.141-16.017 h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"></path>
+    <>
+      {isVisible && (
+        <div className="fixed inset-0 z-[9999] bg-[#111827] flex items-center justify-center">
+          <div className="relative">
+            {/* Logo Container */}
+            <div className="relative w-80 h-80 flex items-center justify-center">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="320" 
+            height="230" 
+            viewBox="0 0 979 702"
+            className="relative z-10"
+          >
+            {/* Pin exterior - Estático */}
+            <g>
+              <path 
+                fill="#B60000" 
+                d="M559.714 326.63c-2.605 1.323-18.464 8.162-18.969 8.427-17.318 9.459-38.203 32.844-51.792 49.542-14.776-18.729-38.026-44.891-57.656-52.036-35.073-18.308-44.734-26.797-54.042-36.506-.307-.505-.177-.177-.859-.906-27.328-28.891-42.375-66.677-42.375-106.401 0-85.453 69.526-154.98 154.953-154.98 85.432 0 154.979 69.527 154.979 154.98 0 58.828-32.292 111.651-84.26 137.88M489 .026c-104.068 0-188.75 84.677-188.75 188.745 0 48.239 18.224 94.161 51.328 129.323.333.375.708.771 1.104 1.166 13.282 13.875 26.979 24.532 64.146 43.896.88.464 1.807.839 2.755 1.146 11.693 3.662 37.787 32.912 55.256 57.922a16.85 16.85 0 0 0 13.671 7.214h.178a16.98 16.98 0 0 0 13.656-6.922c12.901-17.693 38.755-48.615 53.953-57.417 10.719-4.547 14.953-6.422 18.614-8.271 63.417-32.005 102.808-96.37 102.808-168.036C677.745 84.703 593.063.026 489 .026Z"
+              />
+              <circle 
+                cx="613.797" 
+                cy="448.74" 
+                r="18.02"
+                fill="#B60000"
+              />
+            </g>
+
+            {/* Volante - Con animación de rotación */}
+            <g
+              style={{
+                transformOrigin: '487.5px 190px',
+                transform: `rotate(${rotation}deg)`,
+                transition: 'none'
+              }}
+            >
+              {/* Círculo exterior del volante */}
+              <path 
+                fill="#770605" 
+                d="m497.974 275.323 5.495-60.505a29.274 29.274 0 0 0 9.109-9.505l59.839-3.99c-4.959 38.62-35.755 69.26-74.443 73.979m-34.87-100.849-60.505 5.474c5.161-42.286 41.271-75.172 84.943-75.172s79.76 32.844 84.942 75.125l-60.526-5.489c-5.203-7.964-14.203-13.214-24.416-13.214-10.214 0-19.235 5.292-24.438 13.255m-60.437 26.844 59.817 3.995a29.303 29.303 0 0 0 9.219 9.594l4.016 60.26c-38.047-5.271-68.177-35.667-73.052-73.828m84.875-127.094c-64.141 0-116.157 52.011-116.157 116.156 0 64.141 52.016 116.157 116.157 116.157 64.146 0 116.156-52.016 116.156-116.157 0-64.145-52.01-116.156-116.156-116.156Z"
+              />
+              {/* Centro del volante */}
+              <ellipse 
+                cx="613.797" 
+                cy="449.359" 
+                rx="17.557" 
+                ry="15.261"
+                fill="#FFFFFF"
+                transform="translate(-126 -260)"
+              />
+            </g>
+
+            {/* Texto myDriver - Estático */}
+            <g fill="#FFFFFF">
+              <path d="M.031 496.406c0-8.38 6.396-15.021 14.776-15.021 8.38 0 15.021 6.662 15.021 15.021v6.151c8.38-11.578 19.698-22.432 39.662-22.432 18.724 0 32.026 9.109 38.927 22.922 10.349-13.813 24.156-22.922 43.854-22.922 28.344 0 45.568 17.979 45.568 49.766v69.479c0 8.38-6.396 14.776-14.776 14.776-8.386 0-15.021-6.396-15.021-14.776v-60.328c0-20.688-9.62-31.787-26.36-31.787-16.255 0-27.838 11.339-27.838 32.271v59.865c0 8.38-6.662 14.781-14.776 14.781-8.386 0-15.021-6.401-15.021-14.781v-60.615c0-20.203-9.86-31.542-26.36-31.542S29.85 519.542 29.85 539.505v59.865c0 8.38-6.662 14.776-15.02 14.776-8.142 0-14.777-6.396-14.777-14.776l-.02-102.964Z"/>
+              <path d="M216.609 649.417c-4.432-1.479-9.349-5.183-9.349-12.308 0-7.39 5.667-12.328 12.063-12.328 2.469 0 3.948.485 5.427.99 3.443.995 6.156 1.724 10.344 1.724 8.87 0 13.541-3.688 18.484-13.813l.995-2.708-48.307-107.906c-.995-2.229-1.719-5.183-1.719-7.146 0-8.386 6.396-14.537 14.776-14.537 7.63 0 11.823 4.433 14.536 11.339l34.985 86.484 32.51-86.484c2.474-6.156 6.662-11.339 14.297-11.339 7.87 0 14.292 6.151 14.292 14.053 0 2.468-.729 5.666-1.235 7.145l-47.557 114.078c-11.094 26.605-22.917 36.464-43.849 36.464-8.385 0-14.536-1.234-20.693-3.708Z"/>
+              <path d="M407.563 585.339c36.218 0 59.864-24.391 59.864-58.141v-.484c0-33.75-23.646-58.651-59.864-58.651h-33.99v117.276h33.99Zm-64.297-129.584c0-8.625 6.661-15.286 15.26-15.286h49.037c54.192 0 91.645 37.208 91.645 85.734v.49c0 48.526-37.453 86.218-91.645 86.218h-49.037c-8.625 0-15.26-6.661-15.26-15.286v-141.87Z"/>
+              <path d="M514.01 496.406c0-8.38 6.396-15.021 14.782-15.021 8.38 0 15.021 6.662 15.021 15.021v13.302c6.901-16.26 19.718-28.588 32.776-28.588 9.354 0 14.776 6.177 14.776 14.776 0 7.875-5.183 13.062-11.823 14.297-21.172 3.703-35.729 19.958-35.729 50.755v38.443c0 8.119-6.662 14.781-15.021 14.781-8.141 0-14.782-6.401-14.782-14.781V496.406Z"/>
+              <path d="M599.021 496.406c0-8.38 6.396-15.021 14.776-15.021 8.385 0 15.021 6.662 15.021 15.021v102.985c0 8.38-6.662 14.781-15.021 14.781-8.115 0-14.776-6.401-14.776-14.781V496.406Zm-2.209-48.526c0-8.87 7.391-14.536 17.011-14.536 9.615 0 17.005 5.666 17.005 14.536v1.479c0 8.865-7.39 14.776-17.005 14.776-9.62 0-17.011-5.911-17.011-14.776v-1.479Z"/>
+              <path d="M703.484 615.406h-1.479c-8.14 0-13.541-5.182-17.005-13.057l-43.365-99.302c-.729-2.229-1.718-4.677-1.718-7.391 0-7.39 6.661-14.291 14.776-14.291 8.12 0 12.307 4.671 14.781 10.849l33.505 86.244 33.99-86.729c2.224-5.182 6.151-10.344 14.047-10.344 8.14 0 14.536 6.151 14.536 14.292 0 2.714-.989 5.667-1.719 7.146l-43.364 99.547c-3.443 7.63-8.87 13.057-17.005 13.057"/>
+              <path d="M859.453 538.776c-1.963-19.208-13.302-34.229-33.021-34.229-18.239 0-31.057 14.047-33.75 34.229h66.771Zm-29.557 77.115c-37.698 0-66.771-27.349-66.771-67.516v-.49c0-37.208 26.359-67.76 63.573-67.76 41.38 0 61.828 34.016 61.828 64.057 0 8.381-6.401 14.292-14.052 14.292h-81.547c3.198 21.198 18.24 33.021 37.453 33.021 12.573 0 22.412-4.432 30.792-11.339 2.229-1.718 4.193-2.713 7.63-2.713 6.662 0 11.823 5.161 11.823 12.067 0 3.704-1.719 6.901-3.948 9.131-11.823 10.588-26.599 17.25-46.802 17.25"/>
+              <path d="M900.609 496.406c0-8.38 6.401-15.021 14.782-15.021 8.38 0 15.02 6.662 15.02 15.021v13.302c6.902-16.26 19.719-28.588 32.777-28.588 9.354 0 14.781 6.177 14.781 14.776 0 7.875-5.188 13.062-11.823 14.297-21.198 3.703-35.735 19.958-35.735 50.755v38.443c0 8.119-6.661 14.781-15.02 14.781-8.141 0-14.782-6.401-14.782-14.781V496.406Z"/>
+            </g>
+
+            {/* Texto "by ATT" - Estático */}
+            <g fill="#FFFFFF">
+              <path d="M796.745 672.292v-.13c0-8.584-5.912-14.073-12.797-14.073-6.75 0-13.146 5.687-13.146 13.984v.13c0 8.448 6.396 14.073 13.146 14.073 7.036 0 12.797-5.208 12.797-14.005m-31.167-30.88c0-1.547 1.188-2.735 2.667-2.735 1.541 0 2.734 1.188 2.734 2.735v19.916c2.958-4.369 7.234-8.093 13.943-8.093 8.713 0 17.38 6.901 17.38 18.859v.13c0 11.891-8.583 18.927-17.38 18.927-6.75 0-11.12-3.661-13.943-7.745v4.568c0 1.479-1.125 2.755-2.667 2.755-1.546 0-2.76-1.276-2.76-2.755l.026-46.562Z"/>
+              <path d="M804.839 700.792c-.839-.354-1.698-1.063-1.698-2.318 0-1.323 1.125-2.318 2.312-2.318.49 0 .906.157 1.349.287 1.057.354 2.115.64 3.948.64 3.375 0 5.339-2.052 7.323-6.484l.286-.573-15.198-32.203c-.218-.51-.354-.995-.354-1.479 0-1.479 1.193-2.667 2.735-2.667 1.479 0 2.25.901 2.739 2.094l12.656 28.562 11.25-28.63c.422-1.125 1.193-2.026 2.605-2.026a2.664 2.664 0 0 1 2.672 2.667c0 .416-.136.906-.292 1.323l-14.203 33.901c-3.151 7.526-6.683 10.26-12.177 10.26-2.381 0-4.146-.422-5.974-1.062"/>
+              <path d="m890.089 672.292-11.339-25.188-11.333 25.188h22.672Zm-34.829 14.401 19.964-43.672c.703-1.542 1.766-2.448 3.526-2.448h.292c1.698 0 2.823.906 3.437 2.448l19.985 43.609c.198.485.354.99.354 1.412a2.663 2.663 0 0 1-2.672 2.666c-1.344 0-2.25-.901-2.755-2.052l-5.141-11.312h-26.995l-5.12 11.469c-.505 1.192-1.411 1.895-2.666 1.895a2.523 2.523 0 0 1-2.537-2.536c0-.417.063-.901.349-1.479"/>
+              <path d="M912.745 646.266h-14.271c-1.411 0-2.604-1.125-2.604-2.537 0-1.411 1.193-2.604 2.604-2.604h34.188c1.411 0 2.604 1.193 2.604 2.604 0 1.412-1.193 2.537-2.604 2.537H918.37v41.64a2.829 2.829 0 0 1-2.823 2.823c-1.568 0-2.802-1.255-2.802-2.823v-41.64Z"/>
+              <path d="M955.469 646.266h-14.292c-1.411 0-2.604-1.125-2.604-2.537 0-1.411 1.193-2.604 2.604-2.604h34.188c1.411 0 2.604 1.193 2.604 2.604 0 1.412-1.193 2.537-2.604 2.537h-14.271v41.64c0 1.547-1.261 2.823-2.802 2.823a2.81 2.81 0 0 1-2.802-2.823l-.021-41.64Z"/>
+            </g>
           </svg>
         </div>
+
+        {/* Loading text */}
+        <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 text-white/60 text-sm font-light tracking-wider">
+          Cargando
+          <span className="inline-flex ml-1">
+            <span className="animate-pulse" style={{ animationDelay: '0ms' }}>.</span>
+            <span className="animate-pulse" style={{ animationDelay: '200ms' }}>.</span>
+            <span className="animate-pulse" style={{ animationDelay: '400ms' }}>.</span>
+          </span>
+        </div>
+
+        {/* App Store Badges */}
+        <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 flex gap-3 items-center justify-center w-full px-4">
+          <img 
+            src="/images/App-Store.png" 
+            alt="App Store" 
+            className="h-12 w-auto"
+          />
+          <img 
+            src="/images/Google-Play.png" 
+            alt="Google Play" 
+            className="h-12 w-auto"
+          />
+        </div>
       </div>
-
-      <style>
-        {`
-          .loader {
-            width: fit-content;
-            height: fit-content;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-
-          .truckWrapper {
-            width: 200px;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            align-items: center;
-            justify-content: flex-end;
-            overflow-x: hidden;
-          }
-
-          .truckBody {
-            width: 130px;
-            height: fit-content;
-            margin-bottom: 6px;
-            animation: motion 1s linear infinite;
-          }
-
-          @keyframes motion {
-            0% {
-              transform: translateY(0px);
-            }
-            50% {
-              transform: translateY(3px);
-            }
-            100% {
-              transform: translateY(0px);
-            }
-          }
-
-          .truckTires {
-            width: 130px;
-            height: fit-content;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0px 10px 0px 15px;
-            position: absolute;
-            bottom: 0;
-          }
-
-          .truckTires svg {
-            width: 24px;
-          }
-
-          .road {
-            width: 100%;
-            height: 1.5px;
-            background-color: #282828;
-            position: relative;
-            bottom: 0;
-            align-self: flex-end;
-            border-radius: 3px;
-          }
-
-          .road::before {
-            content: "";
-            position: absolute;
-            width: 20px;
-            height: 100%;
-            background-color: #282828;
-            right: -50%;
-            border-radius: 3px;
-            animation: roadAnimation 1.4s linear infinite;
-            border-left: 10px solid white;
-          }
-
-          .road::after {
-            content: "";
-            position: absolute;
-            width: 10px;
-            height: 100%;
-            background-color: #282828;
-            right: -65%;
-            border-radius: 3px;
-            animation: roadAnimation 1.4s linear infinite;
-            border-left: 4px solid white;
-          }
-
-          .lampPost {
-            position: absolute;
-            bottom: 0;
-            right: -90%;
-            height: 90px;
-            animation: roadAnimation 1.4s linear infinite;
-          }
-
-          @keyframes roadAnimation {
-            0% {
-              transform: translateX(0px);
-            }
-            100% {
-              transform: translateX(-350px);
-            }
-          }
-        `}
-      </style>
-    </div>
+        </div>
+      )}
+    </>
   );
 };
+
+export default MyDriverPreload;

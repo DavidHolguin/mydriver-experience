@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Preloader } from '@/components/Preloader';
+import MyDriverPreload from '@/components/Preloader';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
 import { Hero } from '@/components/Hero';
@@ -14,7 +14,7 @@ const Index = () => {
 
   return (
     <>
-      <Preloader />
+      <MyDriverPreload />
       <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
       <Sidebar 
         isOpen={isSidebarOpen} 
