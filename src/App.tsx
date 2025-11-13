@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { PreloadProvider } from "./contexts/PreloadContext";
 import Index from "./pages/Index";
 import SocioConductor from "./pages/SocioConductor";
 import ConductorStandard from "./pages/ConductorStandard";
@@ -23,31 +24,33 @@ import { Descargas } from "./pages/Descargas";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/socio-conductor" element={<SocioConductor />} />
-          <Route path="/conductor-standard" element={<ConductorStandard />} />
-          <Route path="/socio-repartidor" element={<SocioRepartidor />} />
-          <Route path="/negocio-aliado" element={<NegocioAliado />} />
-          <Route path="/mydriver-cargo" element={<MyDriverCargo />} />
-          <Route path="/descargas" element={<Descargas />} />
-          <Route path="/terminos" element={<TerminosCondiciones />} />
-          <Route path="/politicas" element={<PoliticasPrivacidad />} />
-          <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/santuario-luciernagas" element={<SantuarioLuciernagas />} />
-          <Route path="/socio-flotilla" element={<SocioFlotilla />} />
-          <Route path="/carnaval-veracruz" element={<CarnavalVeracruz />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <PreloadProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/socio-conductor" element={<SocioConductor />} />
+            <Route path="/conductor-standard" element={<ConductorStandard />} />
+            <Route path="/socio-repartidor" element={<SocioRepartidor />} />
+            <Route path="/negocio-aliado" element={<NegocioAliado />} />
+            <Route path="/mydriver-cargo" element={<MyDriverCargo />} />
+            <Route path="/descargas" element={<Descargas />} />
+            <Route path="/terminos" element={<TerminosCondiciones />} />
+            <Route path="/politicas" element={<PoliticasPrivacidad />} />
+            <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/santuario-luciernagas" element={<SantuarioLuciernagas />} />
+            <Route path="/socio-flotilla" element={<SocioFlotilla />} />
+            <Route path="/carnaval-veracruz" element={<CarnavalVeracruz />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </PreloadProvider>
 );
 
 export default App;

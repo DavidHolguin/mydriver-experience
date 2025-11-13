@@ -88,6 +88,27 @@ export const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => v
         fixed top-0 left-0 h-full w-80 bg-white z-[70] transform transition-transform duration-300 ease-in-out flex flex-col
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
+        <style>{`
+          .sidebar-scroll::-webkit-scrollbar {
+            width: 8px;
+          }
+          .sidebar-scroll::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #b70000, #8b0000);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+          }
+          .sidebar-scroll::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #d40000, #a00000);
+            box-shadow: 0 0 6px rgba(183, 0, 0, 0.3);
+          }
+          .sidebar-scroll {
+            scrollbar-color: #b70000 transparent;
+            scrollbar-width: thin;
+          }
+        `}</style>
         <div className="flex justify-between items-center p-4 border-b">
           <img 
             src="https://monkeytwomonkey.com/wp-content/uploads/2025/02/CONDUCTOR-_2_-1-e1740108314236.webp"
@@ -104,7 +125,7 @@ export const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => v
           </Button>
         </div>
 
-        <div className="flex-1 py-4 space-y-6">
+        <div className="flex-1 py-4 space-y-6 overflow-y-auto sidebar-scroll pr-2">
           <div className="px-3">
             <a
               href="/"
@@ -136,85 +157,6 @@ export const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => v
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="border-t p-4">
-          {/* Sección de Descargas */}
-          <div className="grid grid-cols-2 gap-3">
-            {/* myDriver Pasajero */}
-            <div>
-              <h4 className="text-xs font-semibold mb-2 text-gray-700">Pasajero</h4>
-              <div className="space-y-2">
-                {/* iOS Pasajero */}
-                <div className="h-10 flex items-center">
-                  <a 
-                    href="https://apps.apple.com/us/app/mydrivertaxi/id6443749551" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <img 
-                      src="/images/ios.png"
-                      alt="Descargar myDriver Pasajero en App Store"
-                      className="h-10 w-auto"
-                    />
-                  </a>
-                </div>
-                {/* Android Pasajero */}
-                <div className="h-10 flex items-center">
-                  <a 
-                    href="https://play.google.com/store/apps/details?id=com.rider.mydrivermxn" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <img 
-                      src="/images/android.png"
-                      alt="Descargar myDriver Pasajero en Play Store"
-                      className="h-10 w-auto"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* myDriver Conductor */}
-            <div>
-              <h4 className="text-xs font-semibold mb-2 text-gray-700">Conductor</h4>
-              <div className="space-y-2">
-                {/* iOS Conductor */}
-                <div className="h-10 flex items-center">
-                  <a 
-                    href="https://apps.apple.com/us/app/mydriver-conductor-app/id6443749599" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <img 
-                      src="/images/ios.png"
-                      alt="Descargar myDriver Conductor en App Store"
-                      className="h-10 w-auto"
-                    />
-                  </a>
-                </div>
-                {/* Android Conductor */}
-                <div className="h-10 flex items-center">
-                  <a 
-                    href="https://play.google.com/store/apps/details?id=com.driver.mydrivermxn" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <img 
-                      src="/images/android.png"
-                      alt="Descargar myDriver Conductor en Play Store"
-                      className="h-10 w-auto"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </>
