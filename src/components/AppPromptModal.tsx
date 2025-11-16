@@ -113,7 +113,7 @@ export const AppPromptModal = () => {
             <div className="h-1 w-12 bg-gradient-to-r from-primary/0 via-primary to-primary/0 mx-auto mb-4"></div>
 
             {/* Texto principal */}
-            <p className="text-gray-700 text-lg mb-8 leading-6 px-2">
+            <p className="text-gray-700 text-base mb-8 leading-5 px-2">
               Sé de los primeros en descubrir myDriver Pasajero. Muévete sin complicaciones, 
               con tarifas justas y conductores de confianza. ¡Tu ciudad te espera!
             </p>
