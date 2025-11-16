@@ -3,7 +3,7 @@ import { Truck, Package, ShieldCheck, Timer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { DownloadBar } from '@/components/DownloadBar';
+import { AppPromptModal } from '@/components/AppPromptModal';
 import {
   Accordion,
   AccordionContent,
@@ -158,7 +158,7 @@ const MyDriverCargo = () => {
         title="Solicita MyDriver Cargo"
         subtitle="Soluciones logísticas a tu medida"
       />
-      <DownloadBar />
+      <AppPromptModal />
     </>
   );
 };

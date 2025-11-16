@@ -3,7 +3,7 @@ import { Building2, TrendingUp, Users, HeartHandshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { DownloadBar } from '@/components/DownloadBar';
+import { AppPromptModal } from '@/components/AppPromptModal';
 import { RegisterForm } from '@/components/RegisterForm';
 import {
   Accordion,
@@ -163,7 +163,7 @@ const NegocioAliado = () => {
           subtitle="Haz crecer tu negocio con nosotros"
         />
       </div>
-      <DownloadBar />
+      <AppPromptModal />
     </>
   );
 };

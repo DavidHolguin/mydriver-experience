@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { DownloadBar } from '@/components/DownloadBar';
+import { AppPromptModal } from '@/components/AppPromptModal';
 
 const TerminosCondiciones = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -61,7 +61,7 @@ const TerminosCondiciones = () => {
           </div>
         </div>
       </div>
-      <DownloadBar />
+      <AppPromptModal />
     </>
   );
 };

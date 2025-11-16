@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { DownloadBar } from '@/components/DownloadBar';
+import { AppPromptModal } from '@/components/AppPromptModal';
 import { Shield, Lock, Eye, FileCheck } from 'lucide-react';
 
 const PoliticasPrivacidad = () => {
@@ -96,7 +96,7 @@ const PoliticasPrivacidad = () => {
           </div>
         </div>
       </div>
-      <DownloadBar />
+      <AppPromptModal />
     </>
   );
 };

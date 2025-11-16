@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { DownloadBar } from '@/components/DownloadBar';
+import { AppPromptModal } from '@/components/AppPromptModal';
 import { Users, Target, Heart, Globe } from 'lucide-react';
 
 const SobreNosotros = () => {
@@ -121,7 +121,7 @@ const SobreNosotros = () => {
           </div>
         </section>
       </div>
-      <DownloadBar />
+      <AppPromptModal />
     </>
   );
 };

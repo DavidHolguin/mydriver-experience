@@ -3,7 +3,7 @@ import { DollarSign, Gavel, Wrench, ShieldCheck, Phone, Users, FileText, ThumbsU
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { DownloadBar } from '@/components/DownloadBar';
+import { AppPromptModal } from '@/components/AppPromptModal';
 import { RegisterForm } from '@/components/RegisterForm';
 import {
   Accordion,
@@ -263,7 +263,7 @@ const SocioConductor = () => {
           subtitle="Completa el formulario para comenzar a generar ingresos con tu vehículo."
         />
       </div>
-      <DownloadBar />
+      <AppPromptModal />
     </>
   );
 };

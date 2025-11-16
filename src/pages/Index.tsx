@@ -6,7 +6,7 @@ import { ServicesSection } from '@/components/ServicesSection';
 import { SecuritySection } from '@/components/SecuritySection';
 import { BusinessSection } from '@/components/BusinessSection';
 import { Footer } from '@/components/Footer';
-import { DownloadBar } from '@/components/DownloadBar';
+import { AppPromptModal } from '@/components/AppPromptModal';
 
 const Index = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -23,7 +23,7 @@ const Index = () => {
       <SecuritySection />
       <BusinessSection />
       <Footer />
-      <DownloadBar />
+      <AppPromptModal />
     </>
   );
 };

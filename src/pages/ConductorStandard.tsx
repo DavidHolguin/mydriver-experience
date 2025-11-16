@@ -3,7 +3,7 @@ import { Wallet, Calendar, Target, Award, CheckCircle, Smartphone, FileText } fr
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { DownloadBar } from '@/components/DownloadBar';
+import { AppPromptModal } from '@/components/AppPromptModal';
 import { RegisterForm } from '@/components/RegisterForm';
 import {
   Accordion,
@@ -241,7 +241,7 @@ const ConductorStandard = () => {
           subtitle="Completa el formulario para unirte a nuestra flota profesional."
         />
       </div>
-      <DownloadBar />
+      <AppPromptModal />
     </>
   );
 };

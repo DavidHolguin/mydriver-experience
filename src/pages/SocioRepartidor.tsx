@@ -3,7 +3,7 @@ import { Bike, Clock, DollarSign, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { DownloadBar } from '@/components/DownloadBar';
+import { AppPromptModal } from '@/components/AppPromptModal';
 import {
   Accordion,
   AccordionContent,
@@ -161,7 +161,7 @@ const SocioRepartidor = () => {
         title="Regístrate como Socio Repartidor"
         subtitle="Únete a nuestra red de repartidores"
       />
-      <DownloadBar />
+      <AppPromptModal />
     </>
   );
 };
