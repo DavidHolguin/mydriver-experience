@@ -125,7 +125,7 @@ export const AppPromptModal = () => {
                 href={getDownloadLink('android')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`transition-all duration-300 transform hover:scale-105 ${
+                className={`transition-all duration-300 transform hover:scale-105 inline-block ${
                   os === 'android' 
                     ? 'opacity-100 scale-105' 
                     : 'opacity-50 hover:opacity-75'
@@ -134,7 +134,7 @@ export const AppPromptModal = () => {
                 <img
                   src="/images/android.png"
                   alt="Descargar en Google Play"
-                  className="h-14 w-auto drop-shadow-md hover:drop-shadow-lg transition-all"
+                  className="w-32 h-auto object-contain drop-shadow-md hover:drop-shadow-lg transition-all"
                 />
               </a>
 
@@ -143,7 +143,7 @@ export const AppPromptModal = () => {
                 href={getDownloadLink('ios')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`transition-all duration-300 transform hover:scale-105 ${
+                className={`transition-all duration-300 transform hover:scale-105 inline-block ${
                   os === 'ios' 
                     ? 'opacity-100 scale-105' 
                     : 'opacity-50 hover:opacity-75'
@@ -152,7 +152,7 @@ export const AppPromptModal = () => {
                 <img
                   src="/images/ios.png"
                   alt="Descargar en App Store"
-                  className="h-14 w-auto drop-shadow-md hover:drop-shadow-lg transition-all"
+                  className="w-32 h-auto object-contain drop-shadow-md hover:drop-shadow-lg transition-all"
                 />
               </a>
             </div>
