@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { trackButtonClick } from '@/lib/gtmEvents';
 
 const slides = [
   {
@@ -70,7 +71,7 @@ export const Hero = () => {
         <p className="text-xl md:text-2xl text-white/90 mb-8">
           {currentSlide.subtitle}
         </p>
-        <Button asChild size="lg" variant="default" className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg">
+        <Button asChild size="lg" variant="default" className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg" onClick={() => trackButtonClick(currentSlide.buttonText, 'hero_slider')}>
           {currentSlide.isExternal ? (
             <a href={currentSlide.buttonLink} target="_blank" rel="noopener noreferrer">
               {currentSlide.buttonText}

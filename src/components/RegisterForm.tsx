@@ -3,6 +3,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { motion, AnimatePresence } from 'framer-motion';
+import { trackFormSubmit } from '@/lib/gtmEvents';
 
 interface RegisterFormProps {
   title: string;
@@ -21,6 +22,13 @@ export const RegisterForm = ({ title, subtitle, isOpen, onClose }: RegisterFormP
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Rastrear el envío del formulario en GTM
+    trackFormSubmit('registro_usuario', {
+      titulo_formulario: title,
+      ciudad: formData.city,
+    });
+    
     // Aquí iría la lógica de envío del formulario
     console.log(formData);
     onClose();

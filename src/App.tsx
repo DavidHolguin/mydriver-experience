@@ -5,6 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PreloadProvider } from "./contexts/PreloadContext";
+import { useGoogleTagManager } from "./hooks/useGoogleTagManager";
+import { GoogleTagManagerPageTracker } from "./components/GoogleTagManagerPageTracker";
 import Index from "./pages/Index";
 import SocioConductor from "./pages/SocioConductor";
 import ConductorStandard from "./pages/ConductorStandard";
@@ -25,13 +27,18 @@ import BlogPost from "./pages/BlogPost";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  // Inicializar Google Tag Manager
+  useGoogleTagManager();
+
+  return (
   <PreloadProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <GoogleTagManagerPageTracker />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/blog" element={<Blog />} />
@@ -55,6 +62,7 @@ const App = () => (
       </TooltipProvider>
     </QueryClientProvider>
   </PreloadProvider>
-);
+  );
+};
 
 export default App;
