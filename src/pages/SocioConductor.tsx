@@ -262,6 +262,16 @@ const SocioConductor = () => {
           title="Regístrate como Socio Conductor"
           subtitle="Completa el formulario para comenzar a generar ingresos con tu vehículo."
         />
+
+        {/* Embedded Form */}
+        <iframe 
+          src="https://mydriverapp.lovable.app/embed/socio_conductor?pipeline=socio_conductor&stage=c82c9b7c-324c-4035-9553-638a0a058774&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default" 
+          width="100%" 
+          height="100" 
+          frameBorder="0"
+          style={{border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px'}}
+          title="Socio Conductor Form"
+        />
       </div>
       <AppPromptModal />
     </>

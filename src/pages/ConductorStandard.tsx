@@ -240,6 +240,18 @@ const ConductorStandard = () => {
           title="Regístrate como Conductor Standard"
           subtitle="Completa el formulario para unirte a nuestra flota profesional."
         />
+
+        {/* Embedded Form */}
+        <div style={{position: 'fixed', bottom: '0px', left: '0px', right: '0px', padding: '0 16px 16px 16px', backgroundColor: 'transparent', zIndex: 1000}}>
+          <iframe 
+            src="https://mydriverapp.lovable.app/embed/conductor_standard?pipeline=conductor_standard&stage=b95af692-71cd-4568-8d9f-3ff2fadc5832&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default" 
+            width="100%" 
+            height="100px" 
+            frameBorder="0"
+            style={{border: 'none', borderRadius: '8px'}}
+            title="Conductor Standard Form"
+          />
+        </div>
       </div>
       <AppPromptModal />
     </>
