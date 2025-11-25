@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
 import { AppPromptModal } from '@/components/AppPromptModal';
-import { RegisterForm } from '@/components/RegisterForm';
+
 import {
   Accordion,
   AccordionContent,
@@ -52,14 +52,14 @@ const faqs = [
 
 const NegocioAliado = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+
 
   return (
     <>
       <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={() => setIsSidebarOpen(false)} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
       <div className="pt-16">
         {/* Hero Section */}
@@ -73,10 +73,10 @@ const NegocioAliado = () => {
                 <p className="text-xl text-gray-600 mb-8">
                   Incrementa tus ventas y alcance uniéndote a nuestra plataforma.
                 </p>
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
-                  onClick={() => setIsRegisterOpen(true)}
+                  onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrar%20mi%20negocio%20en%20MyDriver.", "_blank")}
                 >
                   Registra tu negocio
                 </Button>
@@ -100,7 +100,7 @@ const NegocioAliado = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit) => (
-                <div 
+                <div
                   key={benefit.title}
                   className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
                 >
@@ -142,10 +142,10 @@ const NegocioAliado = () => {
               Descubre cómo podemos ayudarte a hacer crecer tu negocio.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white px-8 h-12 text-lg"
-                onClick={() => setIsRegisterOpen(true)}
+                onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrar%20mi%20negocio%20en%20MyDriver.", "_blank")}
               >
                 Registra tu negocio
               </Button>
@@ -156,13 +156,15 @@ const NegocioAliado = () => {
           </div>
         </section>
 
-        <RegisterForm
-          isOpen={isRegisterOpen}
-          onClose={() => setIsRegisterOpen(false)}
-          title="Registra tu Negocio"
-          subtitle="Haz crecer tu negocio con nosotros"
-        />
+
       </div>
+      <iframe
+        src="https://mydriverapp.lovable.app/embed/negocio_aliado?pipeline=negocio_aliado&stage=733cf472-c61d-4fc9-9a14-8b0c8d4481b0&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default"
+        width="100%"
+        height="100"
+        style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
+        title="Negocio Aliado Form"
+      />
       <AppPromptModal />
     </>
   );

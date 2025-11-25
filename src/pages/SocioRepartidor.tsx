@@ -10,7 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { RegisterForm } from '@/components/RegisterForm';
+
 
 const benefits = [
   {
@@ -46,14 +46,14 @@ const requirements = [
 
 const SocioRepartidor = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+
 
   return (
     <>
       <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={() => setIsSidebarOpen(false)} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
       <div className="pt-16">
         {/* Hero Section */}
@@ -67,10 +67,10 @@ const SocioRepartidor = () => {
                 <p className="text-xl text-gray-600 mb-8">
                   Únete a MyDriver ENTREGAS y genera ingresos extras en tus tiempos libres.
                 </p>
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
-                  onClick={() => setIsRegisterOpen(true)}
+                  onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Repartidor.", "_blank")}
                 >
                   Regístrate como repartidor
                 </Button>
@@ -94,7 +94,7 @@ const SocioRepartidor = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit) => (
-                <div 
+                <div
                   key={benefit.title}
                   className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
                 >
@@ -116,7 +116,7 @@ const SocioRepartidor = () => {
             <div className="max-w-3xl mx-auto">
               <div className="grid gap-6">
                 {requirements.map((req, index) => (
-                  <div 
+                  <div
                     key={req}
                     className="flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm animate-fade-in"
                   >
@@ -141,10 +141,10 @@ const SocioRepartidor = () => {
               Forma parte de la comunidad de repartidores más grande y mejor pagada.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-primary text-white"
-                onClick={() => setIsRegisterOpen(true)}
+                onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Repartidor.", "_blank")}
               >
                 Quiero ser repartidor
               </Button>
@@ -155,11 +155,13 @@ const SocioRepartidor = () => {
           </div>
         </section>
       </div>
-      <RegisterForm
-        isOpen={isRegisterOpen}
-        onClose={() => setIsRegisterOpen(false)}
-        title="Regístrate como Socio Repartidor"
-        subtitle="Únete a nuestra red de repartidores"
+
+      <iframe
+        src="https://mydriverapp.lovable.app/embed/socio_repartidor?pipeline=socio_repartidor&stage=ff8ba23a-83e9-467d-9374-af7bf7205562&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default"
+        width="100%"
+        height="100"
+        style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
+        title="Socio Repartidor Form"
       />
       <AppPromptModal />
     </>

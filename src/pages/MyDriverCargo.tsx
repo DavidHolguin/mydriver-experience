@@ -10,7 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { RegisterForm } from '@/components/RegisterForm';
+
 
 const benefits = [
   {
@@ -52,14 +52,14 @@ const faqs = [
 
 const MyDriverCargo = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+
 
   return (
     <>
       <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={() => setIsSidebarOpen(false)} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
       <div className="pt-16">
         {/* Hero Section */}
@@ -73,10 +73,10 @@ const MyDriverCargo = () => {
                 <p className="text-xl text-gray-600 mb-8">
                   Transporte de carga confiable y seguro para tus necesidades logísticas.
                 </p>
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
-                  onClick={() => setIsRegisterOpen(true)}
+                  onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20MyDriver%20Cargo.", "_blank")}
                 >
                   Cotizar servicio
                 </Button>
@@ -100,7 +100,7 @@ const MyDriverCargo = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit) => (
-                <div 
+                <div
                   key={benefit.title}
                   className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
                 >
@@ -142,7 +142,7 @@ const MyDriverCargo = () => {
               Soluciones logísticas adaptadas a tus necesidades empresariales.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary text-white">
+              <Button size="lg" className="bg-primary text-white" onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20MyDriver%20Cargo.", "_blank")}>
                 Solicitar servicio
               </Button>
               <Button size="lg" variant="outline">
@@ -152,11 +152,13 @@ const MyDriverCargo = () => {
           </div>
         </section>
       </div>
-      <RegisterForm
-        isOpen={isRegisterOpen}
-        onClose={() => setIsRegisterOpen(false)}
-        title="Solicita MyDriver Cargo"
-        subtitle="Soluciones logísticas a tu medida"
+
+      <iframe
+        src="https://mydriverapp.lovable.app/embed/mydriver_cargo?pipeline=mydriver_cargo&stage=d207cf32-6ec1-4fd2-aa32-010ad37a49e8&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default"
+        width="100%"
+        height="100"
+        style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
+        title="MyDriver Cargo Form"
       />
       <AppPromptModal />
     </>

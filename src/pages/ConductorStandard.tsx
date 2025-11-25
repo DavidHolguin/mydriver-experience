@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
 import { AppPromptModal } from '@/components/AppPromptModal';
-import { RegisterForm } from '@/components/RegisterForm';
+
 import {
   Accordion,
   AccordionContent,
@@ -36,40 +36,40 @@ const benefits = [
 ];
 
 const howItWorks = [
-    {
-        step: "1",
-        title: "Regístrate en Minutos",
-        description: "Completa nuestro sencillo formulario en línea con tu información básica y documentos."
-    },
-    {
-        step: "2",
-        title: "Elige tu Plan",
-        description: "Selecciona el esquema de comisiones que mejor se adapte a tu estilo de trabajo y finanzas."
-    },
-    {
-        step: "3",
-        title: "Conduce y Gana",
-        description: "Una vez aprobado, activa la app, empieza a recibir viajes y a generar ganancias inmediatamente."
-    }
+  {
+    step: "1",
+    title: "Regístrate en Minutos",
+    description: "Completa nuestro sencillo formulario en línea con tu información básica y documentos."
+  },
+  {
+    step: "2",
+    title: "Elige tu Plan",
+    description: "Selecciona el esquema de comisiones que mejor se adapte a tu estilo de trabajo y finanzas."
+  },
+  {
+    step: "3",
+    title: "Conduce y Gana",
+    description: "Una vez aprobado, activa la app, empieza a recibir viajes y a generar ganancias inmediatamente."
+  }
 ];
 
 const requirements = [
-    {
-        icon: CheckCircle,
-        text: "Ser mayor de 18 años."
-    },
-    {
-        icon: FileText,
-        text: "Licencia de conducir vigente."
-    },
-    {
-        icon: Smartphone,
-        text: "Smartphone con plan de datos."
-    },
-     {
-        icon: CheckCircle,
-        text: "Pasar nuestra verificación de seguridad."
-    }
+  {
+    icon: CheckCircle,
+    text: "Ser mayor de 18 años."
+  },
+  {
+    icon: FileText,
+    text: "Licencia de conducir vigente."
+  },
+  {
+    icon: Smartphone,
+    text: "Smartphone con plan de datos."
+  },
+  {
+    icon: CheckCircle,
+    text: "Pasar nuestra verificación de seguridad."
+  }
 ]
 
 const faqs = [
@@ -89,18 +89,18 @@ const faqs = [
 
 const ConductorStandard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+
 
   return (
     <>
       <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={() => setIsSidebarOpen(false)} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
       <div className="pt-16 bg-white text-gray-800">
         {/* Hero Section */}
-        <section 
+        <section
           className="relative bg-cover bg-center py-20 md:py-32"
           style={{ backgroundImage: "url('/images/conductorStandard.webp')" }}
         >
@@ -112,10 +112,10 @@ const ConductorStandard = () => {
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
               Únete a MyDriver como Conductor Standard. Disfruta de comisiones flexibles, horarios libres y el control total de tus ganancias.
             </p>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white text-lg px-8 py-6"
-              onClick={() => setIsRegisterOpen(true)}
+              onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Conductor%20Standard.", "_blank")}
             >
               Regístrate para Conducir
             </Button>
@@ -126,15 +126,15 @@ const ConductorStandard = () => {
         <section className="py-20">
           <div className="container px-4 mx-auto">
             <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold">Ventajas del Programa Standard</h2>
-                <p className="text-lg text-gray-600 mt-2">Beneficios pensados para ti.</p>
+              <h2 className="text-3xl md:text-4xl font-bold">Ventajas del Programa Standard</h2>
+              <p className="text-lg text-gray-600 mt-2">Beneficios pensados para ti.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit) => (
                 <div key={benefit.title} className="p-6 text-center">
                   <div className="flex justify-center mb-4">
                     <div className="p-4 bg-[#ab1818]/10 rounded-full">
-                        <benefit.icon className="w-8 h-8 text-[#ab1818]" />
+                      <benefit.icon className="w-8 h-8 text-[#ab1818]" />
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
@@ -144,62 +144,62 @@ const ConductorStandard = () => {
             </div>
           </div>
         </section>
-        
+
         {/* How it works Section */}
         <section className="py-20 bg-gray-50">
-            <div className="container px-4 mx-auto">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">¿Cómo Funciona?</h2>
-                    <p className="text-lg text-gray-600 mt-2">En 3 simples pasos estarás en camino.</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    {howItWorks.map((item) => (
-                        <div key={item.step} className="p-6">
-                            <div className="flex justify-center items-center mx-auto w-16 h-16 bg-[#ab1818] text-white text-2xl font-bold rounded-full mb-4">
-                                {item.step}
-                            </div>
-                            <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                            <p className="text-gray-600">{item.description}</p>
-                        </div>
-                    ))}
-                </div>
+          <div className="container px-4 mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold">¿Cómo Funciona?</h2>
+              <p className="text-lg text-gray-600 mt-2">En 3 simples pasos estarás en camino.</p>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              {howItWorks.map((item) => (
+                <div key={item.step} className="p-6">
+                  <div className="flex justify-center items-center mx-auto w-16 h-16 bg-[#ab1818] text-white text-2xl font-bold rounded-full mb-4">
+                    {item.step}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <p className="text-gray-600">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* Requirements Section */}
         <section className="py-20">
-            <div className="container px-4 mx-auto">
-                <div className="flex flex-col lg:flex-row items-center gap-12">
-                    <div className="lg:w-1/2">
-                        <img
-                            src="/images/standard-driver.webp"
-                            alt="Conductor Standard sonriendo"
-                            className="w-full rounded-2xl shadow-lg"
-                        />
-                    </div>
-                    <div className="lg:w-1/2">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">Requisitos para Unirte</h2>
-                        <p className="text-lg text-gray-600 mb-8">
-                            Esto es lo que necesitas para empezar a conducir con nosotros:
-                        </p>
-                        <ul className="space-y-4">
-                            {requirements.map((req) => (
-                                <li key={req.text} className="flex items-center">
-                                    <req.icon className="w-6 h-6 text-green-500 mr-3" />
-                                    <span className="text-lg">{req.text}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+          <div className="container px-4 mx-auto">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              <div className="lg:w-1/2">
+                <img
+                  src="/images/standard-driver.webp"
+                  alt="Conductor Standard sonriendo"
+                  className="w-full rounded-2xl shadow-lg"
+                />
+              </div>
+              <div className="lg:w-1/2">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">Requisitos para Unirte</h2>
+                <p className="text-lg text-gray-600 mb-8">
+                  Esto es lo que necesitas para empezar a conducir con nosotros:
+                </p>
+                <ul className="space-y-4">
+                  {requirements.map((req) => (
+                    <li key={req.text} className="flex items-center">
+                      <req.icon className="w-6 h-6 text-green-500 mr-3" />
+                      <span className="text-lg">{req.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
+          </div>
         </section>
 
         {/* FAQ Section */}
         <section className="py-20 bg-gray-50">
           <div className="container px-4 mx-auto">
             <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold">Preguntas Frecuentes</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">Preguntas Frecuentes</h2>
             </div>
             <div className="max-w-3xl mx-auto">
               <Accordion type="single" collapsible className="w-full">
@@ -215,7 +215,7 @@ const ConductorStandard = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 text-white" style={{backgroundColor: '#ab1818'}}>
+        <section className="py-20 text-white" style={{ backgroundColor: '#ab1818' }}>
           <div className="container px-4 mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               ¿Listo para Tomar el Volante?
@@ -223,32 +223,26 @@ const ConductorStandard = () => {
             <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Únete a la comunidad de conductores que ya están ganando más con MyDriver.
             </p>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="secondary"
               className="bg-white text-[#ab1818] hover:bg-gray-200 text-lg px-8 py-6"
-              onClick={() => setIsRegisterOpen(true)}
+              onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Conductor%20Standard.", "_blank")}
             >
               Quiero Registrarme Ahora
             </Button>
           </div>
         </section>
 
-        <RegisterForm
-          isOpen={isRegisterOpen}
-          onClose={() => setIsRegisterOpen(false)}
-          title="Regístrate como Conductor Standard"
-          subtitle="Completa el formulario para unirte a nuestra flota profesional."
-        />
+
 
         {/* Embedded Form */}
-        <div style={{position: 'fixed', bottom: '0px', left: '0px', right: '0px', padding: '0 16px 16px 16px', backgroundColor: 'transparent', zIndex: 1000}}>
-          <iframe 
-            src="https://mydriverapp.lovable.app/embed/conductor_standard?pipeline=conductor_standard&stage=b95af692-71cd-4568-8d9f-3ff2fadc5832&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default" 
-            width="100%" 
-            height="100px" 
-            frameBorder="0"
-            style={{border: 'none', borderRadius: '8px'}}
+        <div style={{ position: 'fixed', bottom: '0px', left: '0px', right: '0px', padding: '0 16px 16px 16px', backgroundColor: 'transparent', zIndex: 1000 }}>
+          <iframe
+            src="https://mydriverapp.lovable.app/embed/conductor_standard?pipeline=conductor_standard&stage=b95af692-71cd-4568-8d9f-3ff2fadc5832&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default"
+            width="100%"
+            height="100"
+            style={{ border: 'none', borderRadius: '8px' }}
             title="Conductor Standard Form"
           />
         </div>

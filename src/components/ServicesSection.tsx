@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
-import { RegisterForm } from './RegisterForm';
+
 
 interface ServiceCardProps {
   title: string;
   description: string;
   image: string;
   link: string;
-  onRegister: () => void;
+
   registerText?: string;
-  whatsappLink?: string;
+  whatsappLink: string;
 }
 
-const ServiceCard = ({ title, description, image, link, onRegister, registerText = "Registrarme", whatsappLink }: ServiceCardProps) => (
+const ServiceCard = ({ title, description, image, link, registerText = "Registrarme", whatsappLink }: ServiceCardProps) => (
   <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:scale-[1.02]">
     <div className="h-48 overflow-hidden">
       <img
@@ -32,30 +32,21 @@ const ServiceCard = ({ title, description, image, link, onRegister, registerText
         >
           Más información
         </Button>
-        {whatsappLink ? (
-          <Button
-            asChild
-            className="flex-1 h-11 bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
-          >
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              {registerText}
-            </a>
-          </Button>
-        ) : (
-          <Button
-            className="flex-1 h-11 bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
-            onClick={onRegister}
-          >
+        <Button
+          asChild
+          className="flex-1 h-11 bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
+        >
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
             {registerText}
-          </Button>
-        )}
+          </a>
+        </Button>
       </div>
     </div>
   </div>
 );
 
 export const ServicesSection = () => {
-  const [selectedService, setSelectedService] = useState<string | null>(null);
+
 
   const services = [
     {
@@ -73,7 +64,7 @@ export const ServicesSection = () => {
       link: "/socio-conductor",
       formTitle: "Regístrate como Socio Conductor",
       formSubtitle: "Comienza a generar ingresos con tu vehículo",
-      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20Socio%20Conductor."
+      whatsappLink: "https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Conductor."
     },
     {
       title: "Conductor Standard",
@@ -82,7 +73,7 @@ export const ServicesSection = () => {
       link: "/conductor-standard",
       formTitle: "Regístrate como Conductor Standard",
       formSubtitle: "Únete a nuestra flota profesional",
-      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20Conductor%20Standard."
+      whatsappLink: "https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Conductor%20Standard."
     },
     {
       title: "Socio Repartidor",
@@ -91,7 +82,7 @@ export const ServicesSection = () => {
       link: "/socio-repartidor",
       formTitle: "Regístrate como Socio Repartidor",
       formSubtitle: "Únete a nuestra red de repartidores",
-      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20Socio%20Repartidor."
+      whatsappLink: "https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Repartidor."
     },
     {
       title: "Negocio Aliado",
@@ -100,7 +91,7 @@ export const ServicesSection = () => {
       link: "/negocio-aliado",
       formTitle: "Regístrate como Negocio Aliado",
       formSubtitle: "Haz crecer tu negocio con nosotros",
-      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20Negocio%20Aliado."
+      whatsappLink: "https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrar%20mi%20negocio%20en%20MyDriver."
     },
     {
       title: "MyDriver Cargo",
@@ -109,7 +100,7 @@ export const ServicesSection = () => {
       link: "/mydriver-cargo",
       formTitle: "Solicita MyDriver Cargo",
       formSubtitle: "Soluciones logísticas a tu medida",
-      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20registrarme%20para%20el%20servicio%20de%20MyDriver%20Cargo."
+      whatsappLink: "https://wa.me/5212461569161?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20MyDriver%20Cargo."
     },
     {
       title: "Santuario de las Luciérnagas",
@@ -129,7 +120,7 @@ export const ServicesSection = () => {
     }
   ];
 
-  const selectedServiceData = services.find(s => s.title === selectedService);
+
 
   return (
     <section className="py-16 bg-gray-50">
@@ -146,17 +137,11 @@ export const ServicesSection = () => {
             <ServiceCard
               key={service.title}
               {...service}
-              onRegister={() => setSelectedService(service.title)}
             />
           ))}
         </div>
 
-        <RegisterForm
-          title={selectedServiceData?.formTitle || ''}
-          subtitle={selectedServiceData?.formSubtitle || ''}
-          isOpen={!!selectedService}
-          onClose={() => setSelectedService(null)}
-        />
+
       </div>
     </section>
   );

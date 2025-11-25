@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
 import { AppPromptModal } from '@/components/AppPromptModal';
-import { RegisterForm } from '@/components/RegisterForm';
+
 import {
   Accordion,
   AccordionContent,
@@ -56,52 +56,52 @@ const benefits = [
 ];
 
 const howItWorks = [
-    {
-        step: "1",
-        title: "Completa tu Registro",
-        description: "Sube tus documentos y los de tu vehículo a nuestra plataforma de forma rápida y segura."
-    },
-    {
-        step: "2",
-        title: "Pasa la Verificación",
-        description: "Nuestro equipo revisará tu información y el estado de tu vehículo para garantizar la seguridad."
-    },
-    {
-        step: "3",
-        title: "Empieza a Ganar",
-        description: "Una vez aprobado, conéctate a la red MyDriver y empieza a recibir viajes con la mejor tarifa del mercado."
-    }
+  {
+    step: "1",
+    title: "Completa tu Registro",
+    description: "Sube tus documentos y los de tu vehículo a nuestra plataforma de forma rápida y segura."
+  },
+  {
+    step: "2",
+    title: "Pasa la Verificación",
+    description: "Nuestro equipo revisará tu información y el estado de tu vehículo para garantizar la seguridad."
+  },
+  {
+    step: "3",
+    title: "Empieza a Ganar",
+    description: "Una vez aprobado, conéctate a la red MyDriver y empieza a recibir viajes con la mejor tarifa del mercado."
+  }
 ];
 
 const requirements = [
-    {
-        icon: Car,
-        text: "Vehículo propio en buen estado (mínimo 2016)."
-    },
-    {
-        icon: FileText,
-        text: "Licencia de conducir vigente."
-    },
-    {
-        icon: UserCircle,
-        text: "INE o identificación oficial vigente."
-    },
-    {
-        icon: Home,
-        text: "Comprobante de domicilio (no mayor a 3 meses)."
-    },
-    {
-        icon: FileCheck2,
-        text: "Carta de no antecedentes penales (opcional)."
-    },
-    {
-        icon: ShieldCheck,
-        text: "Seguro del vehículo vigente."
-    },
-    {
-        icon: CreditCard,
-        text: "Pago único de registro y afiliación vehicular."
-    }
+  {
+    icon: Car,
+    text: "Vehículo propio en buen estado (mínimo 2016)."
+  },
+  {
+    icon: FileText,
+    text: "Licencia de conducir vigente."
+  },
+  {
+    icon: UserCircle,
+    text: "INE o identificación oficial vigente."
+  },
+  {
+    icon: Home,
+    text: "Comprobante de domicilio (no mayor a 3 meses)."
+  },
+  {
+    icon: FileCheck2,
+    text: "Carta de no antecedentes penales (opcional)."
+  },
+  {
+    icon: ShieldCheck,
+    text: "Seguro del vehículo vigente."
+  },
+  {
+    icon: CreditCard,
+    text: "Pago único de registro y afiliación vehicular."
+  }
 ]
 
 const faqs = [
@@ -121,18 +121,18 @@ const faqs = [
 
 const SocioConductor = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+
 
   return (
     <>
       <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={() => setIsSidebarOpen(false)} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
       <div className="pt-16 bg-white text-gray-800">
         {/* Hero Section */}
-        <section 
+        <section
           className="relative bg-cover bg-center py-20 md:py-32"
           style={{ backgroundImage: "url('/images/conductorSocio.webp')" }}
         >
@@ -144,10 +144,10 @@ const SocioConductor = () => {
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
               ¡Únete como Socio-Conductor MyDriver! Disfruta la comisión más baja del mercado y el control total de tus ganancias.
             </p>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white text-lg px-8 py-6"
-              onClick={() => setIsRegisterOpen(true)}
+              onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Conductor.", "_blank")}
             >
               Únete a MyDriver
             </Button>
@@ -158,15 +158,15 @@ const SocioConductor = () => {
         <section className="py-20">
           <div className="container px-4 mx-auto">
             <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold">Beneficios de ser Socio-Conductor</h2>
-                <p className="text-lg text-gray-600 mt-2">Te respaldamos en cada viaje.</p>
+              <h2 className="text-3xl md:text-4xl font-bold">Beneficios de ser Socio-Conductor</h2>
+              <p className="text-lg text-gray-600 mt-2">Te respaldamos en cada viaje.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit) => (
                 <div key={benefit.title} className="p-6 text-center">
                   <div className="flex justify-center mb-4">
                     <div className="p-4 bg-[#ab1818]/10 rounded-full">
-                        <benefit.icon className="w-8 h-8 text-[#ab1818]" />
+                      <benefit.icon className="w-8 h-8 text-[#ab1818]" />
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
@@ -176,52 +176,52 @@ const SocioConductor = () => {
             </div>
           </div>
         </section>
-        
+
         {/* How it works Section */}
         <section className="py-20 bg-gray-50">
-            <div className="container px-4 mx-auto">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">¿Cómo Funciona?</h2>
-                    <p className="text-lg text-gray-600 mt-2">En 3 simples pasos estarás en camino.</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    {howItWorks.map((item) => (
-                        <div key={item.step} className="p-6">
-                            <div className="flex justify-center items-center mx-auto w-16 h-16 bg-[#ab1818] text-white text-2xl font-bold rounded-full mb-4">
-                                {item.step}
-                            </div>
-                            <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                            <p className="text-gray-600">{item.description}</p>
-                        </div>
-                    ))}
-                </div>
+          <div className="container px-4 mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold">¿Cómo Funciona?</h2>
+              <p className="text-lg text-gray-600 mt-2">En 3 simples pasos estarás en camino.</p>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              {howItWorks.map((item) => (
+                <div key={item.step} className="p-6">
+                  <div className="flex justify-center items-center mx-auto w-16 h-16 bg-[#ab1818] text-white text-2xl font-bold rounded-full mb-4">
+                    {item.step}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <p className="text-gray-600">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* Requirements Section */}
         <section className="py-20">
-            <div className="container px-4 mx-auto">
-                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">Requisitos para Unirte</h2>
-                </div>
-                <div className="max-w-4xl mx-auto">
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                        {requirements.map((req) => (
-                            <li key={req.text} className="flex items-center">
-                                <req.icon className="w-6 h-6 text-green-500 mr-3 flex-shrink-0" />
-                                <span className="text-lg">{req.text}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+          <div className="container px-4 mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold">Requisitos para Unirte</h2>
             </div>
+            <div className="max-w-4xl mx-auto">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                {requirements.map((req) => (
+                  <li key={req.text} className="flex items-center">
+                    <req.icon className="w-6 h-6 text-green-500 mr-3 flex-shrink-0" />
+                    <span className="text-lg">{req.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </section>
 
         {/* FAQ Section */}
         <section className="py-20 bg-gray-50">
           <div className="container px-4 mx-auto">
             <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold">Preguntas Frecuentes</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">Preguntas Frecuentes</h2>
             </div>
             <div className="max-w-3xl mx-auto">
               <Accordion type="single" collapsible className="w-full">
@@ -237,7 +237,7 @@ const SocioConductor = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 text-white" style={{backgroundColor: '#ab1818'}}>
+        <section className="py-20 text-white" style={{ backgroundColor: '#ab1818' }}>
           <div className="container px-4 mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               ¿Listo para ser tu Propio Jefe?
@@ -245,31 +245,25 @@ const SocioConductor = () => {
             <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Únete a la comunidad de socios-conductores que ya están maximizando sus ganancias con MyDriver.
             </p>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="secondary"
               className="bg-white text-[#ab1818] hover:bg-gray-200 text-lg px-8 py-6"
-              onClick={() => setIsRegisterOpen(true)}
+              onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Conductor.", "_blank")}
             >
               Quiero Registrarme Ahora
             </Button>
           </div>
         </section>
 
-        <RegisterForm
-          isOpen={isRegisterOpen}
-          onClose={() => setIsRegisterOpen(false)}
-          title="Regístrate como Socio Conductor"
-          subtitle="Completa el formulario para comenzar a generar ingresos con tu vehículo."
-        />
+
 
         {/* Embedded Form */}
-        <iframe 
-          src="https://mydriverapp.lovable.app/embed/socio_conductor?pipeline=socio_conductor&stage=c82c9b7c-324c-4035-9553-638a0a058774&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default" 
-          width="100%" 
-          height="100" 
-          frameBorder="0"
-          style={{border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px'}}
+        <iframe
+          src="https://mydriverapp.lovable.app/embed/socio_conductor?pipeline=socio_conductor&stage=c82c9b7c-324c-4035-9553-638a0a058774&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default"
+          width="100%"
+          height="100"
+          style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
           title="Socio Conductor Form"
         />
       </div>
