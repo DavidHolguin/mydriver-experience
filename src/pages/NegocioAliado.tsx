@@ -3,7 +3,7 @@ import { Building2, TrendingUp, Users, HeartHandshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { AppPromptModal } from '@/components/AppPromptModal';
+
 
 import {
   Accordion,
@@ -165,7 +165,7 @@ const NegocioAliado = () => {
         style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
         title="Negocio Aliado Form"
       />
-      <AppPromptModal />
+
     </>
   );
 };

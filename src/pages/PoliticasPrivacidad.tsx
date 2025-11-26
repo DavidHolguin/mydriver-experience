@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { AppPromptModal } from '@/components/AppPromptModal';
+
 import { Shield, Lock, Eye, FileCheck } from 'lucide-react';
 
 const PoliticasPrivacidad = () => {
@@ -34,9 +34,9 @@ const PoliticasPrivacidad = () => {
   return (
     <>
       <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={() => setIsSidebarOpen(false)} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
       <div className="pt-16 min-h-screen bg-gray-50">
         <div className="container mx-auto px-4 py-12">
@@ -52,7 +52,7 @@ const PoliticasPrivacidad = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {sections.map((section) => (
-                <div 
+                <div
                   key={section.title}
                   className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
                 >
@@ -96,7 +96,7 @@ const PoliticasPrivacidad = () => {
           </div>
         </div>
       </div>
-      <AppPromptModal />
+
     </>
   );
 };

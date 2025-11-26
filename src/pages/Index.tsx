@@ -6,7 +6,7 @@ import { ServicesSection } from '@/components/ServicesSection';
 import { SecuritySection } from '@/components/SecuritySection';
 import { BusinessSection } from '@/components/BusinessSection';
 import { Footer } from '@/components/Footer';
-import { AppPromptModal } from '@/components/AppPromptModal';
+
 
 const Index = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -30,7 +30,7 @@ const Index = () => {
         style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
         title="Usuario Pasajero Form"
       />
-      <AppPromptModal />
+
     </>
   );
 };

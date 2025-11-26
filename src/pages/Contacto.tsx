@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { AppPromptModal } from '@/components/AppPromptModal';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -41,9 +41,9 @@ const Contacto = () => {
   return (
     <>
       <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={() => setIsSidebarOpen(false)} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
       <div className="pt-16">
         {/* Hero Section */}
@@ -112,8 +112,8 @@ const Contacto = () => {
                     <label className="block text-sm font-medium mb-2" htmlFor="message">
                       Mensaje
                     </label>
-                    <Textarea 
-                      id="message" 
+                    <Textarea
+                      id="message"
                       placeholder="Escribe tu mensaje aquí..."
                       className="min-h-[150px]"
                     />
@@ -127,7 +127,7 @@ const Contacto = () => {
           </div>
         </section>
       </div>
-      <AppPromptModal />
+
     </>
   );
 };

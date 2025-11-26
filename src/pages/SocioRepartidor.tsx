@@ -3,7 +3,7 @@ import { Bike, Clock, DollarSign, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { AppPromptModal } from '@/components/AppPromptModal';
+
 import {
   Accordion,
   AccordionContent,
@@ -163,7 +163,7 @@ const SocioRepartidor = () => {
         style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
         title="Socio Repartidor Form"
       />
-      <AppPromptModal />
+
     </>
   );
 };

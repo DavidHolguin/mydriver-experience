@@ -3,7 +3,7 @@ import { Wallet, Calendar, Target, Award, CheckCircle, Smartphone, FileText } fr
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { AppPromptModal } from '@/components/AppPromptModal';
+
 
 import {
   Accordion,
@@ -247,7 +247,7 @@ const ConductorStandard = () => {
           />
         </div>
       </div>
-      <AppPromptModal />
+
     </>
   );
 };

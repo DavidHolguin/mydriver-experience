@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { AppPromptModal } from '@/components/AppPromptModal';
+
 
 const TerminosCondiciones = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -10,9 +10,9 @@ const TerminosCondiciones = () => {
   return (
     <>
       <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={() => setIsSidebarOpen(false)} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
       <div className="pt-16 min-h-screen bg-gray-50">
         <div className="container mx-auto px-4 py-12">
@@ -20,7 +20,7 @@ const TerminosCondiciones = () => {
             <h1 className="text-4xl font-bold text-gray-900">
               Términos y Condiciones
             </h1>
-            
+
             <section className="space-y-4">
               <h2 className="text-2xl font-semibold text-gray-900">1. Introducción</h2>
               <p className="text-gray-600 leading-relaxed">
@@ -61,7 +61,7 @@ const TerminosCondiciones = () => {
           </div>
         </div>
       </div>
-      <AppPromptModal />
+
     </>
   );
 };

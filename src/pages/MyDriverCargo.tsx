@@ -3,7 +3,7 @@ import { Truck, Package, ShieldCheck, Timer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { AppPromptModal } from '@/components/AppPromptModal';
+
 import {
   Accordion,
   AccordionContent,
@@ -160,7 +160,7 @@ const MyDriverCargo = () => {
         style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
         title="MyDriver Cargo Form"
       />
-      <AppPromptModal />
+
     </>
   );
 };

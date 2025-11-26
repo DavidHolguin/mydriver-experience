@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
-import { AppPromptModal } from '@/components/AppPromptModal';
+
 import { Users, Target, Heart, Globe } from 'lucide-react';
 
 const SobreNosotros = () => {
@@ -34,9 +34,9 @@ const SobreNosotros = () => {
   return (
     <>
       <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={() => setIsSidebarOpen(false)} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
       <div className="pt-16">
         {/* Hero Section */}
@@ -62,7 +62,7 @@ const SobreNosotros = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {values.map((value) => (
-                <div 
+                <div
                   key={value.title}
                   className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
                 >
@@ -121,7 +121,7 @@ const SobreNosotros = () => {
           </div>
         </section>
       </div>
-      <AppPromptModal />
+
     </>
   );
 };
