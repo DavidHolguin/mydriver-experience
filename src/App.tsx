@@ -24,6 +24,9 @@ import SocioFlotilla from "./pages/SocioFlotilla";
 import { Descargas } from "./pages/Descargas";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Experiencias from "./pages/Experiencias";
+import ExperienciaDetalle from "./pages/ExperienciaDetalle";
+import Temporada from "./pages/Temporada";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +59,9 @@ const App = () => {
             <Route path="/santuario-luciernagas" element={<SantuarioLuciernagas />} />
             <Route path="/socio-flotilla" element={<SocioFlotilla />} />
             <Route path="/carnaval-veracruz" element={<CarnavalVeracruz />} />
+            <Route path="/experiencias" element={<Experiencias />} />
+            <Route path="/experiencias/:slug" element={<ExperienciaDetalle />} />
+            <Route path="/temporada" element={<Temporada />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

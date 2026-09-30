@@ -16,7 +16,7 @@ const benefits = [
   {
     icon: DollarSign,
     title: "Comisión Fija, No por Viaje",
-    description: "Solo pagas $750 pesos semanales, sin importar cuántos viajes hagas. ¡Lo que generas es tuyo!"
+    description: "Solo pagas $4,500 pesos al mes, sin importar cuántos viajes hagas. ¡Lo que generas es tuyo!"
   },
   {
     icon: Gavel,
@@ -106,8 +106,8 @@ const requirements = [
 
 const faqs = [
   {
-    question: "¿Cómo funciona el pago de la comisión?",
-    answer: "No pagas comisiones por viaje. Es un pago único semanal de $750, sin importar cuántos viajes realices. ¡Todo lo demás es para ti!"
+    question: "¿Cómo funciona el pago de la comisión o la suscripción?",
+    answer: "Elige el esquema que te convenga: una suscripción fija de $4,500 al mes, sin importar cuántos viajes realices, o una comisión del 15 % por viaje. Con la suscripción, todo lo que generes es para ti."
   },
   {
     question: "¿Qué pasa si tengo un problema en un viaje?",

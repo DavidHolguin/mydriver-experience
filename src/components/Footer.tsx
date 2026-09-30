@@ -39,6 +39,8 @@ export const Footer = () => {
               <li><a href="/socio-conductor" className="text-gray-400 hover:text-white transition-colors">Socio Conductor</a></li>
               <li><a href="/socio-repartidor" className="text-gray-400 hover:text-white transition-colors">Socio Repartidor</a></li>
               <li><a href="/negocio-aliado" className="text-gray-400 hover:text-white transition-colors">Negocio Aliado</a></li>
+              <li><a href="/experiencias" className="text-gray-400 hover:text-white transition-colors">MyDriver Experiencias</a></li>
+              <li><a href="/temporada" className="text-gray-400 hover:text-white transition-colors">Experiencias de Temporada</a></li>
             </ul>
           </div>
 

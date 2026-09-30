@@ -101,22 +101,6 @@ export const ServicesSection = () => {
       formTitle: "Solicita MyDriver Cargo",
       formSubtitle: "Soluciones logísticas a tu medida",
       whatsappLink: "https://wa.me/5212461569161?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20MyDriver%20Cargo."
-    },
-    {
-      title: "Santuario de las Luciérnagas",
-      description: "Te llevamos a vivir la mágica experiencia del avistamiento de luciérnagas.",
-      image: "/images/luciernagas1.jpg",
-      link: "/santuario-luciernagas",
-      registerText: "Reservar ahora",
-      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20reservar%20un%20viaje%20al%20Santuario%20de%20las%20Luciérnagas."
-    },
-    {
-      title: "Transporte al Carnaval de Veracruz",
-      description: "Disfruta de la fiesta más alegre del mundo. Te llevamos con seguridad y comodidad.",
-      image: "/images/carnavalVeracurz.webp",
-      link: "/carnaval-veracruz",
-      registerText: "Reservar ahora",
-      whatsappLink: "https://wa.me/5212461569161?text=Hola,%20quiero%20reservar%20mi%20viaje%20para%20el%20Carnaval%20de%20Veracruz."
     }
   ];
 

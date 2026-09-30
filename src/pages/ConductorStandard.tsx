@@ -16,7 +16,7 @@ const benefits = [
   {
     icon: Wallet,
     title: "Comisiones Flexibles",
-    description: "Elige entre una comisión por viaje o una tarifa fija semanal. Tú decides qué te conviene más."
+    description: "Elige entre una comisión del 15 % por viaje o una suscripción mensual fija de $4,500. Tú decides qué te conviene más."
   },
   {
     icon: Calendar,
@@ -75,14 +75,14 @@ const requirements = [
 const faqs = [
   {
     question: "¿Cuál es la diferencia con ser Socio Conductor?",
-    answer: "Como Conductor Standard tienes la flexibilidad de elegir entre pagar una comisión por viaje o una comisión fija semanal, sin necesidad de tener un vehículo propio. Es ideal para quienes buscan maximizar su tiempo."
+    answer: "Como Conductor Standard tienes la flexibilidad de elegir entre pagar una comisión del 15 % por viaje o una suscripción mensual fija de $4,500, sin necesidad de tener un vehículo propio. Es ideal para quienes buscan maximizar su tiempo."
   },
   {
-    question: "¿Cómo funciona la comisión fija semanal?",
-    answer: "Pagas una única cuota semanal y te quedas con el 100% de las ganancias de todos los viajes que realices. Sin sorpresas."
+    question: "¿Cómo funciona la suscripción mensual fija?",
+    answer: "Pagas $4,500 al mes y te quedas con el 100% de las ganancias de todos los viajes que realices. Sin sorpresas."
   },
   {
-    question: "¿Puedo cambiar entre tipos de comisión?",
+    question: "¿Puedo cambiar entre la comisión por viaje y la suscripción mensual?",
     answer: "Sí, nuestro sistema te permite cambiar tu tipo de comisión una vez por semana para que siempre tengas el control."
   }
 ];
