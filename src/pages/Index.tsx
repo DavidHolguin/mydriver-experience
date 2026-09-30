@@ -7,6 +7,7 @@ import { ExperienciasSection } from '@/components/ExperienciasSection';
 import { SecuritySection } from '@/components/SecuritySection';
 import { BusinessSection } from '@/components/BusinessSection';
 import { Footer } from '@/components/Footer';
+import { LeadSection } from '@/components/LeadSection';
 
 
 const Index = () => {
@@ -24,14 +25,14 @@ const Index = () => {
       <ExperienciasSection />
       <SecuritySection />
       <BusinessSection />
-      <Footer />
-      <iframe
-        src="https://mydriverapp.lovable.app/embed/usuario_pasajero?pipeline=usuario_pasajero&stage=5ecedf8a-1c0a-48f2-82a1-6a2a54fc290b&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default"
-        width="100%"
-        height="100"
-        style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
-        title="Usuario Pasajero Form"
+      <LeadSection
+        vertical="usuario_pasajero"
+        titulo="¿Necesitas un viaje?"
+        descripcion="Déjanos tus datos y coordinamos tu servicio: ciudad, día y a dónde vas."
+        ctaTexto="Solicitar mi viaje"
+        etiquetaMensaje="¿A dónde quieres ir?"
       />
+      <Footer />
 
     </>
   );

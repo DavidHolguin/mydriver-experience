@@ -25,7 +25,7 @@ export const Footer = () => {
               <a href="https://www.facebook.com/people/myDriver-Mx/61577308812929/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FontAwesomeIcon icon={faFacebook} className="h-6 w-6" />
               </a>
-              <a href="https://wa.me/5212461569161" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://wa.me/5212215590718" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FontAwesomeIcon icon={faWhatsapp} className="h-6 w-6" />
               </a>
             </div>
@@ -61,7 +61,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-gray-400">
                 <Phone className="w-5 h-5" />
-                <span>2461569161</span>
+                <span>221 559 0718</span>
               </li>
               <li className="flex items-center gap-2 text-gray-400">
                 <Mail className="w-5 h-5" />
@@ -69,7 +69,7 @@ export const Footer = () => {
               </li>
             </ul>
             <Button asChild className="mt-6 bg-primary hover:bg-primary/90">
-              <a href="https://wa.me/5212461569161?text=Hola,%20necesito%20ayuda%20de%20soporte." target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5212215590718?text=Hola,%20necesito%20ayuda%20de%20soporte." target="_blank" rel="noopener noreferrer">
                 Contactar Soporte
               </a>
             </Button>

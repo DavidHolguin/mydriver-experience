@@ -3,6 +3,7 @@ import { Bike, Clock, DollarSign, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
+import { LeadSection } from '@/components/LeadSection';
 
 import {
   Accordion,
@@ -70,7 +71,7 @@ const SocioRepartidor = () => {
                 <Button
                   size="lg"
                   className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
-                  onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Repartidor.", "_blank")}
+                  onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Repartidor.", "_blank")}
                 >
                   Regístrate como repartidor
                 </Button>
@@ -144,7 +145,7 @@ const SocioRepartidor = () => {
               <Button
                 size="lg"
                 className="bg-primary text-white"
-                onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Repartidor.", "_blank")}
+                onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Repartidor.", "_blank")}
               >
                 Quiero ser repartidor
               </Button>
@@ -156,12 +157,12 @@ const SocioRepartidor = () => {
         </section>
       </div>
 
-      <iframe
-        src="https://mydriverapp.lovable.app/embed/socio_repartidor?pipeline=socio_repartidor&stage=ff8ba23a-83e9-467d-9374-af7bf7205562&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default"
-        width="100%"
-        height="100"
-        style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
-        title="Socio Repartidor Form"
+      <LeadSection
+        vertical="socio_repartidor"
+        titulo="Quiero repartir con MyDriver"
+        descripcion="Déjanos tus datos y te contactamos para iniciar tu registro como repartidor."
+        ctaTexto="Quiero repartir"
+        etiquetaMensaje="¿Con qué vehículo repartirías?"
       />
 
     </>

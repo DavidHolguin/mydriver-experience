@@ -3,6 +3,7 @@ import { Building2, TrendingUp, Users, HeartHandshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
+import { LeadSection } from '@/components/LeadSection';
 
 
 import {
@@ -76,7 +77,7 @@ const NegocioAliado = () => {
                 <Button
                   size="lg"
                   className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
-                  onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrar%20mi%20negocio%20en%20MyDriver.", "_blank")}
+                  onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrar%20mi%20negocio%20en%20MyDriver.", "_blank")}
                 >
                   Registra tu negocio
                 </Button>
@@ -145,7 +146,7 @@ const NegocioAliado = () => {
               <Button
                 size="lg"
                 className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white px-8 h-12 text-lg"
-                onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrar%20mi%20negocio%20en%20MyDriver.", "_blank")}
+                onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrar%20mi%20negocio%20en%20MyDriver.", "_blank")}
               >
                 Registra tu negocio
               </Button>
@@ -158,12 +159,12 @@ const NegocioAliado = () => {
 
 
       </div>
-      <iframe
-        src="https://mydriverapp.lovable.app/embed/negocio_aliado?pipeline=negocio_aliado&stage=733cf472-c61d-4fc9-9a14-8b0c8d4481b0&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default"
-        width="100%"
-        height="100"
-        style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
-        title="Negocio Aliado Form"
+      <LeadSection
+        vertical="negocio_aliado"
+        titulo="Quiero ser Negocio Aliado"
+        descripcion="Cuéntanos de tu negocio y te contactamos con la propuesta para aliados."
+        ctaTexto="Quiero ser aliado"
+        etiquetaMensaje="¿Qué tipo de negocio tienes?"
       />
 
     </>

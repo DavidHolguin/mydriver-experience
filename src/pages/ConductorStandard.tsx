@@ -3,6 +3,7 @@ import { Wallet, Calendar, Target, Award, CheckCircle, Smartphone, FileText } fr
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
+import { LeadSection } from '@/components/LeadSection';
 
 
 import {
@@ -115,7 +116,7 @@ const ConductorStandard = () => {
             <Button
               size="lg"
               className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white text-lg px-8 py-6"
-              onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Conductor%20Standard.", "_blank")}
+              onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Conductor%20Standard.", "_blank")}
             >
               Regístrate para Conducir
             </Button>
@@ -227,7 +228,7 @@ const ConductorStandard = () => {
               size="lg"
               variant="secondary"
               className="bg-white text-[#ab1818] hover:bg-gray-200 text-lg px-8 py-6"
-              onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Conductor%20Standard.", "_blank")}
+              onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Conductor%20Standard.", "_blank")}
             >
               Quiero Registrarme Ahora
             </Button>
@@ -236,17 +237,15 @@ const ConductorStandard = () => {
 
 
 
-        {/* Embedded Form */}
-        <div style={{ position: 'fixed', bottom: '0px', left: '0px', right: '0px', padding: '0 16px 16px 16px', backgroundColor: 'transparent', zIndex: 1000 }}>
-          <iframe
-            src="https://mydriverapp.lovable.app/embed/conductor_standard?pipeline=conductor_standard&stage=b95af692-71cd-4568-8d9f-3ff2fadc5832&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default"
-            width="100%"
-            height="100"
-            style={{ border: 'none', borderRadius: '8px' }}
-            title="Conductor Standard Form"
-          />
-        </div>
       </div>
+
+      <LeadSection
+        vertical="conductor_standard"
+        titulo="Regístrate como Conductor Standard"
+        descripcion="Déjanos tus datos y te contactamos para completar tu registro."
+        ctaTexto="Quiero registrarme"
+        etiquetaMensaje="¿Cuántos años de experiencia tienes al volante?"
+      />
 
     </>
   );

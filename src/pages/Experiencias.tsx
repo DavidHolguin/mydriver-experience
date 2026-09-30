@@ -5,6 +5,7 @@ import { CalendarDays, MapPin, Users, ArrowRight, Bus, ShieldCheck, Clock } from
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
 import { Footer } from '@/components/Footer';
+import { LeadSection } from '@/components/LeadSection';
 import { Button } from '@/components/ui/button';
 import {
   experiencias,
@@ -168,6 +169,15 @@ const Experiencias = () => {
             </div>
           </div>
         </section>
+
+        {/* Captación */}
+        <LeadSection
+          vertical="experiencia_turismo"
+          titulo="Armemos tu salida"
+          descripcion="Dinos el destino, la fecha y cuántas personas van: te cotizamos la unidad y el itinerario."
+          ctaTexto="Pedir cotización"
+          etiquetaMensaje="¿A qué destino y en qué fecha?"
+        />
 
         {/* CTA */}
         <section className="py-20 text-white" style={{ backgroundColor: '#ab1818' }}>

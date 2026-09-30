@@ -3,6 +3,7 @@ import { Truck, Package, ShieldCheck, Timer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
+import { LeadSection } from '@/components/LeadSection';
 
 import {
   Accordion,
@@ -76,7 +77,7 @@ const MyDriverCargo = () => {
                 <Button
                   size="lg"
                   className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
-                  onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20MyDriver%20Cargo.", "_blank")}
+                  onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20MyDriver%20Cargo.", "_blank")}
                 >
                   Cotizar servicio
                 </Button>
@@ -142,7 +143,7 @@ const MyDriverCargo = () => {
               Soluciones logísticas adaptadas a tus necesidades empresariales.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary text-white" onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20MyDriver%20Cargo.", "_blank")}>
+              <Button size="lg" className="bg-primary text-white" onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20MyDriver%20Cargo.", "_blank")}>
                 Solicitar servicio
               </Button>
               <Button size="lg" variant="outline">
@@ -153,12 +154,12 @@ const MyDriverCargo = () => {
         </section>
       </div>
 
-      <iframe
-        src="https://mydriverapp.lovable.app/embed/mydriver_cargo?pipeline=mydriver_cargo&stage=d207cf32-6ec1-4fd2-aa32-010ad37a49e8&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default"
-        width="100%"
-        height="100"
-        style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
-        title="MyDriver Cargo Form"
+      <LeadSection
+        vertical="mydriver_cargo"
+        titulo="Cotiza tu servicio de carga"
+        descripcion="Dinos qué necesitas mover, desde dónde y cuándo, y te mandamos la cotización."
+        ctaTexto="Pedir cotización"
+        etiquetaMensaje="¿Qué mercancía y qué ruta?"
       />
 
     </>

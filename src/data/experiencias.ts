@@ -183,7 +183,7 @@ export const serviciosTemporada: ServicioTemporada[] = [
     descripcion:
       "Nanacamilpa, Tlaxcala: el bosque se ilumina con millones de luciérnagas. Salida en la tarde, recorrido guiado y regreso la misma noche.",
     url: "/santuario-luciernagas",
-    wa: "https://wa.me/5212461569161?text=Hola,%20me%20gustar%C3%ADa%20reservar%20un%20viaje%20al%20Santuario%20de%20las%20Luci%C3%A9rnagas.",
+    wa: "https://wa.me/5212215590718?text=Hola,%20me%20gustar%C3%ADa%20reservar%20un%20viaje%20al%20Santuario%20de%20las%20Luci%C3%A9rnagas.",
   },
   {
     titulo: "Carnaval de Veracruz",
@@ -192,16 +192,16 @@ export const serviciosTemporada: ServicioTemporada[] = [
     descripcion:
       "El carnaval más grande de México con transporte redondo desde Puebla: desfiles, malecón, música y regreso seguro el mismo día.",
     url: "/carnaval-veracruz",
-    wa: "https://wa.me/5212461569161?text=Hola,%20quiero%20reservar%20mi%20viaje%20para%20el%20Carnaval%20de%20Veracruz.",
+    wa: "https://wa.me/5212215590718?text=Hola,%20quiero%20reservar%20mi%20viaje%20para%20el%20Carnaval%20de%20Veracruz.",
   },
 ];
 
 /** WhatsApp de turismo: el mismo número publicado hoy en el sitio. */
 export const waExperiencias = (nombre: string) =>
-  `https://wa.me/5212461569161?text=${encodeURIComponent(
+  `https://wa.me/5212215590718?text=${encodeURIComponent(
     `Hola, quiero información de la experiencia "${nombre}" con MyDriver Experiencias.`
   )}`;
 
 export const waExperienciasGeneral =
-  "https://wa.me/5212461569161?text=" +
+  "https://wa.me/5212215590718?text=" +
   encodeURIComponent("Hola, quiero información sobre MyDriver Experiencias (turismo).");

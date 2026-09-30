@@ -55,7 +55,7 @@ export const ServicesSection = () => {
       image: "/images/heroSocioFlotilla.webp",
       link: "/socio-flotilla",
       registerText: "Quiero ser socio",
-      whatsappLink: "https://wa.me/5212461569161?text=¡Hola%20MyDriver!%20Quiero%20información%20para%20ser%20socio%20flotilla."
+      whatsappLink: "https://wa.me/5212215590718?text=¡Hola%20MyDriver!%20Quiero%20información%20para%20ser%20socio%20flotilla."
     },
     {
       title: "Socio Conductor",
@@ -64,7 +64,7 @@ export const ServicesSection = () => {
       link: "/socio-conductor",
       formTitle: "Regístrate como Socio Conductor",
       formSubtitle: "Comienza a generar ingresos con tu vehículo",
-      whatsappLink: "https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Conductor."
+      whatsappLink: "https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Conductor."
     },
     {
       title: "Conductor Standard",
@@ -73,7 +73,7 @@ export const ServicesSection = () => {
       link: "/conductor-standard",
       formTitle: "Regístrate como Conductor Standard",
       formSubtitle: "Únete a nuestra flota profesional",
-      whatsappLink: "https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Conductor%20Standard."
+      whatsappLink: "https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Conductor%20Standard."
     },
     {
       title: "Socio Repartidor",
@@ -82,7 +82,7 @@ export const ServicesSection = () => {
       link: "/socio-repartidor",
       formTitle: "Regístrate como Socio Repartidor",
       formSubtitle: "Únete a nuestra red de repartidores",
-      whatsappLink: "https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Repartidor."
+      whatsappLink: "https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Repartidor."
     },
     {
       title: "Negocio Aliado",
@@ -91,7 +91,7 @@ export const ServicesSection = () => {
       link: "/negocio-aliado",
       formTitle: "Regístrate como Negocio Aliado",
       formSubtitle: "Haz crecer tu negocio con nosotros",
-      whatsappLink: "https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrar%20mi%20negocio%20en%20MyDriver."
+      whatsappLink: "https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrar%20mi%20negocio%20en%20MyDriver."
     },
     {
       title: "MyDriver Cargo",
@@ -100,7 +100,7 @@ export const ServicesSection = () => {
       link: "/mydriver-cargo",
       formTitle: "Solicita MyDriver Cargo",
       formSubtitle: "Soluciones logísticas a tu medida",
-      whatsappLink: "https://wa.me/5212461569161?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20MyDriver%20Cargo."
+      whatsappLink: "https://wa.me/5212215590718?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20MyDriver%20Cargo."
     }
   ];
 

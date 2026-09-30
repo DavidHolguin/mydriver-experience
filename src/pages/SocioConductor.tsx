@@ -3,6 +3,7 @@ import { DollarSign, Gavel, Wrench, ShieldCheck, Phone, Users, FileText, ThumbsU
 import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
+import { LeadSection } from '@/components/LeadSection';
 
 
 import {
@@ -147,7 +148,7 @@ const SocioConductor = () => {
             <Button
               size="lg"
               className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white text-lg px-8 py-6"
-              onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Conductor.", "_blank")}
+              onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Conductor.", "_blank")}
             >
               Únete a MyDriver
             </Button>
@@ -249,7 +250,7 @@ const SocioConductor = () => {
               size="lg"
               variant="secondary"
               className="bg-white text-[#ab1818] hover:bg-gray-200 text-lg px-8 py-6"
-              onClick={() => window.open("https://wa.me/5212461569161?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Conductor.", "_blank")}
+              onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Conductor.", "_blank")}
             >
               Quiero Registrarme Ahora
             </Button>
@@ -258,15 +259,15 @@ const SocioConductor = () => {
 
 
 
-        {/* Embedded Form */}
-        <iframe
-          src="https://mydriverapp.lovable.app/embed/socio_conductor?pipeline=socio_conductor&stage=c82c9b7c-324c-4035-9553-638a0a058774&position=bottom-center&primaryColor=b60000&theme=light&borderRadius=8&buttonSize=default"
-          width="100%"
-          height="100"
-          style={{ border: 'none', borderRadius: '8px', position: 'fixed', bottom: '0px', zIndex: 1000 }}
-          title="Socio Conductor Form"
-        />
       </div>
+
+      <LeadSection
+        vertical="socio_conductor"
+        titulo="Súmate como Socio Conductor"
+        descripcion="Déjanos tus datos y te explicamos cómo empezar a generar ingresos con tu auto."
+        ctaTexto="Quiero registrarme"
+        etiquetaMensaje="¿Qué auto tienes?"
+      />
 
     </>
   );
