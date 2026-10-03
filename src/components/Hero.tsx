@@ -1,88 +1,100 @@
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { APP_LINKS } from '@/config/constants';
 import { trackButtonClick } from '@/lib/gtmEvents';
 
-const slides = [
-  {
-    image: '/images/heroSocioFlotilla.webp',
-    title: 'Haz que tu coche trabaje por ti: Gana $10.000 mensuales SIN conducir',
-    subtitle: 'Conviértete en Socio Flotilla MyDriver: nosotros certificamos chóferes, cuidamos tu auto y te garantizamos ingresos fijos.',
-    buttonText: 'Quiero ser socio',
-    buttonLink: '/socio-flotilla',
-    isExternal: false,
-  },
-  {
-    image: '/images/mydriverPortada.webp',
-    title: 'Muévete por tu ciudad con MyDriver',
-    subtitle: 'La app donde recibes más y viajas mejor. Únete a la revolución del transporte privado.',
-    buttonText: 'Solicita tu viaje',
-    buttonLink: 'https://wa.me/5212215590718?text=Hola,%20me%20gustaría%20tener%20más%20información%20sobre%20MyDriver.',
-    isExternal: true,
-  },
-  {
-    image: '/images/ritualdeluciernagas.webp',
-    title: 'Vive la Magia en el Santuario de las Luciérnagas',
-    subtitle: 'Te llevamos a una experiencia natural única e inolvidable.',
-    buttonText: 'Descubrir más',
-    buttonLink: '/santuario-luciernagas',
-    isExternal: false,
-  },
-  {
-    image: '/images/carnavalVeracurz.webp',
-    title: 'Al Carnaval de Veracruz con MyDriver',
-    subtitle: 'Disfruta de la fiesta más grande y alegre de Veracruz. Nosotros te llevamos.',
-    buttonText: '¡Vamos!',
-    buttonLink: '/carnaval-veracruz',
-    isExternal: false,
-  },
-];
-
 export const Hero = () => {
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const currentSlide = slides[currentSlideIndex];
+  const handleScrollToServices = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <div className="relative h-[70vh] md:min-h-[calc(100vh-7rem)] flex items-start justify-center overflow-hidden">
-      {slides.map((slide, index) => (
-        <div
-          key={slide.image}
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out"
-          style={{
-            backgroundImage: `url(${slide.image})`,
-            opacity: index === currentSlideIndex ? 1 : 0,
-            filter: 'brightness(0.7)',
-          }}
+    <section className="relative min-h-screen pt-20 flex items-center overflow-hidden">
+      {/* Background Image & Gradient */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/images/mydriverPortada.webp" 
+          alt="MyDriver" 
+          className="w-full h-full object-cover"
         />
-      ))}
-      <div className="relative z-10 text-center px-4 animate-fade-in max-w-2xl mx-auto pt-36 md:pt-48">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-          {currentSlide.title}
-        </h1>
-        <p className="text-xl md:text-2xl text-white/90 mb-8">
-          {currentSlide.subtitle}
-        </p>
-        <Button asChild size="lg" variant="default" className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg" onClick={() => trackButtonClick(currentSlide.buttonText, 'hero_slider')}>
-          {currentSlide.isExternal ? (
-            <a href={currentSlide.buttonLink} target="_blank" rel="noopener noreferrer">
-              {currentSlide.buttonText}
-            </a>
-          ) : (
-            <Link to={currentSlide.buttonLink}>
-              {currentSlide.buttonText}
-            </Link>
-          )}
-        </Button>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F1E2A] via-[#0F1E2A]/70 to-transparent" />
       </div>
-    </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 lg:py-20 flex flex-col items-center lg:items-start text-center lg:text-left h-full justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl"
+        >
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 whitespace-pre-line">
+            {"La app de movilidad\nque transforma\ntu ciudad"}
+          </h1>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-2xl mb-10"
+        >
+          <p className="text-lg md:text-xl text-white/80">
+            Viaja seguro. Gana más. Muévete mejor. La plataforma de transporte privado donde todos ganan.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-col sm:flex-row gap-4 mb-12 w-full sm:w-auto"
+        >
+          <a
+            href={APP_LINKS.pasajero.android}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackButtonClick('hero_download_app')}
+            className="bg-brand-red text-white hover:bg-brand-red-hover shadow-lg font-bold rounded-full px-8 py-4 text-lg transition-all inline-flex items-center justify-center whitespace-nowrap"
+          >
+            Descarga la App
+          </a>
+          <a
+            href="#servicios"
+            onClick={handleScrollToServices}
+            className="bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 text-white rounded-full px-8 py-4 transition-colors inline-flex items-center justify-center whitespace-nowrap"
+          >
+            Conoce más →
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="flex flex-wrap justify-center lg:justify-start gap-4"
+        >
+          <a
+            href={APP_LINKS.pasajero.ios}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackButtonClick('hero_app_store')}
+            className="hover:scale-105 transition-transform"
+          >
+            <img src="/images/ios.png" alt="App Store" className="h-12 w-auto" />
+          </a>
+          <a
+            href={APP_LINKS.pasajero.android}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackButtonClick('hero_play_store')}
+            className="hover:scale-105 transition-transform"
+          >
+            <img src="/images/android.png" alt="Play Store" className="h-12 w-auto" />
+          </a>
+        </motion.div>
+      </div>
+    </section>
   );
 };
+

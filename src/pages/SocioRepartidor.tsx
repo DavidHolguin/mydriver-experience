@@ -1,17 +1,7 @@
-import { useState } from 'react';
-import { Bike, Clock, DollarSign, Shield } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Navbar } from '@/components/Navbar';
-import { Sidebar } from '@/components/Sidebar';
-import { LeadSection } from '@/components/LeadSection';
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-
+import React from 'react';
+import { Bike, Clock, DollarSign, Shield, CheckCircle } from 'lucide-react';
+import ServicePageTemplate from '@/components/ServicePageTemplate';
+import { WHATSAPP_LINKS } from '@/config/constants';
 
 const benefits = [
   {
@@ -37,135 +27,39 @@ const benefits = [
 ];
 
 const requirements = [
-  "Ser mayor de 18 años",
-  "Identificación oficial vigente",
-  "CURP",
-  "Bicicleta o motocicleta propia",
-  "Smartphone compatible",
-  "Disponibilidad para trabajar"
+  { icon: CheckCircle, text: "Ser mayor de 18 años" },
+  { icon: CheckCircle, text: "Identificación oficial vigente" },
+  { icon: CheckCircle, text: "CURP" },
+  { icon: CheckCircle, text: "Bicicleta o motocicleta propia" },
+  { icon: CheckCircle, text: "Smartphone compatible" },
+  { icon: CheckCircle, text: "Disponibilidad para trabajar" }
 ];
 
 const SocioRepartidor = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-
   return (
-    <>
-      <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
-      <div className="pt-16">
-        {/* Hero Section */}
-        <section className="bg-primary/5 pt-20 pb-32">
-          <div className="container px-4 mx-auto">
-            <div className="flex flex-col md:flex-row items-center gap-12">
-              <div className="flex-1 animate-fade-in">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                  Gana dinero haciendo entregas
-                </h1>
-                <p className="text-xl text-gray-600 mb-8">
-                  Únete a MyDriver ENTREGAS y genera ingresos extras en tus tiempos libres.
-                </p>
-                <Button
-                  size="lg"
-                  className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
-                  onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Repartidor.", "_blank")}
-                >
-                  Regístrate como repartidor
-                </Button>
-              </div>
-              <div className="relative w-full h-[400px] md:h-[500px]">
-                <img
-                  src="/images/delivery-partner.webp"
-                  alt="Socio Repartidor"
-                  className="w-full rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Benefits Section */}
-        <section className="py-20">
-          <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              Beneficios de ser Repartidor
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit) => (
-                <div
-                  key={benefit.title}
-                  className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
-                >
-                  <benefit.icon className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600">{benefit.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Requirements Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              ¿Qué necesitas para empezar?
-            </h2>
-            <div className="max-w-3xl mx-auto">
-              <div className="grid gap-6">
-                {requirements.map((req, index) => (
-                  <div
-                    key={req}
-                    className="flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm animate-fade-in"
-                  >
-                    <span className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-semibold">
-                      {index + 1}
-                    </span>
-                    <span>{req}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20">
-          <div className="container px-4 mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              Comienza hoy mismo
-            </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Forma parte de la comunidad de repartidores más grande y mejor pagada.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-primary text-white"
-                onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Repartidor.", "_blank")}
-              >
-                Quiero ser repartidor
-              </Button>
-              <Button size="lg" variant="outline">
-                Más información
-              </Button>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <LeadSection
-        vertical="socio_repartidor"
-        titulo="Quiero repartir con MyDriver"
-        descripcion="Déjanos tus datos y te contactamos para iniciar tu registro como repartidor."
-        ctaTexto="Quiero repartir"
-        etiquetaMensaje="¿Con qué vehículo repartirías?"
-      />
-
-    </>
+    <ServicePageTemplate
+      heroImage="/images/delivery-partner.webp"
+      heroTitle="Gana dinero haciendo entregas"
+      heroSubtitle="Únete a MyDriver ENTREGAS y genera ingresos extras en tus tiempos libres."
+      heroCTA="Regístrate como repartidor"
+      heroBadge="Socio Repartidor"
+      heroWhatsappLink={WHATSAPP_LINKS.socioRepartidor}
+      benefitsTitle="Beneficios de ser Repartidor"
+      benefits={benefits}
+      requirements={requirements}
+      requirementsTitle="¿Qué necesitas para empezar?"
+      faqs={[]}
+      ctaTitle="Comienza hoy mismo"
+      ctaSubtitle="Forma parte de la comunidad de repartidores más grande y mejor pagada."
+      ctaButtonText="Quiero ser repartidor"
+      ctaWhatsappLink={WHATSAPP_LINKS.socioRepartidor}
+      leadSection={{
+        vertical: "socio_repartidor",
+        titulo: "Regístrate como repartidor",
+        descripcion: "Entregas de comida, paquetería y compras en tu ciudad.",
+        ctaTexto: "Quiero repartir",
+      }}
+    />
   );
 };
 

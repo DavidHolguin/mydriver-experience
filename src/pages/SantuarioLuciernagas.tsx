@@ -1,195 +1,246 @@
-import { useState } from 'react';
-import { Navbar } from '@/components/Navbar';
-import { Sidebar } from '@/components/Sidebar';
-
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
-import { motion } from 'framer-motion';
-import { MapPin, Hourglass, Home } from 'lucide-react';
+import { Layout } from "@/components/Layout";
+import { SectionContainer } from "@/components/SectionContainer";
+import { SectionHeading } from "@/components/SectionHeading";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { motion } from "framer-motion";
+import { MapPin, Clock, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
+import { WHATSAPP_LINKS } from "@/config/constants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 const images = [
-  '/images/luciernagas1.jpg',
-  '/images/luciernagas2.jpg',
-  '/images/mydriverPortada.webp'
+  "/images/luciernagas1.jpg",
+  "/images/luciernagas2.jpg",
+  "/images/ritualdeluciernagas.webp",
+  "/images/mydriverPortada.webp",
+];
+
+const steps = [
+  {
+    step: "01",
+    title: "Inicio y Pick-up Seguro",
+    description: "Te recogemos en tu punto de partida. Olvídate del estrés de manejar en carretera nocturna y déjalo en manos de profesionales certificados.",
+    icon: MapPin,
+  },
+  {
+    step: "02",
+    title: "Vive la Magia sin Prisa",
+    description: "Explora los senderos del bosque iluminado en Nanacamilpa. Tu conductor te espera pacientemente para cuando termine el recorrido.",
+    icon: Sparkles,
+  },
+  {
+    step: "03",
+    title: "Retorno Confortable",
+    description: "Al finalizar el ritual de las luciérnagas, tu vehículo climatizado estará listo para llevarte de vuelta seguro hasta la puerta de tu hogar u hotel.",
+    icon: ShieldCheck,
+  },
+];
+
+const highlights = [
+  "Vehículos sanitizados, cómodos y climatizados",
+  "Conductores locales altamente capacitados",
+  "Viajes redondos con tiempo de espera garantizado",
+  "Atención personalizada para familias y grupos",
+  "Tarifas transparentes sin cargos sorpresa",
+  "Monitoreo GPS en tiempo real de tu trayecto",
 ];
 
 const SantuarioLuciernagas = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
   return (
-    <>
-      <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
-      <div className="pt-16 bg-gray-50 text-gray-800">
-        {/* Video Header */}
-        <header className="relative h-screen flex items-center justify-center text-white overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute z-0 w-auto min-w-full min-h-full max-w-none"
-            src="/videos/video_generation_0.mp4"
-          >
-            Tu navegador no soporta el tag de video.
-          </video>
+    <Layout>
+      {/* Video Hero */}
+      <section className="relative min-h-[85vh] flex items-center justify-center text-white overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover scale-105 filter brightness-75"
+          src="/videos/video_generation_0.mp4"
+        >
+          Tu navegador no soporta video HTML5.
+        </video>
 
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-black/40" />
+
+        <div className="relative z-10 container mx-auto px-4 text-center max-w-4xl pt-24 pb-16">
           <motion.div
-            className="z-10 text-center px-4"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="space-y-6"
           >
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">Transporte al Santuario de las Luciérnagas</h1>
-            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Vive una experiencia mágica con la seguridad y comodidad de MyDriver.</p>
-          </motion.div>
-        </header>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-pill bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-semibold tracking-wide">
+              <Sparkles className="w-4 h-4 text-amber-300" /> Experiencia Exclusiva MyDriver
+            </span>
 
-        {/* Content Section */}
-        <main className="container mx-auto px-4 py-16 md:py-24">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <h2 className="text-3xl font-bold mb-4 text-primary">Un Espectáculo Natural Inolvidable</h2>
-              <p className="mb-4 text-lg">
-                Cada año, durante la temporada de lluvias (mediados de junio a mediados de agosto), el bosque de Nanacamilpa, Tlaxcala, se ilumina con millones de luciérnagas.
-              </p>
-              <p className="mb-4">
-                En el Santuario de las Luciérnagas, estos insectos realizan su ritual de apareamiento, usando la luz de sus cuerpos para encontrar pareja y reproducirse. Tu acceso al santuario te permitirá vivir una experiencia memorable llena de luz, paz y conexión con la naturaleza.
-              </p>
-              <Button size="lg" className="mt-4 bg-green-500 hover:bg-green-600 text-white gap-2" asChild>
-                <a href="https://wa.me/5212215590718?text=Hola,%20me%20gustaría%20reservar%20un%20viaje%20al%20Santuario%20de%20las%20Luciérnagas." target="_blank" rel="noopener noreferrer">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-5 h-5 fill-current"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" /></svg>
-                  Reservar mi viaje
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight">
+              Santuario de las <span className="text-gradient">Luciérnagas</span>
+            </h1>
+
+            <p className="text-lg md:text-2xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
+              Viaja con total seguridad, confort y puntualidad al espectáculo natural más mágico de México en los bosques de Nanacamilpa.
+            </p>
+
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="w-full sm:w-auto bg-brand-red hover:bg-brand-red-hover text-white font-bold rounded-pill px-8 py-6 text-lg shadow-elevated hover-lift"
+              >
+                <a href={WHATSAPP_LINKS.luciernagas} target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faWhatsapp} className="w-5 h-5 mr-2" />
+                  Reservar mi Traslado
                 </a>
               </Button>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <Carousel
-                className="w-full max-w-xl mx-auto"
-                opts={{ loop: true }}
-                plugins={[
-                  Autoplay({
-                    delay: 3000,
-                    stopOnInteraction: true,
-                  }),
-                ]}
-              >
-                <CarouselContent>
-                  {images.map((src, index) => (
-                    <CarouselItem key={index}>
-                      <Card className="overflow-hidden rounded-2xl shadow-xl">
-                        <CardContent className="p-0 aspect-video">
-                          <img src={src} alt={`Santuario de las Luciérnagas ${index + 1}`} className="w-full h-full object-cover" />
-                        </CardContent>
-                      </Card>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="ml-16" />
-                <CarouselNext className="mr-16" />
-              </Carousel>
-            </motion.div>
-          </div>
-        </main>
 
-        {/* Bento Grid Section */}
-        <section className="py-20 md:py-24 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Tu Aventura Mágica en 3 Simples Pasos</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Hemos diseñado una experiencia completa para que solo te preocupes por disfrutar.
-              </p>
+              <a
+                href="#detalles"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-pill bg-white/10 hover:bg-white/20 text-white font-medium border border-white/20 backdrop-blur-md transition-all text-center"
+              >
+                Conocer Más
+              </a>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-              {/* Step 1 */}
-              <motion.div
-                className="lg:col-span-1 bg-white p-8 rounded-2xl shadow-lg flex flex-col items-start"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="bg-primary/10 p-3 rounded-full mb-4">
-                  <MapPin className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold mb-2">1. Inicio de la Aventura</h3>
-                <p className="text-gray-600">Te recogemos en tu ubicación. Relájate y disfruta del paisaje mientras te llevamos de forma segura y directa al Santuario.</p>
-              </motion.div>
-
-              {/* Main Image */}
-              <motion.div
-                className="lg:col-span-2 rounded-2xl shadow-lg overflow-hidden min-h-[300px]"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <img src="/images/ritualdeluciernagas.webp" alt="Ritual de las luciérnagas" className="w-full h-full object-cover" />
-              </motion.div>
-
-              {/* Step 2 */}
-              <motion.div
-                className="lg:col-span-2 bg-white p-8 rounded-2xl shadow-lg flex flex-col items-start"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <div className="bg-primary/10 p-3 rounded-full mb-4">
-                  <Hourglass className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold mb-2">2. Vive la Magia sin Prisas</h3>
-                <p className="text-gray-600">Explora el santuario a tu propio ritmo. Te esperaremos el tiempo que necesites para que disfrutes del espectáculo de luces sin preocupaciones.</p>
-              </motion.div>
-
-              {/* Step 3 */}
-              <motion.div
-                className="lg:col-span-1 bg-white p-8 rounded-2xl shadow-lg flex flex-col items-start"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <div className="bg-primary/10 p-3 rounded-full mb-4">
-                  <Home className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold mb-2">3. Regreso Cómodo y Seguro</h3>
-                <p className="text-gray-600">Al finalizar, te llevamos de vuelta a tu punto de partida o a donde nos indiques. Tu comodidad es nuestra prioridad.</p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-      </div>
-      {/* WhatsApp CTA Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50 shadow-lg">
-        <div className="container mx-auto flex items-center justify-between">
-          <p className="font-semibold text-lg hidden md:block">Reserva tu viaje ahora</p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-green-500 hover:bg-green-600 text-white font-bold gap-2 w-full md:w-auto"
-          >
-            <a href="https://wa.me/5212215590718?text=Hola,%20estoy%20interesado%20en%20el%20servicio%20de%20transporte%20al%20Santuario%20de%20las%20Luciérnagas%20y%20quisiera%20más%20información." target="_blank" rel="noopener noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
-              Contactar por WhatsApp
-            </a>
-          </Button>
+          </motion.div>
         </div>
-      </div>
-    </>
+      </section>
+
+      {/* Main Experience Info */}
+      <SectionContainer id="detalles" background="white">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="space-y-6">
+            <span className="px-4 py-1.5 rounded-pill text-xs font-bold uppercase tracking-wider bg-brand-red/10 text-brand-red inline-block">
+              Temporada de Lluvias (Junio - Agosto)
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-navy tracking-tight leading-tight">
+              Un Espectáculo Natural Único e Inolvidable
+            </h2>
+            <p className="text-lg text-text-secondary leading-relaxed">
+              Cada año, los frondosos bosques de oyamel y pino de Nanacamilpa, Tlaxcala, se transforman en un escenario de fantasía donde millones de luciérnagas sincronizan su bioluminiscencia.
+            </p>
+            <p className="text-base text-text-secondary leading-relaxed">
+              Con MyDriver eliminas la preocupación de conducir de noche por caminos boscosos. Te ofrecemos transporte privado puerta a puerta, choferes profesionales y vehículos con máxima seguridad.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              {highlights.map((item, idx) => (
+                <div key={idx} className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-5 h-5 text-brand-red shrink-0" />
+                  <span className="text-sm font-medium text-text-primary">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-4">
+              <Button asChild size="lg" className="bg-brand-red hover:bg-brand-red-hover text-white rounded-pill px-8 py-4 font-bold shadow-card">
+                <a href={WHATSAPP_LINKS.luciernagas} target="_blank" rel="noopener noreferrer">
+                  Consultar Disponibilidad y Tarifas
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-tr from-brand-red/20 to-amber-400/20 rounded-card blur-2xl -z-10" />
+            <Carousel
+              className="w-full max-w-lg mx-auto"
+              opts={{ loop: true }}
+              plugins={[
+                Autoplay({
+                  delay: 3500,
+                  stopOnInteraction: true,
+                }),
+              ]}
+            >
+              <CarouselContent>
+                {images.map((src, index) => (
+                  <CarouselItem key={index}>
+                    <Card className="overflow-hidden rounded-card border-none shadow-elevated">
+                      <CardContent className="p-0 aspect-[4/3]">
+                        <img
+                          src={src}
+                          alt={`Santuario Luciérnagas ${index + 1}`}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-4 bg-white/80 hover:bg-white text-brand-navy border-none shadow-md" />
+              <CarouselNext className="right-4 bg-white/80 hover:bg-white text-brand-navy border-none shadow-md" />
+            </Carousel>
+          </div>
+        </div>
+      </SectionContainer>
+
+      {/* How It Works (Bento Steps) */}
+      <SectionContainer background="light">
+        <SectionHeading
+          badge="Itinerario"
+          title="Tu Viaje en 3 Simples Pasos"
+          subtitle="Diseñamos una logística integral para que tú y tus acompañantes solo se concentren en disfrutar de la naturaleza."
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {steps.map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-white rounded-card p-8 shadow-card border border-border-subtle flex flex-col justify-between hover-lift relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-red/5 rounded-bl-[100px] -z-0 transition-transform group-hover:scale-110" />
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-brand-red/10 flex items-center justify-center text-brand-red">
+                    <item.icon className="w-7 h-7" />
+                  </div>
+                  <span className="text-3xl font-extrabold text-brand-navy/20 font-display">
+                    {item.step}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-brand-navy mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* Final CTA Banner */}
+      <section className="bg-brand-navy text-white py-20 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C41E1E_1px,transparent_1px)] [background-size:16px_16px]" />
+        <div className="container mx-auto max-w-4xl text-center relative z-10 space-y-6">
+          <span className="px-4 py-1.5 rounded-pill bg-white/10 text-white/90 text-sm font-semibold inline-block">
+            Cupos Limitados por Temporada
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">
+            ¿Listo para vivir la magia de las luciérnagas?
+          </h2>
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+            Reserva con anticipación tu transporte privado redondo. Coordina tu horario de recogida directamente por WhatsApp.
+          </p>
+          <div className="pt-4">
+            <Button
+              asChild
+              size="lg"
+              className="bg-brand-red hover:bg-brand-red-hover text-white font-bold rounded-pill px-10 py-6 text-lg shadow-elevated hover-lift"
+            >
+              <a href={WHATSAPP_LINKS.luciernagas} target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faWhatsapp} className="w-5 h-5 mr-2" />
+                Contactar a un Asesor de Viaje
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </Layout>
   );
 };
 

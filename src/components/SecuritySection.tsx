@@ -1,64 +1,81 @@
-import { Shield, MapPin, Headphones, Bell, Share2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Shield, MapPin, Share2, PhoneCall } from 'lucide-react';
+import { SectionContainer } from '@/components/SectionContainer';
+import { SectionHeading } from '@/components/SectionHeading';
 
-const SecurityCard = ({ icon: Icon, title, description }: {
-  icon: any;
-  title: string;
-  description: string;
-}) => (
-  <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-      <Icon className="w-6 h-6 text-primary" />
-    </div>
-    <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
-    <p className="text-gray-600">{description}</p>
-  </div>
-);
+const securityFeatures = [
+  {
+    icon: <Shield className="w-8 h-8" />,
+    title: 'Botón de seguridad',
+    description: 'Conéctate directamente con servicios de emergencia 911 en caso de cualquier eventualidad.',
+  },
+  {
+    icon: <MapPin className="w-8 h-8" />,
+    title: 'Viajes geolocalizados',
+    description: 'Monitoreamos cada viaje en tiempo real desde el inicio hasta tu destino final.',
+  },
+  {
+    icon: <Share2 className="w-8 h-8" />,
+    title: 'Comparte tu viaje',
+    description: 'Comparte tu ruta y estado del viaje en tiempo real con familiares y amigos.',
+  },
+  {
+    icon: <PhoneCall className="w-8 h-8" />,
+    title: 'Estamos aquí para ti',
+    description: 'Soporte especializado disponible para ayudarte antes, durante y después de tu viaje.',
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
 
 export const SecuritySection = () => {
-  const features = [
-    {
-      icon: Bell,
-      title: "Botón de seguridad",
-      description: "Añade una persona de confianza para que reciba notificaciones cada vez que viajes, comparta tu ubicación en tiempo real o contacta con emergencias."
-    },
-    {
-      icon: MapPin,
-      title: "Viajes geolocalizados",
-      description: "Cada viaje está geolocalizado y puedes compartir tu viaje con tus amigos o familiares para que sepan dónde estás."
-    },
-    {
-      icon: Share2,
-      title: "Comparte tu viaje",
-      description: "Comparte los detalles de tu viaje con tus seres queridos para que puedan seguir tu ruta en tiempo real."
-    },
-    {
-      icon: Headphones,
-      title: "Estamos aquí para ti",
-      description: "Nuestro equipo de atención al cliente está disponible 24/7 para ayudarte y responder a tus dudas y preguntas."
-    }
-  ];
-
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-6">
-            <Shield className="w-8 h-8 text-primary" />
-          </div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Tu seguridad, nuestro compromiso
-          </h2>
-          <p className="text-gray-600 text-lg">
-            Cada detalle que forma parte de nuestro servicio se ha creado teniendo en cuenta tu seguridad
-          </p>
-        </div>
+    <SectionContainer id="seguridad" background="dark">
+      <SectionHeading
+        dark={true}
+        badge="Seguridad"
+        title="Tu seguridad, nuestra prioridad"
+        subtitle="Cada detalle está diseñado pensando en tu protección."
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {features.map((feature, index) => (
-            <SecurityCard key={index} {...feature} />
-          ))}
-        </div>
-      </div>
-    </section>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+      >
+        {securityFeatures.map((feature, index) => (
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[24px] p-6 hover:bg-white/10 transition-colors"
+          >
+            <div className="bg-[#C41E1E]/20 rounded-2xl p-3 w-14 h-14 flex items-center justify-center text-[#C41E1E] mb-6">
+              {feature.icon}
+            </div>
+            <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+            <p className="text-white/70">{feature.description}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+    </SectionContainer>
   );
 };

@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -13,26 +12,57 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: "1rem",
+        sm: "1.5rem",
+        lg: "2rem",
+      },
       screens: {
-        "2xl": "1400px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        brand: {
+          red: "#C41E1E",
+          "red-hover": "#A31919",
+          "red-light": "#FEE2E2",
+          navy: "#0F1E2A",
+          "navy-light": "#1A2F3F",
+        },
         primary: {
-          DEFAULT: "#ab1818",
-          light: "#ffd2d2",
-          dark: "#0f1e2a",
+          DEFAULT: "#C41E1E",
+          light: "#FEE2E2",
+          dark: "#0F1E2A",
+          foreground: "#FFFFFF",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+        },
+        success: {
+          DEFAULT: "#22C55E",
+          light: "#DCFCE7",
+        },
+        info: {
+          DEFAULT: "#3B82F6",
+          light: "#DBEAFE",
+        },
+        warning: {
+          DEFAULT: "#F59E0B",
+          light: "#FEF3C7",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -54,11 +84,44 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        surface: {
+          light: "#F8FAFC",
+          muted: "#F1F5F9",
+          border: "#E2E8F0",
+        },
+        text: {
+          primary: "#0F172A",
+          secondary: "#64748B",
+          muted: "#94A3B8",
+        },
+      },
+      borderRadius: {
+        'pill': '9999px',
+        'card': '24px',
+        'button': '12px',
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        'soft': '0 1px 2px rgba(0,0,0,0.05)',
+        'card': '0 4px 16px rgba(0,0,0,0.08)',
+        'elevated': '0 8px 32px rgba(0,0,0,0.12)',
+        'dramatic': '0 16px 48px rgba(0,0,0,0.16)',
+        'glow-red': '0 0 40px rgba(196,30,30,0.15)',
       },
       keyframes: {
         "fade-in": {
-          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in-left": {
+          "0%": { opacity: "0", transform: "translateX(-20px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        "fade-in-right": {
+          "0%": { opacity: "0", transform: "translateX(20px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
         },
         "slide-in": {
           "0%": { transform: "translateX(-100%)" },
@@ -68,11 +131,33 @@ export default {
           "0%": { transform: "translateY(100%)" },
           "100%": { transform: "translateY(0)" },
         },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(0.95)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+        "count-up": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-soft": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.8" },
+        },
       },
       animation: {
-        "fade-in": "fade-in 0.5s ease-out forwards",
+        "fade-in": "fade-in 0.6s ease-out forwards",
+        "fade-in-left": "fade-in-left 0.6s ease-out forwards",
+        "fade-in-right": "fade-in-right 0.6s ease-out forwards",
         "slide-in": "slide-in 0.5s ease-out forwards",
         "slide-up": "slide-up 0.5s ease-out forwards",
+        "scale-in": "scale-in 0.5s ease-out forwards",
+        "count-up": "count-up 0.8s ease-out forwards",
+        "float": "float 3s ease-in-out infinite",
+        "pulse-soft": "pulse-soft 2s ease-in-out infinite",
       },
     },
   },

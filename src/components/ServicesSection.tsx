@@ -1,132 +1,298 @@
 import { useState } from 'react';
-import { Button } from './ui/button';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { SectionContainer } from '@/components/SectionContainer';
+import { SectionHeading } from '@/components/SectionHeading';
+import { Button } from '@/components/ui/button';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import { Sparkles, Calendar, MapPin, ArrowRight, ShieldCheck } from 'lucide-react';
+import { WHATSAPP_NUMBER } from '@/config/constants';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
+const services = [
+  {
+    id: 'conductor',
+    title: 'Socio Conductor',
+    description: 'Genera ingresos con tu auto bajo tus propios términos con la comisión más baja del mercado.',
+    image: '/images/conductorSocio.webp',
+    link: '/socio-conductor',
+    className: 'lg:col-span-2 lg:row-span-2 min-h-[300px] lg:min-h-[580px]',
+  },
+  {
+    id: 'cargo',
+    title: 'MyDriver Cargo',
+    description: 'Soluciones de transporte y logística para empresas y negocios.',
+    image: '/images/cargo-service.webp',
+    link: '/mydriver-cargo',
+    className: 'col-span-1 row-span-1 min-h-[250px] lg:min-h-[275px]',
+  },
+  {
+    id: 'repartidor',
+    title: 'Socio Repartidor',
+    description: 'Forma parte de nuestra red de repartidores y genera ingresos con entregas locales.',
+    image: '/images/delivery-partner.webp',
+    link: '/socio-repartidor',
+    className: 'col-span-1 row-span-1 min-h-[250px] lg:min-h-[275px]',
+  },
+  {
+    id: 'negocio',
+    title: 'Negocio Aliado',
+    description: 'Incrementa tus ventas y alcance uniéndote a nuestra plataforma comercial.',
+    image: '/images/business-partner.webp',
+    link: '/negocio-aliado',
+    className: 'col-span-1 row-span-1 min-h-[250px] lg:min-h-[275px]',
+  },
+  {
+    id: 'flotilla',
+    title: 'Socio Flotilla',
+    description: 'Pon tus autos a generar ingresos fijos mensuales sin conducirlos.',
+    image: '/images/heroSocioFlotilla.webp',
+    link: '/socio-flotilla',
+    className: 'col-span-1 row-span-1 min-h-[250px] lg:min-h-[275px]',
+  },
+];
 
-interface ServiceCardProps {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
+const destinationSlides = [
+  {
+    id: 'valquirico',
+    name: "Val'Quirico",
+    season: 'Todo el año • Fines de semana',
+    location: 'Nativitas, Tlaxcala',
+    image: '/images/destino-valquirico.jpg',
+    description: 'Pueblo de arquitectura medieval europea, callejones empedrados y alta gastronomía.',
+    link: '/destinos',
+  },
+  {
+    id: 'luciernagas',
+    name: 'Santuario de las Luciérnagas',
+    season: 'Temporada: Junio – Agosto',
+    location: 'Nanacamilpa, Tlaxcala',
+    image: '/images/ritualdeluciernagas.webp',
+    description: 'Avistamiento de millones de luciérnagas en los frondosos bosques de Nanacamilpa.',
+    link: '/santuario-luciernagas',
+  },
+  {
+    id: 'carnaval',
+    name: 'Carnaval de Veracruz',
+    season: 'Temporada: Junio – Julio',
+    location: 'Veracruz y Boca del Río',
+    image: '/images/carnavalVeracurz.webp',
+    description: 'La fiesta más alegre del mundo sin complicaciones de tráfico ni estacionamiento.',
+    link: '/carnaval-veracruz',
+  },
+  {
+    id: 'haciendas',
+    name: 'Ruta de Haciendas Históricas',
+    season: 'Todo el año',
+    location: 'Tlaxco y Huamantla, Tlaxcala',
+    image: '/images/destino-haciendas.jpg',
+    description: 'Casonas coloniales señoriales y tradición pulquera en el corazón de Tlaxcala.',
+    link: '/destinos',
+  },
+  {
+    id: 'huamantla',
+    name: 'Huamantla Pueblo Mágico',
+    season: 'Todo el año • Estelar en Agosto',
+    location: 'Huamantla, Tlaxcala',
+    image: '/images/destino-huamantla.jpg',
+    description: 'Arte efímero en tapetes de aserrín multicolor y la Noche que Nadie Duerme.',
+    link: '/destinos',
+  },
+];
 
-  registerText?: string;
-  whatsappLink: string;
-}
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
-const ServiceCard = ({ title, description, image, link, registerText = "Registrarme", whatsappLink }: ServiceCardProps) => (
-  <div className="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:scale-[1.02]">
-    <div className="h-48 overflow-hidden">
-      <img
-        src={image}
-        alt={title}
-        className="w-full h-full object-cover"
-      />
-    </div>
-    <div className="p-6">
-      <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-gray-600 mb-6">{description}</p>
-      <div className="flex gap-3">
-        <Button
-          variant="outline"
-          className="flex-1 h-11"
-          onClick={() => window.location.href = link}
-        >
-          Más información
-        </Button>
-        <Button
-          asChild
-          className="flex-1 h-11 bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
-        >
-          <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-            {registerText}
-          </a>
-        </Button>
-      </div>
-    </div>
-  </div>
-);
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
 
 export const ServicesSection = () => {
-
-
-  const services = [
-    {
-      title: "Socio Flotilla",
-      description: "Gana hasta $10,000 mensuales sin conducir. Tu coche trabaja por ti.",
-      image: "/images/heroSocioFlotilla.webp",
-      link: "/socio-flotilla",
-      registerText: "Quiero ser socio",
-      whatsappLink: "https://wa.me/5212215590718?text=¡Hola%20MyDriver!%20Quiero%20información%20para%20ser%20socio%20flotilla."
-    },
-    {
-      title: "Socio Conductor",
-      description: "Únete a nuestra red de conductores y genera ingresos extras con tu vehículo.",
-      image: "/images/driver-partner.webp",
-      link: "/socio-conductor",
-      formTitle: "Regístrate como Socio Conductor",
-      formSubtitle: "Comienza a generar ingresos con tu vehículo",
-      whatsappLink: "https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Conductor."
-    },
-    {
-      title: "Conductor Standard",
-      description: "Forma parte de nuestra flota de conductores profesionales con vehículos de la empresa.",
-      image: "/images/standard-driver.webp",
-      link: "/conductor-standard",
-      formTitle: "Regístrate como Conductor Standard",
-      formSubtitle: "Únete a nuestra flota profesional",
-      whatsappLink: "https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Conductor%20Standard."
-    },
-    {
-      title: "Socio Repartidor",
-      description: "Forma parte de nuestra red de repartidores y genera ingresos con entregas.",
-      image: "/images/delivery-partner.webp",
-      link: "/socio-repartidor",
-      formTitle: "Regístrate como Socio Repartidor",
-      formSubtitle: "Únete a nuestra red de repartidores",
-      whatsappLink: "https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Repartidor."
-    },
-    {
-      title: "Negocio Aliado",
-      description: "Incrementa tus ventas y alcance uniéndote a nuestra plataforma.",
-      image: "/images/business-partner.webp",
-      link: "/negocio-aliado",
-      formTitle: "Regístrate como Negocio Aliado",
-      formSubtitle: "Haz crecer tu negocio con nosotros",
-      whatsappLink: "https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrar%20mi%20negocio%20en%20MyDriver."
-    },
-    {
-      title: "MyDriver Cargo",
-      description: "Soluciones de transporte y logística para empresas y negocios.",
-      image: "/images/cargo-service.webp",
-      link: "/mydriver-cargo",
-      formTitle: "Solicita MyDriver Cargo",
-      formSubtitle: "Soluciones logísticas a tu medida",
-      whatsappLink: "https://wa.me/5212215590718?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20MyDriver%20Cargo."
-    }
-  ];
-
-
-
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Nuestros Servicios</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Descubre las diferentes formas de colaborar con MyDriver y forma parte de nuestra comunidad en crecimiento.
-          </p>
+    <SectionContainer id="servicios" background="light">
+      <SectionHeading
+        badge="Servicios"
+        title="Nuestros Servicios"
+        subtitle="Descubre las diferentes formas de moverte y crecer con MyDriver."
+      />
+
+      {/* Grid of Permanent Services */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 auto-rows-[250px] lg:auto-rows-[275px] mb-12"
+      >
+        {services.map((service) => (
+          <motion.div key={service.id} variants={itemVariants} className={service.className}>
+            <Link to={service.link} className="group relative block w-full h-full overflow-hidden rounded-[24px] shadow-sm">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent transition-opacity duration-300" />
+              
+              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{service.title}</h3>
+                <p className="text-white/80 text-sm md:text-base line-clamp-2 mb-4 opacity-100 lg:opacity-0 lg:translate-y-4 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-300">
+                  {service.description}
+                </p>
+                <div className="flex items-center text-red-400 font-semibold opacity-100 lg:opacity-0 lg:-translate-x-4 lg:group-hover:opacity-100 lg:group-hover:translate-x-0 transition-all duration-300">
+                  Descubre más <span className="ml-2">→</span>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* Dedicated Section: MyDriver Experience with Destination Carousel */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-white rounded-card overflow-hidden shadow-elevated border border-border-subtle p-6 sm:p-10"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Left Column: Image Carousel of Destinations */}
+          <div className="lg:col-span-7">
+            <div className="relative rounded-2xl overflow-hidden shadow-card">
+              <Carousel
+                opts={{ loop: true }}
+                plugins={[
+                  Autoplay({
+                    delay: 3500,
+                    stopOnInteraction: false,
+                  }),
+                ]}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {destinationSlides.map((slide) => (
+                    <CarouselItem key={slide.id}>
+                      <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-900 group">
+                        <img
+                          src={slide.image}
+                          alt={slide.name}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                        
+                        {/* Top Badges */}
+                        <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-brand-navy/90 backdrop-blur-md text-white text-xs font-semibold shadow-md border border-white/20">
+                            <Calendar className="w-3.5 h-3.5 text-brand-red" />
+                            {slide.season}
+                          </span>
+                          <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-pill bg-brand-red text-white shadow-sm">
+                            <Sparkles className="w-3 h-3" /> Exclusivo
+                          </span>
+                        </div>
+
+                        {/* Bottom Slide Info */}
+                        <div className="absolute bottom-4 left-4 right-4 text-white">
+                          <p className="text-xs text-amber-300 font-semibold flex items-center gap-1 mb-1">
+                            <MapPin className="w-3.5 h-3.5" />
+                            {slide.location}
+                          </p>
+                          <h4 className="text-xl sm:text-2xl font-bold drop-shadow-md mb-1">
+                            {slide.name}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-gray-200 line-clamp-2 font-light">
+                            {slide.description}
+                          </p>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-3 bg-white/80 hover:bg-white text-brand-navy border-none shadow-md" />
+                <CarouselNext className="right-3 bg-white/80 hover:bg-white text-brand-navy border-none shadow-md" />
+              </Carousel>
+            </div>
+            <p className="text-[11px] text-text-muted mt-2 text-center">
+              Desliza para ver fotos de nuestros destinos por temporada
+            </p>
+          </div>
+
+          {/* Right Column: Information & Direct Action to Destinations Page */}
+          <div className="lg:col-span-5 space-y-6">
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-pill bg-brand-red/10 text-brand-red text-xs font-bold uppercase tracking-wider mb-3">
+                <Sparkles className="w-3.5 h-3.5" /> Únicamente por Temporadas
+              </span>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-navy tracking-tight leading-tight">
+                MyDriver Experience
+              </h3>
+            </div>
+
+            <p className="text-text-secondary text-sm sm:text-base leading-relaxed">
+              Viaja a festivales emblemáticos, reservas naturales protegidas y pueblos mágicos con chofer privado dedicado, traslados redondos y tiempo de espera garantizado.
+            </p>
+
+            <div className="space-y-2.5 pt-1">
+              {[
+                "Santuario de las Luciérnagas (Nanacamilpa, Tlaxcala)",
+                "Val'Quirico y Pueblos Medievales",
+                "Carnaval de Veracruz (Desfiles y Macroplaza)",
+                "Ruta de Haciendas Históricas y Pulqueras",
+                "Huamantla Pueblo Mágico (Arte en Aserrín)",
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-2.5">
+                  <ShieldCheck className="w-4 h-4 text-brand-red shrink-0" />
+                  <span className="text-xs sm:text-sm font-medium text-text-primary">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-3 flex flex-col sm:flex-row gap-3">
+              <Button
+                asChild
+                className="bg-brand-red hover:bg-brand-red-hover text-white rounded-pill px-6 h-12 text-sm font-bold shadow-md hover:shadow-lg transition-all"
+              >
+                <Link to="/destinos">
+                  Ver Todos los Destinos
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </Button>
+
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-pill border-border-subtle hover:border-brand-red text-text-primary hover:text-brand-red h-12 text-sm font-semibold"
+              >
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola MyDriver, me interesa solicitar información sobre las rutas y destinos de MyDriver Experience.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4 mr-2 text-brand-red" />
+                  Cotizar por WhatsApp
+                </a>
+              </Button>
+            </div>
+          </div>
+
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={service.title}
-              {...service}
-            />
-          ))}
-        </div>
-
-
-      </div>
-    </section>
+      </motion.div>
+    </SectionContainer>
   );
 };

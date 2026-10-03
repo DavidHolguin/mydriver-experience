@@ -1,129 +1,170 @@
+import { Layout } from "@/components/Layout";
+import { SectionContainer } from "@/components/SectionContainer";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Target, Users, Shield, Zap } from "lucide-react";
 
-import { useState } from 'react';
-import { Navbar } from '@/components/Navbar';
-import { Sidebar } from '@/components/Sidebar';
-
-import { Users, Target, Heart, Globe } from 'lucide-react';
-
-const SobreNosotros = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+export default function SobreNosotros() {
   const values = [
     {
-      icon: Users,
+      icon: <Target className="h-8 w-8 text-brand-red" />,
+      title: "Nuestra Misión",
+      description: "Ofrecer soluciones de movilidad seguras, eficientes y accesibles, conectando personas y negocios."
+    },
+    {
+      icon: <Users className="h-8 w-8 text-brand-red" />,
       title: "Comunidad",
-      description: "Construimos una comunidad sólida de conductores y pasajeros."
+      description: "Construimos una red sólida donde conductores y pasajeros se benefician mutuamente."
     },
     {
-      icon: Target,
+      icon: <Shield className="h-8 w-8 text-brand-red" />,
+      title: "Seguridad",
+      description: "Implementamos los más altos estándares para garantizar viajes tranquilos y protegidos."
+    },
+    {
+      icon: <Zap className="h-8 w-8 text-brand-red" />,
       title: "Innovación",
-      description: "Mejoramos constantemente nuestra tecnología y servicios."
+      description: "Mejoramos continuamente nuestra tecnología para brindar la mejor experiencia."
+    }
+  ];
+
+  const timeline = [
+    {
+      year: "2020",
+      title: "El Inicio",
+      description: "MyDriver nace con la visión de transformar el transporte local."
     },
     {
-      icon: Heart,
-      title: "Compromiso",
-      description: "Nos comprometemos con la seguridad y satisfacción."
+      year: "2022",
+      title: "Expansión",
+      description: "Lanzamiento de servicios corporativos y MyDriver Cargo."
     },
     {
-      icon: Globe,
-      title: "Sostenibilidad",
-      description: "Trabajamos por un transporte más eficiente y ecológico."
+      year: "2024",
+      title: "Crecimiento Continuo",
+      description: "Presencia en múltiples ciudades y más de 10,000 conductores afiliados."
     }
   ];
 
   return (
-    <>
-      <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
-      <div className="pt-16">
-        {/* Hero Section */}
-        <section className="relative bg-primary/5 pt-20 pb-32 overflow-hidden">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-5xl font-bold mb-6 animate-fade-in">
-                Transformando la movilidad urbana
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 animate-fade-in">
-                MyDriver nació con la visión de hacer el transporte más accesible, seguro y eficiente para todos.
-              </p>
+    <Layout>
+      <section className="bg-brand-navy text-white pt-32 pb-20 px-4 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="container mx-auto max-w-4xl"
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Transformando la movilidad urbana
+          </h1>
+          <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            Somos más que una aplicación. Somos un movimiento impulsado por la comunidad para hacer el transporte justo, seguro y eficiente.
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-brand-red mb-2">10k+</div>
+              <div className="text-sm text-gray-400">Conductores</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-brand-red mb-2">5M+</div>
+              <div className="text-sm text-gray-400">Viajes completados</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-brand-red mb-2">4.9</div>
+              <div className="text-sm text-gray-400">Calificación promedio</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-brand-red mb-2">15+</div>
+              <div className="text-sm text-gray-400">Ciudades</div>
             </div>
           </div>
-          <div className="absolute inset-0 -z-10 opacity-10 bg-[radial-gradient(circle_at_50%_120%,#ab1818,transparent)]" />
-        </section>
+        </motion.div>
+      </section>
 
-        {/* Values Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              Nuestros Valores
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {values.map((value) => (
-                <div
-                  key={value.title}
-                  className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
+      <SectionContainer background="white">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Nuestros Valores</h2>
+          <p className="text-text-secondary max-w-2xl mx-auto">
+            Los principios que guían cada decisión y cada línea de código que escribimos.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {values.map((value, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="bg-surface-light p-8 rounded-card border border-border-subtle hover:shadow-hover transition-all duration-300"
+            >
+              <div className="bg-brand-red/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                {value.icon}
+              </div>
+              <h3 className="text-xl font-bold text-brand-navy mb-3">{value.title}</h3>
+              <p className="text-text-secondary leading-relaxed">{value.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </SectionContainer>
+
+      <SectionContainer background="light">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Nuestra Historia</h2>
+            <p className="text-text-secondary">El camino que hemos recorrido hasta ahora.</p>
+          </div>
+          
+          <div className="relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-border-subtle"></div>
+            <div className="space-y-12">
+              {timeline.map((item, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className={`relative flex items-center justify-between md:justify-normal ${
+                    idx % 2 === 0 ? "md:flex-row-reverse" : ""
+                  }`}
                 >
-                  <value.icon className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
-                </div>
+                  <div className="hidden md:block w-5/12"></div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-brand-red border-4 border-white shadow-sm z-10 flex items-center justify-center">
+                  </div>
+                  <div className={`w-full md:w-5/12 bg-white p-6 rounded-card shadow-card ${
+                    idx % 2 === 0 ? "md:mr-auto ml-12 md:ml-0" : "md:ml-auto ml-12"
+                  }`}>
+                    <span className="text-brand-red font-bold text-xl block mb-2">{item.year}</span>
+                    <h3 className="text-xl font-bold text-brand-navy mb-2">{item.title}</h3>
+                    <p className="text-text-secondary">{item.description}</p>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </SectionContainer>
 
-        {/* Story Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-12">
-                Nuestra Historia
-              </h2>
-              <div className="space-y-8">
-                <div className="flex gap-8 items-start">
-                  <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl font-bold text-primary">2020</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">Los inicios</h3>
-                    <p className="text-gray-600">
-                      MyDriver comenzó como una idea para mejorar el transporte urbano, con un equipo pequeño pero apasionado.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-8 items-start">
-                  <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl font-bold text-primary">2022</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">Expansión</h3>
-                    <p className="text-gray-600">
-                      Expandimos nuestros servicios a más ciudades y lanzamos nuevas características para mejorar la experiencia.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-8 items-start">
-                  <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl font-bold text-primary">2024</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">Innovación</h3>
-                    <p className="text-gray-600">
-                      Implementamos tecnologías avanzadas y expandimos nuestra gama de servicios para incluir opciones de carga y delivery.
-                    </p>
-                  </div>
-                </div>
-              </div>
+      <SectionContainer background="white">
+        <div className="bg-brand-navy rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Únete a la familia MyDriver</h2>
+            <p className="text-lg text-gray-300 mb-8">
+              Ya sea como conductor o pasajero, hay un lugar para ti en nuestra comunidad.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-brand-red hover:bg-red-700 text-white rounded-pill px-8">
+                <Link to="/socio-conductor">Ser Conductor</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-white text-brand-navy hover:bg-gray-100 bg-white rounded-pill px-8">
+                <Link to="/descargas">Descargar App</Link>
+              </Button>
             </div>
           </div>
-        </section>
-      </div>
-
-    </>
+        </div>
+      </SectionContainer>
+    </Layout>
   );
-};
-
-export default SobreNosotros;
+}

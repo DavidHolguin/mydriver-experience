@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -24,6 +23,7 @@ import SocioFlotilla from "./pages/SocioFlotilla";
 import { Descargas } from "./pages/Descargas";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Destinos from "./pages/Destinos";
 import Experiencias from "./pages/Experiencias";
 import ExperienciaDetalle from "./pages/ExperienciaDetalle";
 import Temporada from "./pages/Temporada";
@@ -31,7 +31,6 @@ import Temporada from "./pages/Temporada";
 const queryClient = new QueryClient();
 
 const App = () => {
-  // Inicializar Google Tag Manager
   useGoogleTagManager();
 
   return (
@@ -44,6 +43,10 @@ const App = () => {
           <GoogleTagManagerPageTracker />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/destinos" element={<Destinos />} />
+            <Route path="/experiencias" element={<Experiencias />} />
+            <Route path="/experiencias/:slug" element={<ExperienciaDetalle />} />
+            <Route path="/temporada" element={<Temporada />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/socio-conductor" element={<SocioConductor />} />
@@ -59,9 +62,6 @@ const App = () => {
             <Route path="/santuario-luciernagas" element={<SantuarioLuciernagas />} />
             <Route path="/socio-flotilla" element={<SocioFlotilla />} />
             <Route path="/carnaval-veracruz" element={<CarnavalVeracruz />} />
-            <Route path="/experiencias" element={<Experiencias />} />
-            <Route path="/experiencias/:slug" element={<ExperienciaDetalle />} />
-            <Route path="/temporada" element={<Temporada />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

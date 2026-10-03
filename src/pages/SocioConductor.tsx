@@ -1,23 +1,13 @@
-import { useState } from 'react';
-import { DollarSign, Gavel, Wrench, ShieldCheck, Phone, Users, FileText, ThumbsUp, TrendingUp, Car, UserCircle, Home, FileCheck2, CreditCard } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Navbar } from '@/components/Navbar';
-import { Sidebar } from '@/components/Sidebar';
-import { LeadSection } from '@/components/LeadSection';
-
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import React from 'react';
+import { DollarSign, Gavel, Wrench, ShieldCheck, Phone, Users, TrendingUp, ThumbsUp, Car, UserCircle, Home, FileCheck2, CreditCard, FileText } from 'lucide-react';
+import ServicePageTemplate from '@/components/ServicePageTemplate';
+import { WHATSAPP_LINKS, EMBED_FORMS } from '@/config/constants';
 
 const benefits = [
   {
     icon: DollarSign,
     title: "Comisión Fija, No por Viaje",
-    description: "Solo pagas $4,500 pesos al mes, sin importar cuántos viajes hagas. ¡Lo que generas es tuyo!"
+    description: "Solo pagas $750 pesos semanales, sin importar cuántos viajes hagas. ¡Lo que generas es tuyo!"
   },
   {
     icon: Gavel,
@@ -103,12 +93,12 @@ const requirements = [
     icon: CreditCard,
     text: "Pago único de registro y afiliación vehicular."
   }
-]
+];
 
 const faqs = [
   {
-    question: "¿Cómo funciona el pago de la comisión o la suscripción?",
-    answer: "Elige el esquema que te convenga: una suscripción fija de $4,500 al mes, sin importar cuántos viajes realices, o una comisión del 15 % por viaje. Con la suscripción, todo lo que generes es para ti."
+    question: "¿Cómo funciona el pago de la comisión?",
+    answer: "No pagas comisiones por viaje. Es un pago único semanal de $750, sin importar cuántos viajes realices. ¡Todo lo demás es para ti!"
   },
   {
     question: "¿Qué pasa si tengo un problema en un viaje?",
@@ -121,155 +111,36 @@ const faqs = [
 ];
 
 const SocioConductor = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-
   return (
-    <>
-      <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
-      <div className="pt-16 bg-white text-gray-800">
-        {/* Hero Section */}
-        <section
-          className="relative bg-cover bg-center py-20 md:py-32"
-          style={{ backgroundImage: "url('/images/conductorSocio.webp')" }}
-        >
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="relative container px-4 mx-auto text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              ¿Tienes Auto y Quieres Generar Ingresos?
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
-              ¡Únete como Socio-Conductor MyDriver! Disfruta la comisión más baja del mercado y el control total de tus ganancias.
-            </p>
-            <Button
-              size="lg"
-              className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white text-lg px-8 py-6"
-              onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Conductor.", "_blank")}
-            >
-              Únete a MyDriver
-            </Button>
-          </div>
-        </section>
-
-        {/* Benefits Section */}
-        <section className="py-20">
-          <div className="container px-4 mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Beneficios de ser Socio-Conductor</h2>
-              <p className="text-lg text-gray-600 mt-2">Te respaldamos en cada viaje.</p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit) => (
-                <div key={benefit.title} className="p-6 text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-4 bg-[#ab1818]/10 rounded-full">
-                      <benefit.icon className="w-8 h-8 text-[#ab1818]" />
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600">{benefit.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* How it works Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container px-4 mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">¿Cómo Funciona?</h2>
-              <p className="text-lg text-gray-600 mt-2">En 3 simples pasos estarás en camino.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              {howItWorks.map((item) => (
-                <div key={item.step} className="p-6">
-                  <div className="flex justify-center items-center mx-auto w-16 h-16 bg-[#ab1818] text-white text-2xl font-bold rounded-full mb-4">
-                    {item.step}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-gray-600">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Requirements Section */}
-        <section className="py-20">
-          <div className="container px-4 mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Requisitos para Unirte</h2>
-            </div>
-            <div className="max-w-4xl mx-auto">
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                {requirements.map((req) => (
-                  <li key={req.text} className="flex items-center">
-                    <req.icon className="w-6 h-6 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-lg">{req.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container px-4 mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Preguntas Frecuentes</h2>
-            </div>
-            <div className="max-w-3xl mx-auto">
-              <Accordion type="single" collapsible className="w-full">
-                {faqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger className="text-lg text-left">{faq.question}</AccordionTrigger>
-                    <AccordionContent className="text-base">{faq.answer}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 text-white" style={{ backgroundColor: '#ab1818' }}>
-          <div className="container px-4 mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              ¿Listo para ser tu Propio Jefe?
-            </h2>
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Únete a la comunidad de socios-conductores que ya están maximizando sus ganancias con MyDriver.
-            </p>
-            <Button
-              size="lg"
-              variant="secondary"
-              className="bg-white text-[#ab1818] hover:bg-gray-200 text-lg px-8 py-6"
-              onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrarme%20como%20Socio%20Conductor.", "_blank")}
-            >
-              Quiero Registrarme Ahora
-            </Button>
-          </div>
-        </section>
-
-
-
-      </div>
-
-      <LeadSection
-        vertical="socio_conductor"
-        titulo="Súmate como Socio Conductor"
-        descripcion="Déjanos tus datos y te explicamos cómo empezar a generar ingresos con tu auto."
-        ctaTexto="Quiero registrarme"
-        etiquetaMensaje="¿Qué auto tienes?"
-      />
-
-    </>
+    <ServicePageTemplate
+      heroImage="/images/conductorSocio.webp"
+      heroTitle="¿Tienes Auto y Quieres Generar Ingresos?"
+      heroSubtitle="¡Únete como Socio-Conductor MyDriver! Disfruta la comisión más baja del mercado y el control total de tus ganancias."
+      heroCTA="Únete a MyDriver"
+      heroBadge="Socio Conductor"
+      heroWhatsappLink={WHATSAPP_LINKS.socioConductor}
+      stats={[
+        { value: "$750", label: "Comisión semanal fija" },
+        { value: "24/7", label: "Soporte legal" },
+        { value: "100%", label: "Tus ganancias" }
+      ]}
+      benefitsTitle="Beneficios de ser Socio-Conductor"
+      benefitsSubtitle="Te respaldamos en cada viaje."
+      benefits={benefits}
+      howItWorks={howItWorks}
+      requirements={requirements}
+      faqs={faqs}
+      ctaTitle="¿Listo para ser tu Propio Jefe?"
+      ctaSubtitle="Únete a la comunidad de socios-conductores que ya están maximizando sus ganancias con MyDriver."
+      ctaButtonText="Quiero Registrarme Ahora"
+      ctaWhatsappLink={WHATSAPP_LINKS.socioConductor}
+      leadSection={{
+        vertical: "socio_conductor",
+        titulo: "Regístrate como Socio Conductor",
+        descripcion: "Déjanos tus datos y un asesor te contacta para completar tu alta.",
+        ctaTexto: "Quiero ser Socio Conductor",
+      }}
+    />
   );
 };
 

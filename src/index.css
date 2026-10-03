@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -11,8 +12,8 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 73% 44%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
@@ -23,34 +24,78 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+    --ring: 0 73% 44%;
+    --radius: 0.75rem;
   }
 
   * {
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-primary;
+  }
+
+  .section-subheading {
+    @apply text-lg md:text-xl text-text-secondary max-w-2xl;
   }
 
   .glass {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
   }
 
-  .preloader {
-    @apply fixed inset-0 bg-primary-dark z-50 flex items-center justify-center;
-    animation: fadeOut 1s ease-out 2s forwards;
+  .glass-dark {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
   }
 
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-      visibility: hidden;
-    }
+  .gradient-overlay {
+    @apply absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/80 to-transparent;
+  }
+
+  .gradient-overlay-bottom {
+    @apply absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/50 to-transparent;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-[1.02];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-red to-red-600 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  .animation-delay-800 {
+    animation-delay: 800ms;
   }
 }

@@ -13,7 +13,7 @@ const services = [
   {
     icon: CreditCard,
     title: "Conductor standar",
-    description: "Elige entre comisión del 15 % por viaje o suscripción mensual fija de $4,500. ¡Tú decides cómo ganar!",
+    description: "Elige entre comisión por viaje o comisión fija semanal. ¡Tú decides cómo ganar!",
     url: "/conductor-standard"
   },
   {

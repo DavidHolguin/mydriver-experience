@@ -1,17 +1,7 @@
-import { useState } from 'react';
+import React from 'react';
 import { Building2, TrendingUp, Users, HeartHandshake } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Navbar } from '@/components/Navbar';
-import { Sidebar } from '@/components/Sidebar';
-import { LeadSection } from '@/components/LeadSection';
-
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import ServicePageTemplate from '@/components/ServicePageTemplate';
+import { WHATSAPP_LINKS } from '@/config/constants';
 
 const benefits = [
   {
@@ -52,122 +42,29 @@ const faqs = [
 ];
 
 const NegocioAliado = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-
   return (
-    <>
-      <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
-      <div className="pt-16">
-        {/* Hero Section */}
-        <section className="bg-primary/5 pt-20 pb-32">
-          <div className="container px-4 mx-auto">
-            <div className="flex flex-col md:flex-row items-center gap-12">
-              <div className="flex-1 animate-fade-in">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                  Impulsa tu negocio con MyDriver
-                </h1>
-                <p className="text-xl text-gray-600 mb-8">
-                  Incrementa tus ventas y alcance uniéndote a nuestra plataforma.
-                </p>
-                <Button
-                  size="lg"
-                  className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white"
-                  onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrar%20mi%20negocio%20en%20MyDriver.", "_blank")}
-                >
-                  Registra tu negocio
-                </Button>
-              </div>
-              <div className="flex-1">
-                <img
-                  src="/images/business-partner.webp"
-                  alt="Negocio Aliado"
-                  className="w-full rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Benefits Section */}
-        <section className="py-20">
-          <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              Beneficios para tu negocio
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit) => (
-                <div
-                  key={benefit.title}
-                  className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
-                >
-                  <benefit.icon className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600">{benefit.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              Preguntas frecuentes
-            </h2>
-            <div className="max-w-3xl mx-auto">
-              <Accordion type="single" collapsible>
-                {faqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger>{faq.question}</AccordionTrigger>
-                    <AccordionContent>{faq.answer}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20">
-          <div className="container px-4 mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              Únete a MyDriver Business
-            </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Descubre cómo podemos ayudarte a hacer crecer tu negocio.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-[#ab1818] hover:bg-[#ab1818]/90 text-white px-8 h-12 text-lg"
-                onClick={() => window.open("https://wa.me/5212215590718?text=Hola%2C%20quiero%20registrar%20mi%20negocio%20en%20MyDriver.", "_blank")}
-              >
-                Registra tu negocio
-              </Button>
-              <Button size="lg" variant="outline">
-                Ver planes
-              </Button>
-            </div>
-          </div>
-        </section>
-
-
-      </div>
-      <LeadSection
-        vertical="negocio_aliado"
-        titulo="Quiero ser Negocio Aliado"
-        descripcion="Cuéntanos de tu negocio y te contactamos con la propuesta para aliados."
-        ctaTexto="Quiero ser aliado"
-        etiquetaMensaje="¿Qué tipo de negocio tienes?"
-      />
-
-    </>
+    <ServicePageTemplate
+      heroImage="/images/business-partner.webp"
+      heroTitle="Impulsa tu negocio con MyDriver"
+      heroSubtitle="Incrementa tus ventas y alcance uniéndote a nuestra plataforma."
+      heroCTA="Registra tu negocio"
+      heroBadge="Negocio Aliado"
+      heroWhatsappLink={WHATSAPP_LINKS.negocioAliado}
+      benefitsTitle="Beneficios para tu negocio"
+      benefits={benefits}
+      faqs={faqs}
+      ctaTitle="Únete a MyDriver Business"
+      ctaSubtitle="Descubre cómo podemos ayudarte a hacer crecer tu negocio."
+      ctaButtonText="Registra tu negocio"
+      ctaWhatsappLink={WHATSAPP_LINKS.negocioAliado}
+      leadSection={{
+        vertical: "negocio_aliado",
+        titulo: "Registra tu negocio aliado",
+        descripcion: "Comienza a enviar pedidos con la red de MyDriver.",
+        ctaTexto: "Dar de alta mi negocio",
+        etiquetaMensaje: "Giro del negocio",
+      }}
+    />
   );
 };
 

@@ -1,160 +1,183 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
-import { Button } from './ui/button';
+import { Link } from 'react-router-dom';
+import { SOCIAL_LINKS, APP_LINKS } from '@/config/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTiktok, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 export const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-gray-900 text-white py-16">
-      <div className="container mx-auto px-4">
+    <footer className="bg-[#0F1E2A] text-gray-400">
+      <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Logo y descripción */}
-          <div className="space-y-4">
+          {/* Column 1: Brand & Social */}
+          <div className="space-y-6">
             <img 
-              src="https://monkeytwomonkey.com/wp-content/uploads/2021/10/mydriver-logo-sin-fondo-1.png"
-              alt="MyDriver Logo"
-              className="h-20"
+              src="/images/logo.svg" 
+              alt="MyDriver" 
+              className="h-10 brightness-0 invert" 
             />
-            <p className="text-gray-400 mt-4">
-              Transformando la movilidad urbana con tecnología e innovación.
+            <p className="text-sm leading-relaxed">
+              La plataforma de movilidad que conecta conductores con pasajeros de manera justa y segura en México.
             </p>
-            <div className="flex space-x-4 mt-6">
-              <a href="https://www.tiktok.com/@mydrivermexico" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <FontAwesomeIcon icon={faTiktok} className="h-6 w-6" />
+            <div className="flex items-center gap-4 pt-2">
+              <a 
+                href={SOCIAL_LINKS.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C41E1E] hover:text-white transition-colors"
+                aria-label="TikTok"
+              >
+                <FontAwesomeIcon icon={faTiktok} className="w-4 h-4" />
               </a>
-              <a href="https://www.facebook.com/people/myDriver-Mx/61577308812929/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <FontAwesomeIcon icon={faFacebook} className="h-6 w-6" />
+              <a 
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C41E1E] hover:text-white transition-colors"
+                aria-label="Facebook"
+              >
+                <FontAwesomeIcon icon={faFacebook} className="w-4 h-4" />
               </a>
-              <a href="https://wa.me/5212215590718" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <FontAwesomeIcon icon={faWhatsapp} className="h-6 w-6" />
+              <a 
+                href={SOCIAL_LINKS.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C41E1E] hover:text-white transition-colors"
+                aria-label="WhatsApp"
+              >
+                <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Enlaces rápidos */}
+          {/* Column 2: Servicios & Experience */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Enlaces rápidos</h3>
+            <h3 className="text-white font-semibold mb-6">Servicios</h3>
+            <ul className="space-y-4">
+              <li>
+                <Link to="/" className="text-sm hover:text-white transition-colors">Viajes en Ciudad</Link>
+              </li>
+              <li>
+                <Link to="/mydriver-cargo" className="text-sm hover:text-white transition-colors">MyDriver Cargo</Link>
+              </li>
+            </ul>
+
+            <h4 className="text-xs font-bold uppercase tracking-wider text-brand-red mt-6 mb-3">
+              MyDriver Experience
+            </h4>
             <ul className="space-y-3">
-              <li><a href="/sobre-nosotros" className="text-gray-400 hover:text-white transition-colors">Sobre Nosotros</a></li>
-              <li><a href="/socio-conductor" className="text-gray-400 hover:text-white transition-colors">Socio Conductor</a></li>
-              <li><a href="/socio-repartidor" className="text-gray-400 hover:text-white transition-colors">Socio Repartidor</a></li>
-              <li><a href="/negocio-aliado" className="text-gray-400 hover:text-white transition-colors">Negocio Aliado</a></li>
-              <li><a href="/experiencias" className="text-gray-400 hover:text-white transition-colors">MyDriver Experiencias</a></li>
-              <li><a href="/temporada" className="text-gray-400 hover:text-white transition-colors">Experiencias de Temporada</a></li>
+              <li>
+                <Link to="/destinos" className="text-xs text-brand-red font-semibold hover:underline flex items-center gap-1">
+                  <span>Ver Todos los Destinos →</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/santuario-luciernagas" className="text-xs text-gray-400 hover:text-white transition-colors flex items-center justify-between">
+                  <span>Santuario Luciérnagas</span>
+                  <span className="text-[10px] text-gray-500">Jun–Ago</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/carnaval-veracruz" className="text-xs text-gray-400 hover:text-white transition-colors flex items-center justify-between">
+                  <span>Carnaval Veracruz</span>
+                  <span className="text-[10px] text-gray-500">Jun–Jul</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Column 3: Gana con MyDriver */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
-            <ul className="space-y-3">
-              <li><a href="/terminos" className="text-gray-400 hover:text-white transition-colors">Términos y Condiciones</a></li>
-              <li><a href="/politicas" className="text-gray-400 hover:text-white transition-colors">Política de Privacidad</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Centro de Ayuda</a></li>
+            <h3 className="text-white font-semibold mb-6">Gana con MyDriver</h3>
+            <ul className="space-y-4">
+              <li>
+                <Link to="/socio-conductor" className="text-sm hover:text-white transition-colors">Socio Conductor</Link>
+              </li>
+              <li>
+                <Link to="/conductor-standard" className="text-sm hover:text-white transition-colors">Conductor Standard</Link>
+              </li>
+              <li>
+                <Link to="/socio-repartidor" className="text-sm hover:text-white transition-colors">Socio Repartidor</Link>
+              </li>
+              <li>
+                <Link to="/negocio-aliado" className="text-sm hover:text-white transition-colors">Negocio Aliado</Link>
+              </li>
+              <li>
+                <Link to="/socio-flotilla" className="text-sm hover:text-white transition-colors">Socio Flotilla</Link>
+              </li>
             </ul>
           </div>
 
-          {/* Contacto */}
+          {/* Column 4: Compañía & Legal */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contacto</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-gray-400">
-                <Phone className="w-5 h-5" />
-                <span>221 559 0718</span>
+            <h3 className="text-white font-semibold mb-6">Compañía</h3>
+            <ul className="space-y-4 mb-8">
+              <li>
+                <Link to="/sobre-nosotros" className="text-sm hover:text-white transition-colors">Sobre Nosotros</Link>
               </li>
-              <li className="flex items-center gap-2 text-gray-400">
-                <Mail className="w-5 h-5" />
-                <span>contacto@mydriver.com</span>
+              <li>
+                <Link to="/blog" className="text-sm hover:text-white transition-colors">Blog</Link>
+              </li>
+              <li>
+                <Link to="/contacto" className="text-sm hover:text-white transition-colors">Contacto</Link>
+              </li>
+              <li>
+                <Link to="/#seguridad" className="text-sm hover:text-white transition-colors">Seguridad</Link>
               </li>
             </ul>
-            <Button asChild className="mt-6 bg-primary hover:bg-primary/90">
-              <a href="https://wa.me/5212215590718?text=Hola,%20necesito%20ayuda%20de%20soporte." target="_blank" rel="noopener noreferrer">
-                Contactar Soporte
-              </a>
-            </Button>
+            
+            <h3 className="text-white font-semibold mb-6">Legal</h3>
+            <ul className="space-y-4">
+              <li>
+                <Link to="/terminos" className="text-sm hover:text-white transition-colors">Términos y Condiciones</Link>
+              </li>
+              <li>
+                <Link to="/politicas" className="text-sm hover:text-white transition-colors">Política de Privacidad</Link>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 pb-8 md:pb-8">
-          {/* Sección de Descargas */}
-          <div className="grid grid-cols-2 gap-4 mb-8">
-            {/* myDriver Pasajero */}
-            <div>
-              <h4 className="text-lg font-semibold mb-4 text-white">myDriver Pasajero</h4>
-              <div className="space-y-2">
-                {/* iOS Pasajero */}
-                <div className="h-12 flex items-center">
-                  <a 
-                    href="https://apps.apple.com/us/app/mydrivertaxi/id6443749551" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <img 
-                      src="/images/ios.png"
-                      alt="Descargar myDriver Pasajero en App Store"
-                      className="h-12 w-auto"
-                    />
-                  </a>
-                </div>
-                {/* Android Pasajero */}
-                <div className="h-12 flex items-center">
-                  <a 
-                    href="https://play.google.com/store/apps/details?id=com.rider.mydrivermxn" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <img 
-                      src="/images/android.png"
-                      alt="Descargar myDriver Pasajero en Play Store"
-                      className="h-12 w-auto"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
+        {/* Divider */}
+        <div className="border-t border-white/10 my-12" />
 
-            {/* myDriver Conductor */}
+        {/* App Downloads & Copyright */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* App Downloads */}
+          <div className="flex flex-col sm:flex-row gap-6">
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-white">myDriver Conductor</h4>
-              <div className="space-y-2">
-                {/* iOS Conductor */}
-                <div className="h-12 flex items-center">
-                  <a 
-                    href="https://apps.apple.com/us/app/mydriver-conductor-app/id6443749599" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <img 
-                      src="/images/ios.png"
-                      alt="Descargar myDriver Conductor en App Store"
-                      className="h-12 w-auto"
-                    />
-                  </a>
-                </div>
-                {/* Android Conductor */}
-                <div className="h-12 flex items-center">
-                  <a 
-                    href="https://play.google.com/store/apps/details?id=com.driver.mydrivermxn" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <img 
-                      src="/images/android.png"
-                      alt="Descargar myDriver Conductor en Play Store"
-                      className="h-12 w-auto"
-                    />
-                  </a>
-                </div>
+              <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">App Pasajeros</p>
+              <div className="flex gap-3">
+                <a href={APP_LINKS.pasajero.android} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="h-10" />
+                </a>
+                <a href={APP_LINKS.pasajero.ios} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" className="h-10" />
+                </a>
               </div>
             </div>
-          </div>          {/* Copyright */}
-          <div className="text-center">
-            <p className="text-gray-400 text-sm">© 2025 MyDriver. Todos los derechos reservados.</p>
+            <div>
+              <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">App Conductores</p>
+              <div className="flex gap-3">
+                <a href={APP_LINKS.conductor.android} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="h-10" />
+                </a>
+                <a href={APP_LINKS.conductor.ios} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" className="h-10" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center md:text-right">
+            <p className="text-sm mb-1">
+              &copy; {currentYear} MyDriver. Todos los derechos reservados.
+            </p>
+            <p className="text-xs text-gray-600">
+              Powered by Auto Transportes Tepactepec
+            </p>
           </div>
         </div>
       </div>

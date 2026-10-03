@@ -1,135 +1,89 @@
+import { Layout } from "@/components/Layout";
+import { SectionContainer } from "@/components/SectionContainer";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { COMPANY_INFO } from "@/config/constants";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
-import { useState } from 'react';
-import { Navbar } from '@/components/Navbar';
-import { Sidebar } from '@/components/Sidebar';
-
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
-
-const Contacto = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      details: "soporte@mydriver.com",
-      link: "mailto:soporte@mydriver.com"
-    },
-    {
-      icon: Phone,
-      title: "Teléfono",
-      details: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
-    },
-    {
-      icon: MapPin,
-      title: "Ubicación",
-      details: "Ciudad de México, México",
-      link: "#"
-    },
-    {
-      icon: Clock,
-      title: "Horario",
-      details: "24/7 Soporte",
-      link: "#"
-    }
-  ];
-
+export default function Contacto() {
   return (
-    <>
-      <Navbar onOpenSidebar={() => setIsSidebarOpen(true)} />
-      <Sidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
-      <div className="pt-16">
-        {/* Hero Section */}
-        <section className="bg-primary/5 pt-20 pb-32">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-5xl font-bold mb-6 animate-fade-in">
-                Contáctanos
-              </h1>
-              <p className="text-xl text-gray-600 animate-fade-in">
-                Estamos aquí para ayudarte. No dudes en contactarnos si tienes alguna pregunta.
-              </p>
+    <Layout>
+      <section className="bg-brand-navy text-white pt-32 pb-20 px-4 text-center">
+        <div className="container mx-auto max-w-4xl">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Contáctanos</h1>
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+            Estamos aquí para ayudarte. Si tienes alguna duda o sugerencia, no dudes en escribirnos.
+          </p>
+        </div>
+      </section>
+
+      <SectionContainer background="white">
+        <div className="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          <div className="lg:col-span-1 space-y-6">
+            <div className="bg-surface-light p-6 rounded-card border border-border-subtle flex items-start space-x-4">
+              <Mail className="w-6 h-6 text-brand-red mt-1" />
+              <div>
+                <h3 className="font-bold text-brand-navy mb-1">Correo Electrónico</h3>
+                <p className="text-text-secondary">{COMPANY_INFO.email}</p>
+              </div>
+            </div>
+            
+            <div className="bg-surface-light p-6 rounded-card border border-border-subtle flex items-start space-x-4">
+              <Phone className="w-6 h-6 text-brand-red mt-1" />
+              <div>
+                <h3 className="font-bold text-brand-navy mb-1">Teléfono / WhatsApp</h3>
+                <p className="text-text-secondary">{COMPANY_INFO.phone}</p>
+              </div>
+            </div>
+            
+            <div className="bg-surface-light p-6 rounded-card border border-border-subtle flex items-start space-x-4">
+              <MapPin className="w-6 h-6 text-brand-red mt-1" />
+              <div>
+                <h3 className="font-bold text-brand-navy mb-1">Ubicación</h3>
+                <p className="text-text-secondary">{COMPANY_INFO.address}</p>
+              </div>
+            </div>
+
+            <div className="bg-surface-light p-6 rounded-card border border-border-subtle flex items-start space-x-4">
+              <Clock className="w-6 h-6 text-brand-red mt-1" />
+              <div>
+                <h3 className="font-bold text-brand-navy mb-1">Horario de Atención</h3>
+                <p className="text-text-secondary">Lunes a Viernes<br/>9:00 AM - 6:00 PM</p>
+              </div>
             </div>
           </div>
-        </section>
 
-        {/* Contact Form Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-              {/* Contact Information */}
-              <div className="space-y-8">
-                <h2 className="text-3xl font-bold mb-8">
-                  Información de Contacto
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {contactInfo.map((info) => (
-                    <a
-                      key={info.title}
-                      href={info.link}
-                      className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center"
-                    >
-                      <info.icon className="w-8 h-8 text-primary mb-4" />
-                      <h3 className="font-semibold mb-2">{info.title}</h3>
-                      <p className="text-gray-600">{info.details}</p>
-                    </a>
-                  ))}
+          <div className="lg:col-span-2">
+            <div className="bg-white p-8 md:p-10 rounded-card shadow-card border border-border-subtle">
+              <h2 className="text-2xl font-bold text-brand-navy mb-6">Envíanos un mensaje</h2>
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium text-brand-navy">Nombre</label>
+                    <Input id="name" placeholder="Tu nombre" className="rounded-xl" />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-brand-navy">Correo Electrónico</label>
+                    <Input id="email" type="email" placeholder="tu@email.com" className="rounded-xl" />
+                  </div>
                 </div>
-              </div>
-
-              {/* Contact Form */}
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <h2 className="text-2xl font-bold mb-6">
-                  Envíanos un mensaje
-                </h2>
-                <form className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2" htmlFor="name">
-                      Nombre
-                    </label>
-                    <Input id="name" placeholder="Tu nombre completo" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2" htmlFor="email">
-                      Email
-                    </label>
-                    <Input id="email" type="email" placeholder="tu@email.com" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2" htmlFor="subject">
-                      Asunto
-                    </label>
-                    <Input id="subject" placeholder="¿Sobre qué nos quieres contactar?" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2" htmlFor="message">
-                      Mensaje
-                    </label>
-                    <Textarea
-                      id="message"
-                      placeholder="Escribe tu mensaje aquí..."
-                      className="min-h-[150px]"
-                    />
-                  </div>
-                  <Button className="w-full bg-primary text-white">
-                    Enviar mensaje
-                  </Button>
-                </form>
-              </div>
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-sm font-medium text-brand-navy">Asunto</label>
+                  <Input id="subject" placeholder="¿En qué podemos ayudarte?" className="rounded-xl" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium text-brand-navy">Mensaje</label>
+                  <Textarea id="message" placeholder="Escribe tu mensaje aquí..." rows={5} className="rounded-xl" />
+                </div>
+                <Button type="submit" size="lg" className="w-full bg-brand-red hover:bg-red-700 text-white rounded-pill">
+                  Enviar Mensaje
+                </Button>
+              </form>
             </div>
           </div>
-        </section>
-      </div>
-
-    </>
+        </div>
+      </SectionContainer>
+    </Layout>
   );
-};
-
-export default Contacto;
+}

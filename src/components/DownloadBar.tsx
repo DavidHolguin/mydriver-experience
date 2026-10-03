@@ -1,7 +1,7 @@
 import { Button } from './ui/button';
 
 export const DownloadBar = () => {
-  const whatsappLink = "https://wa.me/5212215590718?text=Hola,%20me%20gustaría%20registrarme%20como%20conductor.";
+  const whatsappLink = "https://wa.me/5212461569161?text=Hola,%20me%20gustaría%20registrarme%20como%20conductor.";
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg z-40">

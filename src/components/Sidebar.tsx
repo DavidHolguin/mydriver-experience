@@ -1,4 +1,4 @@
-import { X, Car, CreditCard, Bike, Store, Truck, FileText, ScrollText, User, Mail, Home, Download, BookOpen, MapPin, CalendarDays } from 'lucide-react';
+import { X, Car, CreditCard, Bike, Store, Truck, FileText, ScrollText, User, Mail, Home, Download, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const homeItem = {
@@ -45,21 +45,6 @@ const menuItems = [
         title: 'MyDriver Cargo', 
         url: '/mydriver-cargo',
         icon: Truck 
-      }
-    ]
-  },
-  {
-    group: "Turismo",
-    items: [
-      {
-        title: 'MyDriver Experiencias',
-        url: '/experiencias',
-        icon: MapPin
-      },
-      {
-        title: 'Experiencias de Temporada',
-        url: '/temporada',
-        icon: CalendarDays
       }
     ]
   },
