@@ -86,7 +86,8 @@ const ServicePageTemplate: React.FC<ServicePageProps> = ({
   ctaSubtitle,
   ctaButtonText,
   ctaWhatsappLink,
-  embedFormUrl
+  embedFormUrl,
+  leadSection,
 }) => {
   return (
     <Layout>
