@@ -6,8 +6,13 @@ import { WHATSAPP_LINKS, EMBED_FORMS } from '@/config/constants';
 const benefits = [
   {
     icon: DollarSign,
-    title: "Comisión Fija, No por Viaje",
-    description: "Solo pagas $750 pesos semanales, sin importar cuántos viajes hagas. ¡Lo que generas es tuyo!"
+    title: "Tú Eliges tu Tarifa: 15% o $4,500 Fijo",
+    description: "Elige entre pagar el 15% por viaje o una suscripción mensual fija de $4,500 MXN sin cobro por porcentaje. ¡Tú decides cómo ganar más!"
+  },
+  {
+    icon: Car,
+    title: "Taxis Rotulados y Autos Particulares",
+    description: "La plataforma está abierta para choferes de taxis rotulados oficiales y propietarios de vehículos particulares en regla."
   },
   {
     icon: Gavel,
@@ -33,11 +38,6 @@ const benefits = [
     icon: Users,
     title: "Comunidad Unida de Conductores",
     description: "Forma parte de una red de socios confiables donde se comparte información, apoyo y tips."
-  },
-  {
-    icon: TrendingUp,
-    title: "Genera Mayores Ganancias",
-    description: "Nuestra comisión fija es la más baja del mercado. No cobramos comisiones por cada viaje."
   },
   {
     icon: ThumbsUp,
@@ -67,7 +67,7 @@ const howItWorks = [
 const requirements = [
   {
     icon: Car,
-    text: "Vehículo propio en buen estado (mínimo 2016)."
+    text: "Automóvil particular o taxi rotulado en buen estado (mínimo 2016)."
   },
   {
     icon: FileText,
@@ -91,14 +91,18 @@ const requirements = [
   },
   {
     icon: CreditCard,
-    text: "Pago único de registro y afiliación vehicular."
+    text: "Pago de registro y afiliación vehicular."
   }
 ];
 
 const faqs = [
   {
-    question: "¿Cómo funciona el pago de la comisión?",
-    answer: "No pagas comisiones por viaje. Es un pago único semanal de $750, sin importar cuántos viajes realices. ¡Todo lo demás es para ti!"
+    question: "¿Qué vehículos se aceptan en MyDriver?",
+    answer: "Aceptamos tanto automóviles particulares como taxis rotulados debidamente regularizados y en buen estado mecánico (año 2016 en adelante)."
+  },
+  {
+    question: "¿Cómo funciona el esquema de comisiones y cobro?",
+    answer: "Ofrecemos dos esquemas flexibles: puedes optar por una comisión del 15% por viaje realizado, o bien una suscripción mensual fija de $4,500 MXN sin cobro por porcentaje de viajes. ¡El resto es 100% para ti!"
   },
   {
     question: "¿Qué pasa si tengo un problema en un viaje?",
@@ -114,15 +118,15 @@ const SocioConductor = () => {
   return (
     <ServicePageTemplate
       heroImage="/images/conductorSocio.webp"
-      heroTitle="¿Tienes Auto y Quieres Generar Ingresos?"
-      heroSubtitle="¡Únete como Socio-Conductor MyDriver! Disfruta la comisión más baja del mercado y el control total de tus ganancias."
+      heroTitle="¿Tienes Auto o Taxi y Quieres Generar Ingresos?"
+      heroSubtitle="¡Únete como Socio-Conductor MyDriver! Aceptamos autos particulares y taxis rotulados. Elige entre 15% por viaje o tarifa fija de $4,500 al mes."
       heroCTA="Únete a MyDriver"
       heroBadge="Socio Conductor"
       heroWhatsappLink={WHATSAPP_LINKS.socioConductor}
       stats={[
-        { value: "$750", label: "Comisión semanal fija" },
-        { value: "24/7", label: "Soporte legal" },
-        { value: "100%", label: "Tus ganancias" }
+        { value: "$4,500/mes", label: "O 15% por viaje" },
+        { value: "Taxis y Autos", label: "Particulares bienvenidos" },
+        { value: "24/7", label: "Asesoría legal y monitoreo" }
       ]}
       benefitsTitle="Beneficios de ser Socio-Conductor"
       benefitsSubtitle="Te respaldamos en cada viaje."

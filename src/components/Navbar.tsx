@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, ChevronDown, Car, Package, Building2, Sparkles, PartyPopper, Users, CreditCard, Bike, Store, Truck, MapPin } from 'lucide-react';
+import { Menu, ChevronDown, Car, Package, Building2, Sparkles, PartyPopper, Users, CreditCard, Bike, Store, Truck, MapPin, TrendingUp } from 'lucide-react';
 import { WHATSAPP_LINKS } from '@/config/constants';
 
 export const Navbar = ({ onOpenMenu }: { onOpenMenu: () => void }) => {

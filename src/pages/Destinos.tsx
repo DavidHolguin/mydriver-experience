@@ -292,6 +292,34 @@ export const Destinos = () => {
         )}
       </SectionContainer>
 
+      {/* Payment and Booking Assurance Banner */}
+      <div className="bg-white border-y border-surface-border py-8">
+        <div className="container mx-auto max-w-6xl px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-brand-red/10 text-brand-red flex items-center justify-center flex-shrink-0">
+              <ShieldCheck className="w-6 h-6" />
+            </div>
+            <div>
+              <h4 className="text-base font-bold text-brand-navy">Reservas Anticipadas y Gestión de Asientos</h4>
+              <p className="text-sm text-text-secondary">
+                Asegura tus lugares en vans o minibuses con anticipación. Aceptamos transferencias bancarias, tarjetas y PayPal.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 border border-gray-200">
+              💳 Tarjetas Débito/Crédito
+            </span>
+            <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 border border-gray-200">
+              🅿️ PayPal
+            </span>
+            <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 border border-gray-200">
+              🏦 Transferencia SPEI
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* Custom Group Trip Banner */}
       <section className="bg-brand-navy text-white py-16 px-4">
         <div className="container mx-auto max-w-4xl text-center space-y-6">

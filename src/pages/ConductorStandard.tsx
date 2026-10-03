@@ -6,8 +6,8 @@ import { WHATSAPP_LINKS } from '@/config/constants';
 const benefits = [
   {
     icon: Wallet,
-    title: "Comisiones Flexibles",
-    description: "Elige entre una comisión por viaje o una tarifa fija semanal. Tú decides qué te conviene más."
+    title: "Comisiones Flexibles: 15% o $4,500 Fijo",
+    description: "Elige entre pagar el 15% de comisión por viaje o una suscripción fija mensual de $4,500 MXN. Tú decides qué te conviene más."
   },
   {
     icon: Calendar,
@@ -66,15 +66,15 @@ const requirements = [
 const faqs = [
   {
     question: "¿Cuál es la diferencia con ser Socio Conductor?",
-    answer: "Como Conductor Standard tienes la flexibilidad de elegir entre pagar una comisión por viaje o una comisión fija semanal, sin necesidad de tener un vehículo propio. Es ideal para quienes buscan maximizar su tiempo."
+    answer: "Como Conductor Standard puedes operar unidades asignadas por la plataforma o flotillas aliadas, eligiendo entre una comisión del 15% por viaje o una suscripción fija de $4,500 mensuales. Es ideal para quienes quieren generar ingresos sin auto propio."
   },
   {
-    question: "¿Cómo funciona la comisión fija semanal?",
-    answer: "Pagas una única cuota semanal y te quedas con el 100% de las ganancias de todos los viajes que realices. Sin sorpresas."
+    question: "¿Cómo funciona la tarifa fija mensual?",
+    answer: "Pagas una única cuota mensual de $4,500 MXN y te quedas con el 100% de las ganancias de todos los viajes que realices, sin retención porcentual adicional."
   },
   {
-    question: "¿Puedo cambiar entre tipos de comisión?",
-    answer: "Sí, nuestro sistema te permite cambiar tu tipo de comisión una vez por semana para que siempre tengas el control."
+    question: "¿Puedo cambiar entre tipos de esquema?",
+    answer: "Sí, puedes ajustar tu esquema tarifario con nuestro equipo de soporte para que siempre optimices tu rentabilidad según la temporada."
   }
 ];
 

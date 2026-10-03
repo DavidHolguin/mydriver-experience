@@ -14,11 +14,13 @@ export const WHATSAPP_LINKS = {
   luciernagas: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola, me gustaría reservar un viaje al Santuario de las Luciérnagas.')}`,
   carnaval: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola, quiero reservar mi viaje para el Carnaval de Veracruz.')}`,
   soporte: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola, necesito ayuda de soporte.')}`,
+  socioInversionista: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola, me interesa información sobre el programa exclusivo de Socio Inversionista / Cofundador de MyDriver.')}`,
 };
 
 export const SOCIAL_LINKS = {
   tiktok: 'https://www.tiktok.com/@mydrivermexico',
   facebook: 'https://www.facebook.com/people/myDriver-Mx/61577308812929/',
+  instagram: 'https://www.instagram.com/mydrivermexico/',
   whatsapp: `https://wa.me/${WHATSAPP_NUMBER}`,
 };
 

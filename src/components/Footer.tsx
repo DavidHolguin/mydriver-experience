@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { SOCIAL_LINKS, APP_LINKS } from '@/config/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTiktok, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faTiktok, faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -38,6 +38,15 @@ export const Footer = () => {
                 aria-label="Facebook"
               >
                 <FontAwesomeIcon icon={faFacebook} className="w-4 h-4" />
+              </a>
+              <a 
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#C41E1E] hover:text-white transition-colors"
+                aria-label="Instagram"
+              >
+                <FontAwesomeIcon icon={faInstagram} className="w-4 h-4" />
               </a>
               <a 
                 href={SOCIAL_LINKS.whatsapp}
@@ -105,6 +114,12 @@ export const Footer = () => {
               </li>
               <li>
                 <Link to="/socio-flotilla" className="text-sm hover:text-white transition-colors">Socio Flotilla</Link>
+              </li>
+              <li>
+                <Link to="/socio-inversionista" className="text-sm text-brand-red font-semibold hover:underline flex items-center gap-1.5">
+                  <span>Socio Inversionista</span>
+                  <span className="text-[10px] bg-brand-red/20 text-brand-red px-1.5 py-0.5 rounded-full font-bold">Cupos</span>
+                </Link>
               </li>
             </ul>
           </div>

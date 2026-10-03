@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { X, Car, CreditCard, Bike, Store, Truck, Package, Building2, Sparkles, PartyPopper, ChevronRight, Home, BookOpen, Users, Mail, Download, FileText, ScrollText, Shield, MapPin } from 'lucide-react';
+import { X, Car, CreditCard, Bike, Store, Truck, Package, Building2, Sparkles, PartyPopper, ChevronRight, Home, BookOpen, Users, Mail, Download, FileText, ScrollText, Shield, MapPin, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SOCIAL_LINKS, APP_LINKS } from '@/config/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,6 +35,7 @@ const menuSections = [
       { label: 'Socio Repartidor', href: '/socio-repartidor', icon: Bike },
       { label: 'Negocio Aliado', href: '/negocio-aliado', icon: Store },
       { label: 'Socio Flotilla', href: '/socio-flotilla', icon: Truck },
+      { label: 'Socio Inversionista (9 cupos)', href: '/socio-inversionista', icon: TrendingUp },
     ],
   },
   {
