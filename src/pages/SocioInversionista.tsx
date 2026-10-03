@@ -121,10 +121,10 @@ const SocioInversionista = () => {
       {/* 1. Hero Section */}
       <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-brand-navy text-white pt-24 pb-20">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-15"
-          style={{ backgroundImage: `url('/images/heroSocioFlotilla.webp')` }}
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: `url('/images/socio-inversionista-hero.jpg')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/90 via-brand-navy/95 to-brand-navy" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/85 via-brand-navy/95 to-brand-navy" />
 
         <div className="container relative z-10 mx-auto px-4 max-w-5xl text-center">
           <motion.div

@@ -93,6 +93,55 @@ export const Hero = () => {
             <img src="/images/android.png" alt="Play Store" className="h-12 w-auto" />
           </a>
         </motion.div>
+
+        {/* Growth & Investment Quick Spotlight Cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.7 }}
+          className="mt-12 w-full max-w-4xl"
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {/* 1. Socio Flotilla */}
+            <Link
+              to="/socio-flotilla"
+              className="group p-4 rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-xl border border-white/20 hover:border-brand-red/60 transition-all flex items-center justify-between"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-bold text-amber-300 tracking-wider block">Alta Rentabilidad</span>
+                <span className="text-sm font-bold text-white group-hover:text-brand-red transition-colors block">Socio Flotilla</span>
+                <span className="text-xs text-gray-300">Gana hasta $10k/mes sin conducir</span>
+              </div>
+              <span className="text-white/60 group-hover:text-brand-red group-hover:translate-x-1 transition-all text-sm font-bold">→</span>
+            </Link>
+
+            {/* 2. Socio Inversionista */}
+            <Link
+              to="/socio-inversionista"
+              className="group p-4 rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-xl border border-white/20 hover:border-brand-red/60 transition-all flex items-center justify-between"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-bold text-brand-red tracking-wider block">9 Cupos / Ciudad</span>
+                <span className="text-sm font-bold text-white group-hover:text-brand-red transition-colors block">Socio Inversionista</span>
+                <span className="text-xs text-gray-300">Cofundador con certeza notariada</span>
+              </div>
+              <span className="text-white/60 group-hover:text-brand-red group-hover:translate-x-1 transition-all text-sm font-bold">→</span>
+            </Link>
+
+            {/* 3. Socio Conductor */}
+            <Link
+              to="/socio-conductor"
+              className="group p-4 rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-xl border border-white/20 hover:border-brand-red/60 transition-all flex items-center justify-between"
+            >
+              <div>
+                <span className="text-[10px] uppercase font-bold text-gray-300 tracking-wider block">Autos & Taxis</span>
+                <span className="text-sm font-bold text-white group-hover:text-brand-red transition-colors block">Socio Conductor</span>
+                <span className="text-xs text-gray-300">15% por viaje o $4,500/mes fijo</span>
+              </div>
+              <span className="text-white/60 group-hover:text-brand-red group-hover:translate-x-1 transition-all text-sm font-bold">→</span>
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

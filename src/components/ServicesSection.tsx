@@ -13,17 +13,36 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 const services = [
   {
+    id: 'flotilla',
+    title: 'Socio Flotilla',
+    description: 'Pon tus autos a generar hasta $10,000 MXN mensuales fijos sin conducirlos con monitoreo GPS.',
+    image: '/images/flotilla-corporativa.jpg',
+    link: '/socio-flotilla',
+    badge: '$10,000/mes',
+    className: 'lg:col-span-2 lg:row-span-2 min-h-[320px] lg:min-h-[580px]',
+  },
+  {
+    id: 'inversionista',
+    title: 'Socio Inversionista',
+    description: 'Cofundador local. Cupo limitado a 9 plazas por ciudad con rendimiento transaccional notariado.',
+    image: '/images/socio-inversionista-hero.jpg',
+    link: '/socio-inversionista',
+    badge: '9 cupos',
+    className: 'col-span-1 row-span-1 min-h-[250px] lg:min-h-[275px]',
+  },
+  {
     id: 'conductor',
     title: 'Socio Conductor',
-    description: 'Genera ingresos con tu auto bajo tus propios términos con la comisión más baja del mercado.',
-    image: '/images/conductorSocio.webp',
+    description: 'Aceptamos particulares y taxis. Elige 15% por viaje o tarifa plana de $4,500/mes.',
+    image: '/images/conductor-hero-nuevo.png',
     link: '/socio-conductor',
-    className: 'lg:col-span-2 lg:row-span-2 min-h-[300px] lg:min-h-[580px]',
+    badge: 'Autos & Taxis',
+    className: 'col-span-1 row-span-1 min-h-[250px] lg:min-h-[275px]',
   },
   {
     id: 'cargo',
     title: 'MyDriver Cargo',
-    description: 'Soluciones de transporte y logística para empresas y negocios.',
+    description: 'Soluciones de transporte y logística para empresas y mudanzas.',
     image: '/images/cargo-service.webp',
     link: '/mydriver-cargo',
     className: 'col-span-1 row-span-1 min-h-[250px] lg:min-h-[275px]',
@@ -31,7 +50,7 @@ const services = [
   {
     id: 'repartidor',
     title: 'Socio Repartidor',
-    description: 'Forma parte de nuestra red de repartidores y genera ingresos con entregas locales.',
+    description: 'Genera ingresos con entregas locales y paquetería express.',
     image: '/images/delivery-partner.webp',
     link: '/socio-repartidor',
     className: 'col-span-1 row-span-1 min-h-[250px] lg:min-h-[275px]',
@@ -42,14 +61,6 @@ const services = [
     description: 'Incrementa tus ventas y alcance uniéndote a nuestra plataforma comercial.',
     image: '/images/business-partner.webp',
     link: '/negocio-aliado',
-    className: 'col-span-1 row-span-1 min-h-[250px] lg:min-h-[275px]',
-  },
-  {
-    id: 'flotilla',
-    title: 'Socio Flotilla',
-    description: 'Pon tus autos a generar ingresos fijos mensuales sin conducirlos.',
-    image: '/images/heroSocioFlotilla.webp',
-    link: '/socio-flotilla',
     className: 'col-span-1 row-span-1 min-h-[250px] lg:min-h-[275px]',
   },
 ];
@@ -148,6 +159,14 @@ export const ServicesSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent transition-opacity duration-300" />
               
+              {service.badge && (
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="px-3 py-1 rounded-full bg-brand-red text-white text-xs font-bold shadow-md">
+                    {service.badge}
+                  </span>
+                </div>
+              )}
+
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{service.title}</h3>
                 <p className="text-white/80 text-sm md:text-base line-clamp-2 mb-4 opacity-100 lg:opacity-0 lg:translate-y-4 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-300">
