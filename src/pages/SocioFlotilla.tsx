@@ -40,7 +40,7 @@ const BENEFITS = [
   {
     icon: Key,
     title: "Chóferes Certificados y Filtro 360°",
-    description: "Evaluamos antecedentes penales, pruebas psicométricas y exámenes toxicológicos periódicos a cada conductor asignado a tu unidad."
+    description: "Evaluamos antecedentes penales, pruebas psicométricas y exámenes toxicológicos periódicos a cada conductor asignado a tu unidad. Integramos IA para que el inicio de sesión de nuestros conductores sea a través de reconocimiento facial (datos biométricos): sabemos perfectamente quién conduce los autos de nuestros socios."
   },
   {
     icon: TrendingUp,
@@ -50,12 +50,12 @@ const BENEFITS = [
   {
     icon: MapPin,
     title: "Geolocalización GPS con Apagado Remoto",
-    description: "Para tu tranquilidad, incorporaremos la instalación de equipo GPS de alta precisión marca SentinelX con ubicación en tiempo real y apagado de motor remoto en caso de emergencia y en todo momento te damos acceso de tu atención."
+    description: "Para tu tranquilidad, incorporaremos la instalación de equipo GPS de alta precisión marca SentinelX con ubicación en tiempo real y apagado de motor remoto en caso de emergencia y en todo momento te damos acceso de tu atención. Próximamente: transmisión de video en tiempo real y almacenamiento en la nube por seguridad del pasajero y conductor, con el sistema SentinelX AstriX5."
   },
   {
     icon: ShieldCheck,
     title: "Cobertura de Deducible y Seguro",
-    description: "En caso de cualquier percance vial o robo total/parcial, nuestro equipo legal y operativo gestiona el siniestro y cubre el deducible correspondiente."
+    description: "En caso de cualquier percance vial o robo total/parcial, nuestro equipo legal y operativo gestiona el siniestro y cubre el deducible correspondiente, sin generar gastos o pérdidas para nuestros socios."
   },
   {
     icon: Scale,
@@ -71,7 +71,7 @@ const BENEFITS = [
 
 const REQUIREMENTS = [
   { icon: Car, text: "Automóvil modelo 2020 a 2026 en óptimas condiciones estéticas y mecánicas." },
-  { icon: IdCard, text: "Póliza de seguro vehicular vigente (cobertura amplia o ERT)." },
+  { icon: IdCard, text: "Póliza de seguro vehicular vigente (puede ser la de tu vehículo particular)." },
   { 
     icon: FileCheck, 
     text: "Pago de registro y afiliación vehicular (al momento de registrar el vehículo).",
@@ -79,8 +79,8 @@ const REQUIREMENTS = [
     subtext: "Costo regular: $11,000 MXN. Promoción de Octubre: $7,500 MXN. *Términos y condiciones aplican (válido para los primeros 100 vehículos registrados)."
   },
   { icon: IdCard, text: "Tarjeta de circulación y placas al corriente." },
-  { icon: Building2, text: "Cuenta bancaria nacional a tu nombre para recibir tus depósitos puntuales." },
-  { icon: Scale, text: "Firma de contrato de prestación y custodia de unidad con MyDriver." }
+  { icon: Building2, text: "Cuenta bancaria a tu nombre para recibir tus depósitos puntuales." },
+  { icon: Scale, text: "Firma de contrato de registro y afiliación vehicular con MyDriver (este contrato le otorga los beneficios establecidos)." }
 ];
 
 const FAQS = [
@@ -335,7 +335,7 @@ const SocioFlotilla = () => {
         <SectionHeading
           badge="Protección Integral"
           title="Beneficios de ser Socio Flotilla"
-          subtitle="Diseñado para que tu Auto genere utilidades con total seguridad y transparencia."
+          subtitle="Diseñado para que tu Auto genere utilidades con total seguridad y transparencia desde el primer día."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
@@ -365,8 +365,8 @@ const SocioFlotilla = () => {
       <SectionContainer background="white">
         <SectionHeading
           badge="Requisitos"
-          title="Ser parte de nuestra red es muy fácil"
-          subtitle="Cumple con estos sencillos requisitos para dar de alta tus vehículos en la plataforma."
+          title="Únete a nuestra red exclusiva de socios y comienza a generar ganancias con tu auto"
+          subtitle="Cumple con estos requisitos para dar de alta tus vehículos en la plataforma."
         />
 
         <div className="max-w-4xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -401,8 +401,8 @@ const SocioFlotilla = () => {
       <div id="registro-flotilla">
         <LeadSection
           vertical="socio_flotilla"
-          titulo="Registra tus vehículos en la flotilla"
-          descripcion="Ingresos fijos al mes administrando o entregando unidades a la plataforma. Completa tus datos para recibir asesoría personalizada."
+          titulo="Registra tus vehículos en MyDriver y describe los beneficios que tenemos para ti"
+          descripcion="Déjanos tus datos y nuestro equipo te contactará a la brevedad."
           ctaTexto="Afiliar mis unidades"
           etiquetaMensaje="¿Cuántos autos tienes y qué modelos?"
           mostrarCiudad={true}

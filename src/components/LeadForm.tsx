@@ -124,7 +124,7 @@ export const LeadForm = ({
           />
         </div>
         <div>
-          <Label htmlFor={`${vertical}-correo`}>Correo</Label>
+          <Label htmlFor={`${vertical}-correo`}>Correo (opcional)</Label>
           <Input
             id={`${vertical}-correo`}
             type="email"
