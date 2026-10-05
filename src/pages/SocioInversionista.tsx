@@ -60,8 +60,8 @@ const BENEFICIOS = [
   },
   {
     icon: ShieldCheck,
-    title: "Certeza Jurídica Blindada",
-    description: "Tu participación se respalda mediante contratos mercantiles verificados legalmente, protegiendo tu patrimonio sin complejidades corporativas."
+    title: "Inversión Blindada",
+    description: "El ROI (retorno de inversión) está calculado a un plazo de 12 meses. En caso de no estar satisfecho con sus ganancias, el socio podrá vender su porcentaje accionario a otro de los 9 socios o directamente MyDriver lo absorbe y se le reintegra su inversión, quedando fuera de la sociedad."
   },
   {
     icon: BarChart3,
@@ -305,8 +305,8 @@ const SocioInversionista = () => {
         <LeadSection
           vertical="socio_inversionista"
           titulo="Postulación a Socio Inversionista"
-          descripcion="Déjanos tus datos. Un director del equipo fundador se comunicará contigo confidencialmente por WhatsApp para presentarte el dossier de inversión."
-          ctaTexto="Enviar Solicitud de Postulación"
+          descripcion="Déjanos tus datos, nuestro equipo comercial se comunicará contigo por WhatsApp para presentarte el dossier de inversión."
+          ctaTexto="Quiero ser socio inversor"
           etiquetaMensaje="¿En qué ciudad te interesa participar y qué perfil profesional o empresarial tienes?"
           mostrarCiudad={true}
         />

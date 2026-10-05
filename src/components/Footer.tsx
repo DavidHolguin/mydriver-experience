@@ -20,6 +20,9 @@ export const Footer = () => {
             <p className="text-sm leading-relaxed">
               La plataforma de movilidad que conecta conductores con pasajeros de manera justa y segura en México.
             </p>
+            <p className="text-xs leading-relaxed text-gray-500">
+              Tecnología de rastreo GPS y videovigilancia por <span className="font-semibold text-gray-300">SentinelX</span>.
+            </p>
             <div className="flex items-center gap-4 pt-2">
               <a 
                 href={SOCIAL_LINKS.tiktok}
@@ -188,10 +191,10 @@ export const Footer = () => {
           {/* Copyright */}
           <div className="text-center md:text-right">
             <p className="text-sm mb-1">
-              &copy; {currentYear} MyDriver. Todos los derechos reservados.
+              &copy; {currentYear} MyDriver Technologies S.A.P.I. de C.V. Todos los derechos reservados.
             </p>
             <p className="text-xs text-gray-600">
-              Powered by Auto Transportes Tepactepec
+              Powered by Auto Transportes Tepactepec S.A.
             </p>
           </div>
         </div>

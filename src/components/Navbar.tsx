@@ -8,6 +8,7 @@ export const Navbar = ({ onOpenMenu }: { onOpenMenu: () => void }) => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
+    setIsScrolled(window.scrollY > 20);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -15,10 +16,16 @@ export const Navbar = ({ onOpenMenu }: { onOpenMenu: () => void }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Legibilidad del menú: sobre los héroes oscuros el texto debe ser blanco y
+  // llevar un velo, porque antes quedaba invisible hasta pasar el puntero.
+  const navLink = isScrolled ? 'text-gray-700' : 'text-gray-800 md:text-white';
+
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 h-20 flex items-center ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-transparent md:bg-transparent bg-white'
+        isScrolled
+          ? 'bg-white shadow-md'
+          : 'bg-white md:bg-transparent md:bg-gradient-to-b md:from-black/45 md:via-black/25 md:to-transparent'
       }`}
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center w-full">
@@ -35,7 +42,7 @@ export const Navbar = ({ onOpenMenu }: { onOpenMenu: () => void }) => {
              onMouseEnter={() => setActiveDropdown('servicios')}
              onMouseLeave={() => setActiveDropdown(null)}
            >
-             <button className="flex items-center space-x-1 font-medium hover:text-[#C41E1E] transition-colors py-8">
+             <button className={`flex items-center space-x-1 font-medium ${navLink} hover:text-[#C41E1E] transition-colors py-8`}>
                <span>Servicios</span>
                <ChevronDown className="w-4 h-4" />
              </button>
@@ -117,7 +124,7 @@ export const Navbar = ({ onOpenMenu }: { onOpenMenu: () => void }) => {
              onMouseEnter={() => setActiveDropdown('gana')}
              onMouseLeave={() => setActiveDropdown(null)}
            >
-             <button className="flex items-center space-x-1 font-medium hover:text-[#C41E1E] transition-colors py-8">
+             <button className={`flex items-center space-x-1 font-medium ${navLink} hover:text-[#C41E1E] transition-colors py-8`}>
                <span>Gana con MyDriver</span>
                <ChevronDown className="w-4 h-4" />
              </button>
@@ -161,6 +168,14 @@ export const Navbar = ({ onOpenMenu }: { onOpenMenu: () => void }) => {
                    </Link>
                  </li>
                  <li>
+                   <Link to="/socio-inversionista" className="flex items-center space-x-3 text-gray-600 hover:text-[#C41E1E] transition-colors group/link">
+                     <div className="p-2 bg-gray-50 rounded-lg group-hover/link:bg-red-50 transition-colors">
+                       <TrendingUp className="w-5 h-5 text-gray-500 group-hover/link:text-[#C41E1E]" />
+                     </div>
+                     <span>Socio Inversionista (Cofundador)</span>
+                   </Link>
+                 </li>
+                 <li>
                    <Link to="/socio-flotilla" className="flex items-center space-x-3 text-gray-600 hover:text-[#C41E1E] transition-colors group/link">
                      <div className="p-2 bg-gray-50 rounded-lg group-hover/link:bg-red-50 transition-colors">
                        <Truck className="w-5 h-5 text-gray-500 group-hover/link:text-[#C41E1E]" />
@@ -172,8 +187,8 @@ export const Navbar = ({ onOpenMenu }: { onOpenMenu: () => void }) => {
              </div>
            </div>
 
-           <a href="/#seguridad" className="font-medium hover:text-[#C41E1E] transition-colors">Seguridad</a>
-           <Link to="/blog" className="font-medium hover:text-[#C41E1E] transition-colors">Blog</Link>
+           <a href="/#seguridad" className={`font-medium ${navLink} hover:text-[#C41E1E] transition-colors`}>Seguridad</a>
+           <Link to="/blog" className={`font-medium ${navLink} hover:text-[#C41E1E] transition-colors`}>Blog</Link>
         </div>
 
         {/* Action Button */}
