@@ -37,7 +37,7 @@ export const FleetSection = () => {
             Pon tus autos a trabajar y genera hasta <span className="text-brand-red">$10,000 MXN</span> fijos al mes sin conducir
           </h2>
           <p className="mt-4 text-base md:text-lg text-text-secondary max-w-2xl">
-            Tú aportas tu vehículo particular o flota. Nosotros certificamos chóferes calificados, instalamos GPS de alta tecnología y te depositamos mes con mes.
+            Tú aportas tu vehículo particular o flota. Nosotros certificamos chóferes calificados, instalamos GPS de alta tecnología y te depositamos mes con mes las ganancias fijas y seguras de tus autos desde el primer día.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export const FleetSection = () => {
               {/* Floating Pill Promo */}
               <div className="absolute top-5 left-5 right-5 sm:right-auto bg-brand-red text-white px-4 py-2 rounded-2xl shadow-lg flex items-center gap-2 text-xs sm:text-sm font-bold">
                 <Sparkles className="w-4 h-4 text-amber-300 flex-shrink-0" />
-                <span>Promo Octubre: $7,500 (Reg. $11,000) · Primeros 100 autos</span>
+                <span>Costo de registro vehicular $11,000 MXN · Promoción octubre $7,500 para los primeros 100 autos</span>
               </div>
 
               {/* Bottom Card Highlights */}
@@ -146,19 +146,19 @@ export const FleetSection = () => {
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-brand-red flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-text-secondary">
-                  <strong className="text-text-primary">Instalación GPS con apagado remoto:</strong> Equipo de alta precisión con ubicación en tiempo real y apagado de motor ante cualquier eventualidad.
+                  <strong className="text-text-primary">Instalación GPS con apagado remoto:</strong> Equipo de alta precisión marca SentinelX con ubicación en tiempo real y apagado de motor ante cualquier eventualidad.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-brand-red flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-text-secondary">
-                  <strong className="text-text-primary">Asesoría jurídica y legal 24/7:</strong> Cobertura integral ante incidentes viales, infracciones o trámites con autoridades.
+                  <strong className="text-text-primary">Asesoría jurídica y legal 24/7:</strong> Cobertura integral ante incidentes viales, infracciones o trámites con autoridades. Nosotros nos encargamos de todo.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-brand-red flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-text-secondary">
-                  <strong className="text-text-primary">Mantenimiento preventivo supervisado:</strong> Cuidamos tu unidad con revisión periódica de kilometraje y talleres certificados.
+                  <strong className="text-text-primary">Mantenimiento preventivo supervisado:</strong> Nuestro equipo te avisará cuando tu vehículo requiera revisión periódica y mantenimiento para que le realices sus servicios a tiempo.
                 </p>
               </div>
             </div>

@@ -50,7 +50,7 @@ const BENEFITS = [
   {
     icon: MapPin,
     title: "Geolocalización GPS con Apagado Remoto",
-    description: "Para tu tranquilidad, incorporaremos la instalación de equipo GPS de alta tecnología con ubicación en tiempo real y apagado de motor remoto en caso de emergencia y en todo momento te damos acceso de tu atención."
+    description: "Para tu tranquilidad, incorporaremos la instalación de equipo GPS de alta precisión marca SentinelX con ubicación en tiempo real y apagado de motor remoto en caso de emergencia y en todo momento te damos acceso de tu atención."
   },
   {
     icon: ShieldCheck,
@@ -64,8 +64,8 @@ const BENEFITS = [
   },
   {
     icon: Wrench,
-    title: "Mantenimiento Supervisado",
-    description: "Red de talleres certificados con revisiones preventivas programadas para conservar el valor de reventa y la vida útil de tu automóvil."
+    title: "Aviso de Mantenimiento",
+    description: "Nuestro equipo te avisará cuando tu vehículo requiera revisión periódica y mantenimiento para que le realices sus servicios a tiempo. El mantenimiento corre por cuenta del socio flotilla."
   }
 ];
 
@@ -94,7 +94,7 @@ const FAQS = [
   },
   {
     question: "¿Cómo monitoreo mi auto y qué pasa en una emergencia?",
-    answer: "Para tu tranquilidad, incorporaremos la instalación de equipo GPS de alta tecnología con ubicación en tiempo real y apagado de motor remoto en caso de emergencia y en todo momento te damos acceso de tu atención desde tu celular."
+    answer: "Para tu tranquilidad, incorporaremos la instalación de equipo GPS de alta precisión marca SentinelX con ubicación en tiempo real y apagado de motor remoto en caso de emergencia y en todo momento te damos acceso de tu atención desde tu celular."
   },
   {
     question: "¿Quién responde ante un choque, infracción o avería?",
@@ -335,7 +335,7 @@ const SocioFlotilla = () => {
         <SectionHeading
           badge="Protección Integral"
           title="Beneficios de ser Socio Flotilla"
-          subtitle="Diseñado para que tu patrimonio genere utilidades con total seguridad y transparencia."
+          subtitle="Diseñado para que tu Auto genere utilidades con total seguridad y transparencia."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
