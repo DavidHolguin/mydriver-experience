@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { APP_LINKS } from '@/config/constants';
+import { APP_LINKS, APP_DISPONIBLE, APP_PROXIMAMENTE_TEXTO, APP_PROXIMAMENTE_TIENDAS } from '@/config/constants';
 import { trackButtonClick } from '@/lib/gtmEvents';
 
 export const Hero = () => {
@@ -50,15 +50,24 @@ export const Hero = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-4 mb-12 w-full sm:w-auto"
         >
-          <a
-            href={APP_LINKS.pasajero.android}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackButtonClick('hero_download_app')}
-            className="bg-brand-red text-white hover:bg-brand-red-hover shadow-lg font-bold rounded-full px-8 py-4 text-lg transition-all inline-flex items-center justify-center whitespace-nowrap"
-          >
-            Descarga la App
-          </a>
+          {APP_DISPONIBLE ? (
+            <a
+              href={APP_LINKS.pasajero.android}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackButtonClick('hero_download_app')}
+              className="bg-brand-red text-white hover:bg-brand-red-hover shadow-lg font-bold rounded-full px-8 py-4 text-lg transition-all inline-flex items-center justify-center whitespace-nowrap"
+            >
+              Descarga la App
+            </a>
+          ) : (
+            <Link
+              to="/descargas"
+              className="bg-brand-red text-white hover:bg-brand-red-hover shadow-lg font-bold rounded-full px-8 py-4 text-lg transition-all inline-flex items-center justify-center whitespace-nowrap"
+            >
+              {APP_PROXIMAMENTE_TEXTO}
+            </Link>
+          )}
           <a
             href="#servicios"
             onClick={handleScrollToServices}
@@ -72,26 +81,17 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-wrap justify-center lg:justify-start gap-4"
+          className="flex flex-col gap-3 items-center lg:items-start"
         >
-          <a
-            href={APP_LINKS.pasajero.ios}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackButtonClick('hero_app_store')}
-            className="hover:scale-105 transition-transform"
-          >
-            <img src="/images/ios.png" alt="App Store" className="h-12 w-auto" />
-          </a>
-          <a
-            href={APP_LINKS.pasajero.android}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackButtonClick('hero_play_store')}
-            className="hover:scale-105 transition-transform"
-          >
-            <img src="/images/android.png" alt="Play Store" className="h-12 w-auto" />
-          </a>
+          {!APP_DISPONIBLE && (
+            <span className="text-xs font-semibold uppercase tracking-wider text-white/70">
+              {APP_PROXIMAMENTE_TIENDAS}
+            </span>
+          )}
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+            <img src="/images/ios.png" alt="App Store" className={APP_DISPONIBLE ? 'h-12 w-auto' : 'h-12 w-auto opacity-60'} />
+            <img src="/images/android.png" alt="Play Store" className={APP_DISPONIBLE ? 'h-12 w-auto' : 'h-12 w-auto opacity-60'} />
+          </div>
         </motion.div>
 
         {/* Growth & Investment Quick Spotlight Cards */}

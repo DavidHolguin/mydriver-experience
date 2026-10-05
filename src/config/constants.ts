@@ -35,6 +35,17 @@ export const APP_LINKS = {
   },
 };
 
+/**
+ * Estado de publicación de la app en el sitio.
+ * El cliente (Héctor Silva) pidió presentarla como "próximamente disponible"
+ * en lugar de enlazar a las tiendas: mientras `APP_DISPONIBLE` sea false, el
+ * botón del menú, el héroe, el pie y /descargas muestran el aviso y no enlazan
+ * a Google Play / App Store. Poner true revierte todo el bloque.
+ */
+export const APP_DISPONIBLE = false;
+export const APP_PROXIMAMENTE_TEXTO = 'Próximamente disponible';
+export const APP_PROXIMAMENTE_TIENDAS = 'Próximamente disponible en:';
+
 export const COMPANY_INFO = {
   name: 'MyDriver',
   tagline: 'La app de movilidad que transforma tu ciudad',

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Layout } from "@/components/Layout";
 import { SectionContainer } from "@/components/SectionContainer";
 import { Button } from "@/components/ui/button";
-import { APP_LINKS } from "@/config/constants";
+import { APP_LINKS, APP_DISPONIBLE, APP_PROXIMAMENTE_TEXTO } from "@/config/constants";
 import { Smartphone, Download, Share2, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -34,10 +34,12 @@ export function Descargas() {
       <section className="bg-brand-navy text-white pt-32 pb-20 px-4 text-center">
         <div className="container mx-auto max-w-4xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Descarga MyDriver
+            {APP_DISPONIBLE ? 'Descarga MyDriver' : APP_PROXIMAMENTE_TEXTO}
           </h1>
           <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            La mejor experiencia de movilidad al alcance de tu mano. Elige tu versión y comienza hoy mismo.
+            {APP_DISPONIBLE
+              ? 'La mejor experiencia de movilidad al alcance de tu mano. Elige tu versión y comienza hoy mismo.'
+              : 'Estamos afinando los últimos detalles de la app de MyDriver para pasajeros y conductores. Estará disponible muy pronto en Google Play y App Store.'}
           </p>
         </div>
       </section>
@@ -118,38 +120,66 @@ export function Descargas() {
                   </div>
                 </div>
 
-                <Button 
-                  asChild 
-                  size="lg" 
-                  className="w-full bg-brand-red hover:bg-red-700 text-white rounded-pill h-14 text-lg"
-                >
-                  <a href={currentLink} target="_blank" rel="noopener noreferrer">
-                    <Download className="mr-2 h-5 w-5" />
-                    Descargar Ahora
-                  </a>
-                </Button>
+                {APP_DISPONIBLE ? (
+                  <Button
+                    asChild
+                    size="lg"
+                    className="w-full bg-brand-red hover:bg-red-700 text-white rounded-pill h-14 text-lg"
+                  >
+                    <a href={currentLink} target="_blank" rel="noopener noreferrer">
+                      <Download className="mr-2 h-5 w-5" />
+                      Descargar Ahora
+                    </a>
+                  </Button>
+                ) : (
+                  <div className="w-full h-14 rounded-pill border-2 border-dashed border-brand-red/40 text-brand-red font-bold flex items-center justify-center gap-2 text-lg">
+                    <Download className="h-5 w-5" />
+                    {APP_PROXIMAMENTE_TEXTO}
+                  </div>
+                )}
               </div>
 
-              <div className="flex flex-col items-center p-8 bg-surface-muted rounded-2xl border border-border-subtle">
-                <p className="text-sm font-medium text-brand-navy mb-4 text-center">
-                  Escanea para descargar
-                </p>
-                <div className="bg-white p-4 rounded-xl shadow-sm mb-6">
-                  <img 
-                    src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentLink)}`}
-                    alt={`QR Code MyDriver ${activeTab}`}
-                    className="w-[200px] h-[200px] object-contain rounded-lg"
-                  />
+              {APP_DISPONIBLE ? (
+                <div className="flex flex-col items-center p-8 bg-surface-muted rounded-2xl border border-border-subtle">
+                  <p className="text-sm font-medium text-brand-navy mb-4 text-center">
+                    Escanea para descargar
+                  </p>
+                  <div className="bg-white p-4 rounded-xl shadow-sm mb-6">
+                    <img 
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentLink)}`}
+                      alt={`QR Code MyDriver ${activeTab}`}
+                      className="w-[200px] h-[200px] object-contain rounded-lg"
+                    />
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    className="rounded-pill border-brand-red text-brand-red hover:bg-brand-red hover:text-white transition-colors"
+                    onClick={handleShareQR}
+                  >
+                    <Share2 className="mr-2 h-4 w-4" />
+                    Compartir Código
+                  </Button>
                 </div>
-                <Button 
-                  variant="outline" 
-                  className="rounded-pill border-brand-red text-brand-red hover:bg-brand-red hover:text-white transition-colors"
-                  onClick={handleShareQR}
-                >
-                  <Share2 className="mr-2 h-4 w-4" />
-                  Compartir Código
-                </Button>
-              </div>
+              ) : (
+                <div className="flex flex-col items-center p-8 bg-surface-muted rounded-2xl border border-border-subtle max-w-xs text-center">
+                  <p className="text-sm text-text-secondary mb-6">
+                    Déjanos tus datos y te avisamos en cuanto la app esté disponible para tu teléfono.
+                  </p>
+                  <Button
+                    asChild
+                    className="rounded-pill bg-brand-red hover:bg-red-700 text-white"
+                  >
+                    <a
+                      href={`https://wa.me/5212215590718?text=${encodeURIComponent('Hola, quiero que me avisen cuando la app de MyDriver esté disponible.')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Share2 className="mr-2 h-4 w-4" />
+                      Avísenme por WhatsApp
+                    </a>
+                  </Button>
+                </div>
+              )}
 
             </div>
           </div>

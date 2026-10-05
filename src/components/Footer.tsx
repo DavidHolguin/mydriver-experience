@@ -1,10 +1,24 @@
 import { Link } from 'react-router-dom';
-import { SOCIAL_LINKS, APP_LINKS } from '@/config/constants';
+import { SOCIAL_LINKS, APP_LINKS, APP_DISPONIBLE, APP_PROXIMAMENTE_TIENDAS } from '@/config/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTiktok, faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  /**
+   * Insignias de tienda: enlazan a Google Play / App Store solo si la app está
+   * publicada; mientras no lo esté (APP_DISPONIBLE = false) se muestran como
+   * imagen, sin enlace, bajo el rótulo "Próximamente disponible en:".
+   */
+  const StoreBadge = ({ href, src, alt }: { href: string; src: string; alt: string }) =>
+    APP_DISPONIBLE ? (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+        <img src={src} alt={alt} className="h-10" />
+      </a>
+    ) : (
+      <img src={src} alt={alt} className="h-10 opacity-70" />
+    );
 
   return (
     <footer className="bg-[#0F1E2A] text-gray-400">
@@ -165,25 +179,21 @@ export const Footer = () => {
           {/* App Downloads */}
           <div className="flex flex-col sm:flex-row gap-6">
             <div>
-              <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">App Pasajeros</p>
+              <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">
+                {APP_DISPONIBLE ? 'App Pasajeros' : APP_PROXIMAMENTE_TIENDAS}
+              </p>
               <div className="flex gap-3">
-                <a href={APP_LINKS.pasajero.android} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="h-10" />
-                </a>
-                <a href={APP_LINKS.pasajero.ios} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" className="h-10" />
-                </a>
+                <StoreBadge href={APP_LINKS.pasajero.android} src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
+                <StoreBadge href={APP_LINKS.pasajero.ios} src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" />
               </div>
             </div>
             <div>
-              <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">App Conductores</p>
+              <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wider">
+                {APP_DISPONIBLE ? 'App Conductores' : APP_PROXIMAMENTE_TIENDAS}
+              </p>
               <div className="flex gap-3">
-                <a href={APP_LINKS.conductor.android} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="h-10" />
-                </a>
-                <a href={APP_LINKS.conductor.ios} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" className="h-10" />
-                </a>
+                <StoreBadge href={APP_LINKS.conductor.android} src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
+                <StoreBadge href={APP_LINKS.conductor.ios} src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" />
               </div>
             </div>
           </div>

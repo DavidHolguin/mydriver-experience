@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { X, Car, CreditCard, Bike, Store, Truck, Package, Building2, Sparkles, PartyPopper, ChevronRight, Home, BookOpen, Users, Mail, Download, FileText, ScrollText, Shield, MapPin, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { SOCIAL_LINKS, APP_LINKS } from '@/config/constants';
+import { SOCIAL_LINKS, APP_LINKS, APP_DISPONIBLE, APP_PROXIMAMENTE_TEXTO } from '@/config/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTiktok, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -151,12 +151,11 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             <div className="border-t border-surface-border p-5 space-y-4">
               {/* Download CTA */}
               <a
-                href={APP_LINKS.pasajero.android}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={APP_DISPONIBLE ? APP_LINKS.pasajero.android : '/descargas'}
+                {...(APP_DISPONIBLE ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 className="block w-full py-3.5 bg-brand-red text-white hover:bg-brand-red-hover font-bold text-center rounded-pill transition-colors shadow-md"
               >
-                Descarga la App
+                {APP_DISPONIBLE ? 'Descarga la App' : APP_PROXIMAMENTE_TEXTO}
               </a>
 
               {/* Social Links */}

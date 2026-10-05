@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { APP_DISPONIBLE, APP_PROXIMAMENTE_TEXTO, APP_PROXIMAMENTE_TIENDAS } from '@/config/constants';
 
 type OSType = 'ios' | 'android' | 'unknown';
 
@@ -114,75 +115,101 @@ export const AppPromptModal = () => {
 
             {/* Texto principal */}
             <p className="text-gray-700 text-base mb-8 leading-5 px-2">
-              Sé de los primeros en descubrir myDriver Pasajero. Muévete sin complicaciones, 
-              con tarifas justas y conductores de confianza. ¡Tu ciudad te espera!
+              {APP_DISPONIBLE
+                ? 'Sé de los primeros en descubrir myDriver Pasajero. Muévete sin complicaciones, con tarifas justas y conductores de confianza. ¡Tu ciudad te espera!'
+                : 'Estamos afinando los últimos detalles de myDriver Pasajero para tu teléfono. Muy pronto podrás pedir tu primer viaje desde la app.'}
             </p>
 
             {/* Selector de tiendas */}
             <div className="flex gap-4 justify-center mb-6 px-2">
-              {/* Google Play */}
-              <a
-                href={getDownloadLink('android')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`transition-all duration-300 transform hover:scale-105 inline-block ${
-                  os === 'android' 
-                    ? 'opacity-100 scale-105' 
-                    : 'opacity-50 hover:opacity-75'
-                }`}
-              >
-                <img
-                  src="/images/android.png"
-                  alt="Descargar en Google Play"
-                  className="w-32 h-auto object-contain drop-shadow-md hover:drop-shadow-lg transition-all"
-                />
-              </a>
+              {APP_DISPONIBLE ? (
+                <>
+                  {/* Google Play */}
+                  <a
+                    href={getDownloadLink('android')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`transition-all duration-300 transform hover:scale-105 inline-block ${
+                      os === 'android' 
+                        ? 'opacity-100 scale-105' 
+                        : 'opacity-50 hover:opacity-75'
+                    }`}
+                  >
+                    <img
+                      src="/images/android.png"
+                      alt="Descargar en Google Play"
+                      className="w-32 h-auto object-contain drop-shadow-md hover:drop-shadow-lg transition-all"
+                    />
+                  </a>
 
-              {/* App Store */}
-              <a
-                href={getDownloadLink('ios')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`transition-all duration-300 transform hover:scale-105 inline-block ${
-                  os === 'ios' 
-                    ? 'opacity-100 scale-105' 
-                    : 'opacity-50 hover:opacity-75'
-                }`}
-              >
-                <img
-                  src="/images/ios.png"
-                  alt="Descargar en App Store"
-                  className="w-32 h-auto object-contain drop-shadow-md hover:drop-shadow-lg transition-all"
-                />
-              </a>
+                  {/* App Store */}
+                  <a
+                    href={getDownloadLink('ios')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`transition-all duration-300 transform hover:scale-105 inline-block ${
+                      os === 'ios' 
+                        ? 'opacity-100 scale-105' 
+                        : 'opacity-50 hover:opacity-75'
+                    }`}
+                  >
+                    <img
+                      src="/images/ios.png"
+                      alt="Descargar en App Store"
+                      className="w-32 h-auto object-contain drop-shadow-md hover:drop-shadow-lg transition-all"
+                    />
+                  </a>
+                </>
+              ) : (
+                <>
+                  <img
+                    src="/images/android.png"
+                    alt="Google Play"
+                    className="w-32 h-auto object-contain opacity-60"
+                  />
+                  <img
+                    src="/images/ios.png"
+                    alt="App Store"
+                    className="w-32 h-auto object-contain opacity-60"
+                  />
+                </>
+              )}
             </div>
 
             {/* Texto adicional */}
             <p className="text-gray-600 text-xs font-semibold tracking-wide mb-4 px-2">
-              ¡DESCÁRGALA Y PIDE TU PRIMER VIAJE EN MINUTOS!
+              {APP_DISPONIBLE
+                ? '¡DESCÁRGALA Y PIDE TU PRIMER VIAJE EN MINUTOS!'
+                : `${APP_PROXIMAMENTE_TIENDAS} GOOGLE PLAY Y APP STORE`}
             </p>
 
             {/* Indicador de SO detectado con iconos */}
-            <div className="flex items-center justify-center gap-2 text-gray-500 text-xs px-2">
-              {os === 'ios' 
-                ? (
-                  <>
-                    <AppleIcon className="w-4 h-4 text-primary" />
-                    <span className="font-medium">App Store recomendado para ti</span>
-                  </>
-                ) 
-                : os === 'android'
-                ? (
-                  <>
-                    <PlayStoreIcon className="w-4 h-4 text-primary" />
-                    <span className="font-medium">Google Play recomendado para ti</span>
-                  </>
-                )
-                : (
-                  <span className="font-medium">Elige tu tienda de aplicaciones</span>
-                )
-              }
-            </div>
+            {APP_DISPONIBLE ? (
+              <div className="flex items-center justify-center gap-2 text-gray-500 text-xs px-2">
+                {os === 'ios' 
+                  ? (
+                    <>
+                      <AppleIcon className="w-4 h-4 text-primary" />
+                      <span className="font-medium">App Store recomendado para ti</span>
+                    </>
+                  ) 
+                  : os === 'android'
+                  ? (
+                    <>
+                      <PlayStoreIcon className="w-4 h-4 text-primary" />
+                      <span className="font-medium">Google Play recomendado para ti</span>
+                    </>
+                  )
+                  : (
+                    <span className="font-medium">Elige tu tienda de aplicaciones</span>
+                  )
+                }
+              </div>
+            ) : (
+              <p className="text-gray-500 text-xs px-2 font-medium">
+                {APP_PROXIMAMENTE_TEXTO} · te avisamos por WhatsApp en cuanto esté lista
+              </p>
+            )}
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Target, Users, Shield, Zap } from "lucide-react";
+import { APP_DISPONIBLE, APP_PROXIMAMENTE_TEXTO } from "@/config/constants";
 
 export default function SobreNosotros() {
   const values = [
@@ -159,7 +160,7 @@ export default function SobreNosotros() {
                 <Link to="/socio-conductor">Ser Conductor</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-white text-brand-navy hover:bg-gray-100 bg-white rounded-pill px-8">
-                <Link to="/descargas">Descargar App</Link>
+                <Link to="/descargas">{APP_DISPONIBLE ? 'Descargar App' : APP_PROXIMAMENTE_TEXTO}</Link>
               </Button>
             </div>
           </div>

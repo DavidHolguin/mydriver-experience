@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, ChevronDown, Car, Package, Building2, Sparkles, PartyPopper, Users, CreditCard, Bike, Store, Truck, MapPin, TrendingUp } from 'lucide-react';
-import { WHATSAPP_LINKS } from '@/config/constants';
+import { APP_DISPONIBLE, APP_PROXIMAMENTE_TEXTO, WHATSAPP_LINKS } from '@/config/constants';
 
 export const Navbar = ({ onOpenMenu }: { onOpenMenu: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -197,7 +197,7 @@ export const Navbar = ({ onOpenMenu }: { onOpenMenu: () => void }) => {
              to="/descargas" 
              className="bg-brand-red text-white hover:bg-brand-red-hover px-6 py-2.5 rounded-full font-semibold transition-all shadow-sm"
            >
-             Descarga la App
+             {APP_DISPONIBLE ? 'Descarga la App' : APP_PROXIMAMENTE_TEXTO}
            </Link>
         </div>
 
